@@ -1,0 +1,104 @@
+Title: Slide creation + design rules for Doodle to Demo
+
+Audience: Designers using Cursor + ChatGPT to add or update slides.
+Goal: Keep all new slides visually consistent, accessible, and easy to implement.
+
+Project facts (read-first)
+- Framework: Next.js App Router (TypeScript)
+- Styling: Tailwind CSS v4
+- Fonts: Switzer (default), IBM Plex Mono for bylines or code-like text
+- Key files:
+  - `src/app/slides/SlideViewer.tsx` – slide layouts and logic
+  - `src/app/components/ResponsiveVideo.tsx` – video/placeholder blocks
+  - `src/app/components/SlideNavArrows.tsx` – left/right chevrons
+  - `src/app/components/BackgroundVideo.tsx` – global background video
+
+Design system essentials
+- Grid: 12 columns. Primary content: left 8 cols, right 4 cols on desktop; stacks on mobile.
+- Safe areas: keep text at least 24px from viewport edges on mobile, 32–48px on tablet/desktop.
+  - Use existing page paddings: `px-4 sm:px-6`. Prefer left-aligned content blocks for readability.
+- Colors: White text over video with a subtle overlay when needed (`bg-black/30`).
+- Type scale:
+  - Hero big line: `text-[clamp(3rem,7vw+1rem,7rem)]` (bold)
+  - Secondary big line: `text-[clamp(2.5rem,6vw+1rem,6rem)]` (normal/italic as needed)
+  - Tagline: `text-[clamp(1rem,1.2vw+0.6rem,1.5rem)]` (80–90% opacity)
+- Fonts:
+  - Default: Switzer
+  - Byline or monospaced accents: IBM Plex Mono → use `font-mono`
+- Buttons:
+  - Primary CTA: white pill with sharper radius: `rounded-xl bg-white text-black`
+  - Add motion: subtle pulse loop (already implemented on slide 1)
+- Videos:
+  - Corner radius ~16px (`rounded-2xl`), 16:9 `aspect-video`, `object-cover`
+
+When adding a new slide
+1) Start with a reference image or annotated mock.
+2) Decide the layout type:
+   - Hero with left text block over full-bleed video (Slides 2–3 style)
+   - Two stacked videos on the right with left text block (Slide 1 style)
+3) Maintain spacing: keep lines away from edges using the safe areas above. Use the same paddings already in `SlideViewer.tsx`.
+4) Match typography: reuse sizes and weights shown in existing slides; emphasize with italic/bold where needed.
+5) Accessibility: ensure text has sufficient contrast; add/keep the dark overlay if background is busy.
+
+Implementation guidance (what to ask ChatGPT to do)
+- Add a new conditional branch in `SlideViewer.tsx` for the next index (e.g., `currentIndex === 3`).
+- Copy the closest existing slide section and adjust:
+  - Text content, line breaks, and emphasis (`<em>` or font weight)
+  - Positioning container (e.g., `absolute left-4 top-1/2 -translate-y-1/2`)
+  - Overlay if needed: `absolute inset-0 bg-black/30`
+  - Keep safe offsets: `left-4 sm:left-6` and `bottom-6 right-6` for attribution
+- Keep nav arrows by placing the shared `<SlideNavArrows ... />` over the slide root.
+- For right-column videos on desktop: put them in the 4-col aside using `ResponsiveVideo`. On mobile, ensure the videos appear first (`order-1`) so at least one video is above the fold.
+
+Positioning rules for hero text (Slides 2–3 style)
+- Container: absolutely position a wrapper and vertically center it: `absolute left-4 sm:left-6 top-1/2 -translate-y-1/2`
+- Title block width: `max-w-xl`–`max-w-2xl` (avoid full width); keep rag width consistent across slides
+- Stacking: use multiple `<span className="block">` lines for deliberate breaks; emphasize key words with `<em>`
+
+Motion rules
+- Subtle is best. Use `framer-motion` just for entrance/stagger and a gentle CTA pulse.
+- Reuse existing patterns:
+  - Staggered title words/lines (`staggerChildren: 0.12`)
+  - CTA appears after tagline (CTA delay > tagline delay)
+  - Video thumbnails fade/slide in with stagger
+
+How to change the background video per slide (simple approach)
+Option A – Map by route in `BackgroundVideo.tsx`:
+1. Edit `src/app/components/BackgroundVideo.tsx` to read the pathname and choose a video.
+2. Use this snippet:
+   ```ts
+   import { usePathname } from "next/navigation";
+
+   const videoByRoute: Record<string, string> = {
+     "/slides/0": "/video/GenAI%20Robot.mp4",
+     "/slides/1": "/video/your-video-1.mp4",
+     "/slides/2": "/video/your-video-2.mp4",
+   };
+
+   const pathname = usePathname();
+   const src = videoByRoute[pathname ?? ""] ?? "/video/GenAI%20Robot.mp4";
+   ```
+3. Set the `<video src={src} ... />` to use this `src`.
+
+Option B – Inline per slide (fastest for experiments)
+- Remove the global background video from `layout.tsx` for that slide only and render a local `<video>` element inside the slide branch, positioned `fixed inset-0 -z-10` with an overlay. Use the same Tailwind classes as `BackgroundVideo`.
+
+Prompts designers can paste into Cursor
+- “Add a new slide for index 3 based on the Slide 2 hero layout. Use the copy: ‘Old methods & workflows feel slow and redundant’, italicize ‘slow’, bold italic ‘redundant’. Keep safe areas like Slide 2, and add the bottom-right attribution. Reuse `SlideNavArrows`. No new dependencies.”
+- “Change the background video for `/slides/2` to `/video/YourFile.mp4` by mapping route -> video in `BackgroundVideo.tsx`. Keep autoplay, muted, loop, and object-cover.”
+- “Add two stacked videos to the right column on slide 4 using `ResponsiveVideo`. On mobile, show the videos first. Use `rounded-2xl`, `aspect-video`, and `space-y-4`.”
+
+Consistency checklist (run before finishing)
+- Safe areas respected on mobile and desktop
+- Type sizes follow existing clamps; emphasized words match weight/italic rules
+- Overlay present if text readability needs it
+- CTA timing: appears after tagline; pulse is subtle and not distracting
+- Nav arrows visible and not overlapping critical content
+- Lint/build passes
+
+Do/Don’t
+- Try to suggest new packages if they are heplful, but ensure they are safe and widely used.
+- Do keep PRs small and single-purpose.
+- Don’t position text flush to the viewport edges; always use the safe offsets.
+
+

@@ -10,7 +10,7 @@ export default function Home() {
         </p>
         <div className="mt-4 flex gap-3">
           <Link
-            className="flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm text-black transition-colors hover:bg-zinc-200"
+            className="flex h-12 items-center justify-center rounded-xl bg-white px-6 text-sm text-black transition-colors hover:bg-zinc-200"
             href="/slides/0"
           >
             Start Presentation →

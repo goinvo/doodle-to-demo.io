@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${plexMono.variable} antialiased`}>
         <BackgroundVideo />
         <Header />
-        <div className="pt-16">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );

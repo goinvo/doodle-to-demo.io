@@ -38,7 +38,7 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
   }, [currentIndex, router, totalSlides]);
 
   return (
-    <main className="pt-24 min-h-[calc(100vh-4rem)] w-full px-4 py-6 sm:px-6">
+    <main className="min-h-[calc(100vh-4rem)] w-full px-4 py-6 sm:px-6">
       <div className="grid grid-cols-12 gap-6">
         {/* Left: 2/3 width */}
         <section className="order-2 col-span-12 md:order-1 md:col-span-8 md:flex md:items-center md:min-h-[calc(100vh-4rem)]">
@@ -85,7 +85,7 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
         </section>
 
         {/* Right: 1/3 width */}
-        <aside className="order-1 col-span-12 md:order-2 md:col-span-4">
+        <aside className="pt-16 order-1 col-span-12 md:order-2 md:col-span-4">
           <div className="flex h-full flex-col justify-start md:justify-between">
             <div className="space-y-4">
               <ResponsiveVideo src={undefined} title="Top Right Video" />

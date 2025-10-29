@@ -6,11 +6,6 @@ export type Slide = {
 
 export const slides: Slide[] = [
   {
-    title: "Welcome to Doodle to Demo",
-    body:
-      "A minimal presentation starter built with Next.js, TypeScript, and Tailwind CSS.",
-  },
-  {
     title: "Goals",
     bullets: [
       "Keep the codebase beginner-friendly",

@@ -1,0 +1,46 @@
+# Project: Doodle to Demo
+
+You are an AI coding assistant working with beginners. Prioritize clarity, small steps, and working code. Keep changes minimal and well-named.
+
+## Stack
+- Framework: Next.js (App Router)
+- Language: TypeScript (strict)
+- Styling: Tailwind CSS
+
+## Code Style
+- Prefer explicit names over abbreviations. Avoid single-letter variables.
+- Use early returns instead of deep nesting.
+- Add comments only for non-obvious intent or constraints.
+- Keep components small and focused. Extract helpers if a file grows large.
+
+## Folder Conventions
+- `src/app/` uses the App Router.
+- Slides live in `src/app/slides/`:
+  - `slides.ts`: array of slide objects
+  - `SlideViewer.tsx`: client component for viewing and navigating slides
+  - `[index]/page.tsx`: dynamic route for slides
+
+## Pull Requests
+- Keep PRs small (≤200 lines changed) and single-purpose.
+- Title using Conventional Commits, e.g. `feat: add progress indicator`.
+- Include a brief summary: what changed and why.
+
+## Testing & Dev
+- Run locally: `npm run dev` then open `http://localhost:3000`.
+- Lint: `npm run lint`. Fix warnings where practical.
+
+## AI Guidance
+- Do not introduce libraries unless asked or required.
+- Keep Tailwind classes readable; group by layout | spacing | typography | color.
+- When adding slides, edit only `src/app/slides/slides.ts`.
+- Prefer links for navigation; add keyboard support in client components only.
+
+## Commit Guidance for Beginners
+- Make frequent, small commits.
+- Write messages that explain intent, not just what files changed.
+
+## Examples
+- Good variable names: `currentIndex`, `totalSlides`, `previousIndex`.
+- Avoid: `i`, `n`, `arr`.
+
+

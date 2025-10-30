@@ -17,13 +17,13 @@ export default function SlideNavArrows({
   className,
 }: SlideNavArrowsProps) {
   return (
-    <div className={`pointer-events-none ${className ?? ""}`}>
+    <div className={`${className ?? ""} z-20`}>
       {previousHref ? (
         <Link
           href={previousHref}
           prefetch
           aria-label="Previous slide"
-          className="pointer-events-auto absolute left-2 top-1/2 -translate-y-1/2 text-white sm:left-4"
+          className="absolute left-2 top-1/2 -translate-y-1/2 text-white sm:left-4"
         >
           <ChevronLeft size={iconSize} strokeWidth={strokeWidth} />
         </Link>
@@ -33,7 +33,7 @@ export default function SlideNavArrows({
           href={nextHref}
           prefetch
           aria-label="Next slide"
-          className="pointer-events-auto absolute right-2 top-1/2 -translate-y-1/2 text-white sm:right-4"
+          className="absolute right-2 top-1/2 -translate-y-1/2 text-white sm:right-4"
         >
           <ChevronRight size={iconSize} strokeWidth={strokeWidth} />
         </Link>

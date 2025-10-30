@@ -56,11 +56,20 @@ Positioning rules for hero text (Slides 2–3 style)
 - Stacking: use multiple `<span className="block">` lines for deliberate breaks; emphasize key words with `<em>`
 
 Motion rules
-- Subtle is best. Use `framer-motion` just for entrance/stagger and a gentle CTA pulse.
-- Reuse existing patterns:
-  - Staggered title words/lines (`staggerChildren: 0.12`)
-  - CTA appears after tagline (CTA delay > tagline delay)
-  - Video thumbnails fade/slide in with stagger
+- Use `framer-motion` for tasteful entrances and a gentle CTA pulse.
+- Recommended timings (match existing slides):
+  - Title lines: stagger children by `0.12`, each fades up (`y: 10 -> 0`, `opacity: 0 -> 1`).
+  - Tagline: delay `0.4s`, duration `0.5s`.
+  - CTA (button): delay `0.9s`, duration `0.45s`.
+  - Video thumbs: staggered fade/slide in `y: 12 -> 0`, stagger `0.15`.
+- CTA pulse loop (keep subtle):
+  - Animate on the button element, not its wrapper.
+  - `scale: [1, 1.04, 1]`, `boxShadow` cycles, `duration: 1.6s`, `repeat: Infinity`, `repeatDelay: 2.2s`.
+
+Arrows and interactions
+- Always render `<SlideNavArrows previousHref nextHref className="absolute inset-0 z-20" />` above slide content.
+- Do NOT disable pointer events on the wrapper; arrows must be clickable.
+- Sizes: hero slides use `iconSize={44}`; standard slides use `36`.
 
 How to change the background video per slide (simple approach)
 Option A – Map by route in `BackgroundVideo.tsx`:
@@ -83,6 +92,24 @@ Option A – Map by route in `BackgroundVideo.tsx`:
 Option B – Inline per slide (fastest for experiments)
 - Remove the global background video from `layout.tsx` for that slide only and render a local `<video>` element inside the slide branch, positioned `fixed inset-0 -z-10` with an overlay. Use the same Tailwind classes as `BackgroundVideo`.
 
+CTA implementation details
+- Use Next `Link` with `legacyBehavior passHref` and place the motion on the anchor:
+  ```tsx
+  <Link href="/slides/1" legacyBehavior passHref>
+    <motion.a
+      className="inline-flex h-12 items-center justify-center rounded-xl bg-white px-6 text-sm font-semibold text-black"
+      animate={{ scale: [1, 1.04, 1], boxShadow: [
+        "0 8px 30px rgba(255,255,255,0.12)",
+        "0 8px 40px rgba(255,255,255,0.20)",
+        "0 8px 30px rgba(255,255,255,0.12)",
+      ]}}
+      transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 2.2 }}
+    >
+      Let’s start
+    </motion.a>
+  </Link>
+  ```
+
 Prompts designers can paste into Cursor
 - “Add a new slide for index 3 based on the Slide 2 hero layout. Use the copy: ‘Old methods & workflows feel slow and redundant’, italicize ‘slow’, bold italic ‘redundant’. Keep safe areas like Slide 2, and add the bottom-right attribution. Reuse `SlideNavArrows`. No new dependencies.”
 - “Change the background video for `/slides/2` to `/video/YourFile.mp4` by mapping route -> video in `BackgroundVideo.tsx`. Keep autoplay, muted, loop, and object-cover.”
@@ -97,7 +124,7 @@ Consistency checklist (run before finishing)
 - Lint/build passes
 
 Do/Don’t
-- Try to suggest new packages if they are heplful, but ensure they are safe and widely used.
+- Suggest new packages only when necessary; prefer built-ins. If proposing, ensure they’re widely used and low-risk.
 - Do keep PRs small and single-purpose.
 - Don’t position text flush to the viewport edges; always use the safe offsets.
 

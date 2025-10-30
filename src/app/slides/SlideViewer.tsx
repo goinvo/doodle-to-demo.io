@@ -46,19 +46,38 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
     return (
       <main className="min-h-[calc(100vh-4rem)] w-full px-2 sm:px-4">
         <div className="relative min-h-[calc(100vh-4rem)]">
-          <div className="absolute inset-0 bg-black/30" />
-          <SlideNavArrows
-            previousHref={`/slides/${previousIndex}`}
-            nextHref={`/slides/${nextIndex}`}
-            iconSize={44}
-            strokeWidth={2.5}
-            className="absolute inset-0"
+          <motion.div
+            className="absolute inset-0 bg-black/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
-          <div className="absolute bottom-6 left-4 sm:left-6">
+
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25, duration: 0.35, ease: "easeOut" }}
+          >
+            <SlideNavArrows
+              previousHref={`/slides/${previousIndex}`}
+              nextHref={`/slides/${nextIndex}`}
+              iconSize={44}
+              strokeWidth={2.5}
+              className="absolute inset-0"
+            />
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-6 left-4 sm:left-6"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.45, ease: "easeOut" }}
+          >
             <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] font-black tracking-tight">
               <span className="opacity-90">/</span> GenAI Boom
             </h2>
-          </div>
+          </motion.div>
         </div>
       </main>
     );
@@ -79,7 +98,7 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
           />
 
           <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-6">
-            <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
+            <h2 className="ml-12 max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
               <span className="block">Old methods</span>
               <span className="block">& workflows</span>
               <span className="block">feel <em className="italic font-normal opacity-90">slow</em> and</span>
@@ -152,25 +171,22 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9, duration: 0.45, ease: "easeOut" }}
               >
-                <motion.div
-                  animate={{
-                    scale: [1, 1.04, 1],
-                    boxShadow: [
-                      "0 8px 30px rgba(255,255,255,0.12)",
-                      "0 8px 40px rgba(255,255,255,0.20)",
-                      "0 8px 30px rgba(255,255,255,0.12)",
-                    ],
-                  }}
-                  transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 2.2 }}
-                >
-                  <Link
+                <Link href={`/slides/${nextIndex}`} prefetch legacyBehavior passHref>
+                  <motion.a
                     className="inline-flex h-12 items-center justify-center rounded-xl bg-white px-6 text-sm font-semibold text-black transition-[background,transform,box-shadow] hover:scale-[1.02] hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-white/80"
-                    href={`/slides/${nextIndex}`}
-                    prefetch
+                    animate={{
+                      scale: [1, 1.04, 1],
+                      boxShadow: [
+                        "0 8px 30px rgba(255,255,255,0.12)",
+                        "0 8px 40px rgba(255,255,255,0.20)",
+                        "0 8px 30px rgba(255,255,255,0.12)",
+                      ],
+                    }}
+                    transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 2.2 }}
                   >
                     Let’s start
-                  </Link>
-                </motion.div>
+                  </motion.a>
+                </Link>
               </motion.div>
             </div>
           ) : (

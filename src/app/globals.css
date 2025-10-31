@@ -27,3 +27,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+.primary-bg {
+  background-color: #2D2D68;
+}
+.gradient-bg {
+  background: linear-gradient(180deg, #4a3d7a 0%, #6b5b95 50%, #8e7cc3 100%);
+  width: 100%;/* or whatever height you need */
+}

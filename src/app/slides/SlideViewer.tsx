@@ -44,7 +44,7 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
   // Slide 2: full-bleed hero with large title and side chevrons
   if (currentIndex === 1) {
     return (
-      <main className="min-h-[calc(100vh-4rem)] w-full px-2 sm:px-4">
+      <main className="gradient-bg min-h-[calc(100vh)] w-full px-2 sm:px-4">
         <div className="relative min-h-[calc(100vh-4rem)]">
           <motion.div
             className="absolute inset-0 bg-black/30"
@@ -116,7 +116,7 @@ export default function SlideViewer({ currentIndex }: SlideViewerProps) {
   }
 
   return (
-    <main className="relative min-h-[calc(100vh-4rem)] w-full px-4 py-6 sm:px-6">
+    <main className="gradient-bg relative min-h-[calc(100vh)] w-full px-4 py-6 sm:px-6">
       <SlideNavArrows
         previousHref={currentIndex > 0 ? `/slides/${previousIndex}` : undefined}
         nextHref={currentIndex < totalSlides - 1 ? `/slides/${nextIndex}` : undefined}

@@ -323,8 +323,8 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
           <SlideNavArrows
             previousHref={currentIndex > 0 ? `/slides/${previousIndex}` : undefined}
             nextHref={currentIndex < totalSlides - 1 ? `/slides/${nextIndex}` : undefined}
-            iconSize={44}
-            strokeWidth={2.5}
+            iconSize={88}
+            strokeWidth={1.8}
             className="mx-auto pointer-events-auto"
           />
         </div>

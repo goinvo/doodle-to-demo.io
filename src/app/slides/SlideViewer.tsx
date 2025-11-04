@@ -90,10 +90,10 @@ const slides = [
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } }}
             >
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src={undefined} title="Top Right Video" />
+                <ResponsiveVideo src="/video/Maverick_Midjourney_profile_animation_final.mp4" title="Top Right Video" />
               </motion.div>
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src={undefined} title="Bottom Right Video" />
+                <ResponsiveVideo src="/video/Claire_Midjourney_profile_animation_final.mp4" title="Bottom Right Video" />
               </motion.div>
             </motion.div>
             <div className="pt-4 text-right text-white/90">
@@ -109,7 +109,20 @@ const slides = [
   () => (
     <main className="gradient-bg min-h-[calc(100vh)] w-full">
       <div className="relative min-h-[calc(100vh)] w-full">
-        {/* Background image can be inserted here as absolutely positioned image element */}
+        {/* Background image */}
+        <motion.div
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <img
+            src="/image/AI_apps_cropped.svg"
+            alt="AI Apps Background"
+            className="absolute inset-0 w-full h-full object-cover object-center z-0"
+            style={{ opacity: 0.94 }}
+          />
+        </motion.div>
         {/* Animated overlay, necessary? */}
         <motion.div
           className="absolute inset-0 bg-black/30 w-full"
@@ -149,10 +162,29 @@ const slides = [
       </div>
     </div>
   ),
-  // 3: Right-aligned question slide
+  // 3: Right-aligned question slide with video background and gradient overlay
   () => (
-    <div className="flex flex-col justify-center h-full items-end pr-10">
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24">
+    <div className="relative min-h-[calc(100vh)] w-full">
+      {/* Background video */}
+      <video
+        src="/video/Role_animation_final.mp4"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster=""
+      />
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 z-[5]"
+        style={{ background: "linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%,  #2D2D68 100%)" }}
+      />
+      {/* Overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/35 z-10" />
+      {/* Right-aligned question text */}
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24 z-20">
         <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
           <span className="block">Where do we</span>
           <span className="block">as designers,</span>
@@ -162,10 +194,28 @@ const slides = [
       </div>
     </div>
   ),
-  // 4: Formula 1 metaphor
+  // 4: Formula 1 metaphor with background video & gradient overlay
   () => (
-    <div className="flex flex-col justify-center h-full items-end pr-10">
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24">
+    <div className="relative min-h-[calc(100vh)] w-full">
+      {/* Background video */}
+      <video
+        src="/video/F1_Animation_final.mp4"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster=""
+      />
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 z-[5] gradient-overlay"
+      />
+      {/* Overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/35 z-10" />
+      {/* Right-aligned metaphor text */}
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24 z-20">
         <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
           <span className="block"><em className="font-black">Formula 1</em> represents</span>
           <span className="block">the speed possible</span>
@@ -176,7 +226,6 @@ const slides = [
           <span className="block"><em className="font-black">equivalent?</em></span>
         </h2>
       </div>
-      
     </div>
   ),
   // 5: Bottom left text, prepared for image background later

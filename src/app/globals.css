@@ -44,3 +44,16 @@ body {
 .menu-title {
   margin-left: 7px;
 }
+
+.text-primary-color {
+  color: #2D2D68;
+}
+.text-block {
+  font-size: 3.25rem;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.image-container {
+  padding: 20px;
+}

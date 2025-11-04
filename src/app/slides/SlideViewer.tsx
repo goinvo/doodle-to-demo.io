@@ -249,30 +249,34 @@ const slides = [
       </div>
     </div>
   ),
-  // 5: Bottom left text, prepared for image background later
+  // 5: Full viewport gradient section with scrollable content
   () => (
-    <main className="gradient-bg min-h-[calc(100vh)] w-full">
-      <div className="relative min-h-[calc(100vh)] w-full">
-        {/* Background image can be inserted here as absolutely positioned image element */}
-        {/* Animated overlay, necessary? */}
-        <motion.div
-          className="absolute inset-0 bg-black/30 w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
-        {/* Bottom left text block */}
-        <motion.div
-          className="absolute bottom-6 left-4 sm:left-6"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.45, ease: "easeOut" }}
-        >
-          <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
-            <span className="opacity-90">/</span> <span className="font-black">Case Studies</span>
-          </h2>
-        </motion.div>
-      </div>
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
+      <section className="gradient-bg w-full min-h-screen flex flex-col justify-center items-center">
+        <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
+          <span className="opacity-90">/ Case Study 01</span>
+          <span className="font-black block">Animating Complex Care Journeys</span>
+        </h2>
+        {/* More case study content can go here and will scroll if needed */}
+      </section>
+      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+        <div className="image-container">
+          <img
+            src="/image/case_studies/01/0_Extra/Final_R1E.png"
+            alt="Case Study 01"
+            className="w-full h-full object-cover"
+          />
+          <span className="caption text-sm font-mono ">/ Past static storytelling methods started to feel limited.</span>
+        </div>
+        {/* More case study content can go here and will scroll if needed */}
+      </section>
+      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+        <div className="text-block text-primary-color">
+          <span className="font-black text-lg">Our task — </span>
+          <span className="text-lg">visualize the challenges patients & providers face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
+        </div>
+        {/* More case study content can go here and will scroll if needed */}
+      </section>
     </main>
   ),
   // last: Fallback/example slide

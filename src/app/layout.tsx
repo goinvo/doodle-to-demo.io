@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
+import { MenuProvider } from "./components/Header";
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plexMono.variable} antialiased`}>
-        
-        <Header />
-        <div>{children}</div>
+        <MenuProvider>
+          {children}
+        </MenuProvider>
       </body>
     </html>
   );

@@ -2,11 +2,12 @@
 'use client';
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { useRouter } from "next/navigation";
 import SlideNavArrows from "../components/SlideNavArrows";
 import { motion } from "framer-motion";
 import ResponsiveVideo from "../components/ResponsiveVideo";
+import { MenuContext } from "../components/Header";
 
 // Each slide is just a function or JSX block:
 const slides = [
@@ -144,24 +145,43 @@ const slides = [
       </div>
     </main>
   ),
-  // 2: Multiline left-aligned message
-  () => (
-    <div className="relative min-h-[calc(100vh)] w-full">
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
-          <span className="block">Old methods</span>
-          <span className="block">& workflows</span>
-          <span className="block">feel <em className="italic font-normal opacity-90">slow</em> and</span>
-          <span className="block"><em className="italic font-black">redundant</em></span>
-        </h2>
+  // 2: Multiline left-aligned message with GenAI_Robot.mp4 video background (slowed)
+  () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    useEffect(() => {
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 0.75;
+      }
+    }, []);
+    return (
+      <div className="relative min-h-[calc(100vh)] w-full">
+        {/* Background video, slowed down */}
+        <video
+          ref={videoRef}
+          src="/video/GenAI_Robot.mp4"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster=""
+        />
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24">
+          <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
+            <span className="block">Old methods</span>
+            <span className="block">& workflows</span>
+            <span className="block">feel <em className="italic font-normal opacity-90">slow</em> and</span>
+            <span className="block"><em className="italic font-black">redundant</em></span>
+          </h2>
         </div>
-      
-      <div className="absolute bottom-6 right-6 text-right text-white/90">
-        <span className="opacity-80">/ Generated in </span>
-        <strong>Midjourney V7</strong>
+        <div className="absolute bottom-6 right-6 text-right text-white/90">
+          <span className="opacity-80">/ Generated in </span>
+          <strong>Midjourney V7</strong>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
   // 3: Right-aligned question slide with video background and gradient overlay
   () => (
     <div className="relative min-h-[calc(100vh)] w-full">
@@ -271,6 +291,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
   const nextIndex = Math.min(totalSlides - 1, currentIndex + 1);
   // Pass nextIndex so slide 0 can link correctly
   const SlideContent = slides[currentIndex];
+  const menuOpen = useContext(MenuContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -296,20 +317,18 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
     <div className="relative w-full min-h-[calc(100vh)] overflow-hidden">
       {/* For slide 0, pass nextIndex so button works correctly. For others, pass nothing. */}
       <SlideContent {...(currentIndex === 0 ? { nextIndex } : {})} />
-      {/* Arrows consistent location; slide handles its own layout/bg. */}
-      <div className="pointer-events-none">
+      {/* Arrows only shown/active when menu is closed */}
+      {!menuOpen && (
         <div className="absolute inset-y-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-between z-30">
-          <div className="pointer-events-auto">
-            <SlideNavArrows
-              previousHref={currentIndex > 0 ? `/slides/${previousIndex}` : undefined}
-              nextHref={currentIndex < totalSlides - 1 ? `/slides/${nextIndex}` : undefined}
-              iconSize={44}
-              strokeWidth={2.5}
-              className="mx-auto"
-            />
-          </div>
+          <SlideNavArrows
+            previousHref={currentIndex > 0 ? `/slides/${previousIndex}` : undefined}
+            nextHref={currentIndex < totalSlides - 1 ? `/slides/${nextIndex}` : undefined}
+            iconSize={44}
+            strokeWidth={2.5}
+            className="mx-auto pointer-events-auto"
+          />
         </div>
-      </div>
+      )}
     </div>
   );
 }

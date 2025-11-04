@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import BackgroundVideo from "./components/BackgroundVideo";
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
@@ -24,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plexMono.variable} antialiased`}>
-        <BackgroundVideo />
+        
         <Header />
         <div>{children}</div>
       </body>

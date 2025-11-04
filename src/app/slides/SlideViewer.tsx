@@ -179,7 +179,7 @@ const slides = [
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 z-[5]"
-        style={{ background: "linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%,  #2D2D68 100%)" }}
+        style={{ background: "linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%,  #2D2D68 100%)" }}
       />
       {/* Overlay for text contrast */}
       <div className="absolute inset-0 bg-black/35 z-10" />
@@ -211,6 +211,7 @@ const slides = [
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 z-[5] gradient-overlay"
+        style={{ background: "linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%)" }}
       />
       {/* Overlay for text contrast */}
       <div className="absolute inset-0 bg-black/35 z-10" />

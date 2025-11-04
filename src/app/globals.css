@@ -37,6 +37,6 @@ body {
 }
 
 .gradient-overlay {
-  background: linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%, );
+  background: linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%, );
   /*background: linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%, var(--Primary, #2D2D68) 100%)*/
 }

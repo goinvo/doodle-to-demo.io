@@ -1,34 +1,15 @@
 'use client';
 
 import ResponsiveVideo from "../../components/ResponsiveVideo";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 
 export default function Slide5() {
   return (
     <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
-      
-      
       <section className="gradient-bg w-full min-h-screen flex flex-col justify-center items-center">
         <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
           <span className="font-thin opacity-90">/ Case Study 01</span>
           <br/> <span className="font-bold">Animating Complex Care Journeys</span>
         </h2>
-
-        <motion.div
-          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1"
-          animate={{ y: [0, 14, 0] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 1.2,
-            ease: "easeInOut",
-            delay: 0.3,
-          }}
-          style={{ pointerEvents: 'none' }}
-        >
-          <ChevronDown size={56} strokeWidth={1.8} className="text-white/80 drop-shadow-lg" />
-        </motion.div>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
@@ -42,7 +23,7 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col">
+      <section className="w-full min-h-screen flex flex-col">
         <div className="text-block-lg text-primary-color">
           <span className="font-bold">Our task — </span>
           <span>visualize the challenges <em className="italic">patients & providers</em> face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
@@ -92,11 +73,11 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col container-padding-vertical-quad margin-top">
+      <section className="w-full min-h-screen flex flex-col container-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <h3 className="h3-all-caps text-primary-color">
             <span className="font-thin opacity-90">/</span>
-            <span className="font-bold"> HOW ABOUT 3D?</span>
+            <span className="font-bold"> How about 3D?</span>
           </h3>
           <div className="text-lger text-primary-color">
             <span>What if we built models of hospitals and clinics to capture our backgrounds faster?</span>
@@ -416,7 +397,13 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col container-padding-vertical-quad">
+      <section className="w-full min-h-screen flex flex-col">
+        <div className="text-block-lg text-primary-color">
+          <span>The result of this workflow was <span className="font-bold">4 animations</span> telling the stories of our patients and providers, accomplished in a third of the time — from <span className="font-bold">600</span> hours to <em className="italic font-bold">200 </em> hours.</span>
+        </div>
+      </section>
+
+      <section className="primary-bg">
         <div className="text-block-lg text-primary-color">
           <span>The result of this workflow was <span className="font-bold">4 animations</span> telling the stories of our patients and providers, accomplished in a third of the time — from <span className="font-bold">600</span> hours to <em className="italic font-bold">200 </em> hours.</span>
         </div>

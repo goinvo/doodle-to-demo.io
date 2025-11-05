@@ -44,18 +44,13 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
       <SlideContent {...(currentIndex === 0 ? { nextIndex } : {})} />
       {/* Arrows only shown/active when menu is closed */}
       {!menuOpen && (
-        <div className={`absolute left-0 right-0 flex items-center justify-between z-30 ${
-          currentIndex === 5 
-            ? 'bottom-[50vh]' 
-            : 'inset-y-1/2 -translate-y-1/2'
-        }`}>
+        <div className="absolute inset-y-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-between z-30">
           <SlideNavArrows
             previousHref={currentIndex > 0 ? `/slides/${previousIndex}` : undefined}
             nextHref={currentIndex < totalSlides - 1 ? `/slides/${nextIndex}` : undefined}
             iconSize={88}
             strokeWidth={1.8}
             className="mx-auto pointer-events-auto"
-            isBottomPositioned={currentIndex === 5}
           />
         </div>
       )}

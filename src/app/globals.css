@@ -34,24 +34,15 @@ body {
 .container-padding-quad {
   padding: 80px;
 }
-.container-padding-vertical-quad {
-  padding: 80px 20px;
-}
 .padding-none {
   padding:0;
 }
 .padding-top {
   padding-top:40px;
 }
-.margin-top {
-  margin-top: 40px;
-}
 
 .primary-bg {
   background-color: #2D2D68;
-}
-.translucent-bg {
-  background-color: rgba(45,45,104,0.5);
 }
 .gradient-bg {
   background: linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);

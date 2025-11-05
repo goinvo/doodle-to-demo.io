@@ -257,8 +257,8 @@ const slides = [
           <span className="opacity-90">/ Case Study 01</span>
           <span className="font-black block">Animating Complex Care Journeys</span>
         </h2>
-        {/* More case study content can go here and will scroll if needed */}
       </section>
+
       <section className="w-full min-h-screen flex flex-col justify-center items-center">
         <div className="image-container">
           <img
@@ -268,14 +268,62 @@ const slides = [
           />
           <span className="caption text-sm font-mono ">/ Past static storytelling methods started to feel limited.</span>
         </div>
-        {/* More case study content can go here and will scroll if needed */}
       </section>
-      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+
+      <section className="w-full min-h-screen flex flex-col">
         <div className="text-block text-primary-color">
-          <span className="font-black text-lg">Our task — </span>
-          <span className="text-lg">visualize the challenges patients & providers face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
+          <span className="font-black">Our task — </span>
+          <span>visualize the challenges <em className="italic">patients & providers</em> face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
         </div>
-        {/* More case study content can go here and will scroll if needed */}
+      </section>
+
+      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+        
+        <div className="image-container w-full">
+          <div className="image-grid image-grid-tall grid grid-cols-3 gap-6 mb-8">
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png" // replace with your image
+              alt="Case Study Small"
+              className="col-span-1 h-full w-full object-cover"
+              style={{ height: 720 }}
+            />
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png" // replace with your image
+              alt="Case Study Large"
+              className="col-span-2 h-full w-full object-cover"
+              style={{ height: 720 }}
+            />
+          </div>
+
+          <div className="image-grid image-grid-short grid grid-cols-4 gap-6">
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png" // replace with your image
+              alt="Grid 1"
+              className="h-full w-full object-cover"
+              style={{ height: 262 }}
+            />
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_2.png" // replace with your image
+              alt="Grid 2"
+              className="h-full w-full object-cover"
+              style={{ height: 262 }}
+            />
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_3.png" // replace with your image
+              alt="Grid 3"
+              className="h-full w-full object-cover"
+              style={{ height: 262 }}
+            />
+            <img
+              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_4.png" // replace with your image
+              alt="Grid 4"
+              className="h-full w-full object-cover"
+              style={{ height: 262 }}
+            />
+          </div>
+          
+          <span className="caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</span>
+        </div>
       </section>
     </main>
   ),

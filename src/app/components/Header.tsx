@@ -1,7 +1,7 @@
 'use client';
 
 import { Menu } from "lucide-react";
-import { useState, createContext, ReactNode, useContext } from "react";
+import { useState, createContext, ReactNode } from "react";
 import { usePathname } from 'next/navigation';
 import SlideMenu, { slideTitles } from "./SlideMenu";
 
@@ -28,10 +28,9 @@ export function MenuProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export default function Header({ open, setOpen }: { open?: boolean; setOpen?: (open: boolean) => void }) {
+export default function Header({ setOpen: setOpenProp }: { open?: boolean; setOpen?: (open: boolean) => void }) {
   // Provide fallback for legacy usage, in case used elsewhere
-  open = open ?? useContext(MenuContext);
-  setOpen = setOpen ?? (() => {});
+  const setOpen = setOpenProp ?? (() => {});
   const pathname = usePathname();
   let slideTitle = '';
   let idx: number|undefined;

@@ -25,7 +25,9 @@ export default function SlideNavArrows({
           aria-label="Previous slide"
           className="absolute left-2 top-1/2 -translate-y-1/2 text-white sm:left-4"
         >
-          <ChevronLeft size={iconSize} strokeWidth={strokeWidth} />
+          <div className="translucent-bg rounded-full p-1">
+            <ChevronLeft size={iconSize} strokeWidth={strokeWidth} />
+          </div>
         </Link>
       ) : null}
       {nextHref ? (
@@ -35,7 +37,9 @@ export default function SlideNavArrows({
           aria-label="Next slide"
           className="absolute right-2 top-1/2 -translate-y-1/2 text-white sm:right-4"
         >
-          <ChevronRight size={iconSize} strokeWidth={strokeWidth} />
+          <div className="translucent-bg rounded-full p-1">
+            <ChevronRight size={iconSize} strokeWidth={strokeWidth} />
+          </div>
         </Link>
       ) : null}
     </div>

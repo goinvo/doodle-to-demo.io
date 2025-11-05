@@ -31,6 +31,9 @@ body {
 .primary-bg {
   background-color: #2D2D68;
 }
+.translucent-bg {
+  background-color: rgba(45, 45, 104, 0.5);
+}
 .gradient-bg {
   background: linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
   width: 100%;/* or whatever height you need */

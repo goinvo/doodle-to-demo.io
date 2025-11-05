@@ -92,13 +92,13 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col container-padding-vertical-quad margin-top">
+      <section className="w-full flex flex-col container-padding container-padding-vertical-quad margin-top">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <h3 className="h3-all-caps text-primary-color">
             <span className="font-thin opacity-90">/</span>
             <span className="font-bold"> HOW ABOUT 3D?</span>
           </h3>
-          <div className="text-lger text-primary-color">
+          <div className="text-3rem text-primary-color">
             <span>What if we built models of hospitals and clinics to capture our backgrounds faster?</span>
           </div>
         </div>

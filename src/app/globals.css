@@ -28,6 +28,19 @@ body {
   font-family: var(--font-sans);
 }
 
+.container-padding {
+  padding: 20px;
+}
+.container-padding-quad {
+  padding: 80px;
+}
+.padding-none {
+  padding:0;
+}
+.padding-top {
+  padding-top:40px;
+}
+
 .primary-bg {
   background-color: #2D2D68;
 }
@@ -35,7 +48,6 @@ body {
   background: linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
   width: 100%;/* or whatever height you need */
 }
-
 .gradient-overlay {
   background: linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%, );
   /*background: linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%, var(--Primary, #2D2D68) 100%)*/
@@ -43,4 +55,52 @@ body {
 
 .menu-title {
   margin-left: 7px;
+}
+
+.text-mono {
+  font-family: "IBM Plex Mono";
+}
+.text-primary-color {
+  color: #2D2D68;
+}
+.h3-all-caps {
+  font-size: 4rem;
+  text-transform: all-caps;
+}
+.text-block-lg {
+  font-size: 3rem;
+  max-width: 1100px;
+  padding: 150px 50px;
+}
+.text-lger {
+  font-size: 3rem;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.numbered {
+  margin-right: 20px;
+}
+
+.image-grid-tall {
+  height: 720px;
+}
+.image-grid-short {
+  height: 262px;
+}
+.caption-overlay {
+  background: #fff;
+  border-radius: 10px;
+  border: solid 1px #6F6F90;
+  max-width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+@media (min-width: 1024px) {
+  .caption-overlay {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 300px;
+  }
 }

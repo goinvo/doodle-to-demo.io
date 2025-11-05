@@ -29,9 +29,12 @@ export function MenuProvider({ children }: { children: ReactNode }) {
 }
 
 export default function Header({ open, setOpen }: { open?: boolean; setOpen?: (open: boolean) => void }) {
-  // Provide fallback for legacy usage, in case used elsewhere
-  open = open ?? useContext(MenuContext);
-  setOpen = setOpen ?? (() => {});
+  // Hooks must be called unconditionally
+  const contextOpen = useContext(MenuContext);
+  // Prefer props, otherwise use context
+  const resolvedOpen = open !== undefined ? open : contextOpen;
+  const resolvedSetOpen = setOpen !== undefined ? setOpen : (() => {});
+
   const pathname = usePathname();
   let slideTitle = '';
   let idx: number|undefined;
@@ -47,7 +50,7 @@ export default function Header({ open, setOpen }: { open?: boolean; setOpen?: (o
         <button
           aria-label="Open menu"
           className="inline-flex h-9 w-9 items-center justify-center text-white focus:outline-none"
-          onClick={() => setOpen && setOpen(true)}
+          onClick={() => resolvedSetOpen(true)}
         >
           <Menu size={24} strokeWidth={2} />
         </button>

@@ -7,6 +7,7 @@ type SlideNavArrowsProps = {
   iconSize?: number;
   strokeWidth?: number;
   className?: string;
+  isBottomPositioned?: boolean;
 };
 
 export default function SlideNavArrows({
@@ -15,6 +16,7 @@ export default function SlideNavArrows({
   iconSize = 28,
   strokeWidth = 2,
   className,
+  isBottomPositioned = false,
 }: SlideNavArrowsProps) {
   return (
     <div className={`${className ?? ""} z-20`}>
@@ -23,9 +25,11 @@ export default function SlideNavArrows({
           href={previousHref}
           prefetch
           aria-label="Previous slide"
-          className="absolute left-2 top-1/2 -translate-y-1/2 text-white sm:left-4"
+          className={` absolute left-2 text-white sm:left-4 ${
+            isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
+          }`}
         >
-          <div className="border border-[#2D2D68] rounded-full p-1">
+          <div className="translucent-bg rounded-full p-1">
             <ChevronLeft size={iconSize} strokeWidth={strokeWidth} />
           </div>
         </Link>
@@ -35,9 +39,11 @@ export default function SlideNavArrows({
           href={nextHref}
           prefetch
           aria-label="Next slide"
-          className="absolute right-2 top-1/2 -translate-y-1/2 text-white sm:right-4"
+          className={` absolute right-2 text-white sm:right-4 ${
+            isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
+          }`}
         >
-          <div className="border border-[#2D2D68] rounded-full p-1">
+          <div className="translucent-bg rounded-full p-1">
             <ChevronRight size={iconSize} strokeWidth={strokeWidth} />
           </div>
         </Link>

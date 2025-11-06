@@ -1,24 +1,30 @@
 'use client';
 
-import ResponsiveVideo from "../../components/ResponsiveVideo";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export default function Slide6() {
+  const handleArrowClick = () => {
+    const viewportHeight = window.innerHeight;
+    window.scrollBy({
+      top: viewportHeight * 0.8,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
       
       
-      <section className="text-primary-color w-full min-h-screen flex flex-col container-padding container-padding-vertical-quad">
-        <span className="text-3rem font-thin opacity-90">/ Case Study 02</span>
-        <h2 className="p-max font-bold text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
-          Bringing Mental Health Stories to Life
+      <section className="text-primary-color w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad">
+        <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
+          <span className="font-thin opacity-90">/ Case Study 02</span>
+          <br/> <span className="font-bold">Bringing Mental Health Stories to Life</span>
         </h2>
-
-        <p className="p-max text-2rem">How can we best communicate <span className="font-bold">COMPLEX</span> mental health care challenges for both patients and providers?</p>
+        <p className="p-max text-2rem">How can we best communicate <span className="font-bold all-caps">COMPLEX</span> mental health care challenges for both patients and providers?</p>
 
         <motion.div
-          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1"
+          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
           animate={{ y: [0, 14, 0] }}
           transition={{
             repeat: Infinity,
@@ -27,39 +33,74 @@ export default function Slide6() {
             ease: "easeInOut",
             delay: 0.3,
           }}
-          style={{ pointerEvents: 'none' }}
+          onClick={handleArrowClick}
         >
-          <ChevronDown size={56} strokeWidth={1.8} className="text-white/80 drop-shadow-lg" />
+          <ChevronDown size={56} strokeWidth={1.8} className="text-primary-color drop-shadow-lg" />
         </motion.div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="container-padding relative">
-          {/* Background image needed */}
-          {/* <img
-            src="/image/case_studies/01/0_Extra/Final_R1E.png"
-            alt="Case Study 01"
+      <section className="synthesize-section w-full flex flex-col justify-center items-center">
+        <div className="relative">
+          <img
+            src="/image/case_studies/02/A_synthesize.png"
+            alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
             className="w-full h-full object-cover"
-          /> */}
-          <div className="absolute">
-            <h3 className="h3-all-caps text-primary-color text-center">/ Synthesizing data</h3>
+          />
+          <div className="absolute synthesize-text">
+            <h3 className="h3-all-caps text-primary-color text-center font-bold">/ Synthesizing data</h3>
             <p className="text-primary-color text-center text-2rem text-box">Collected huge amounts of information and nuances in conversations with patients and providers.</p>
           </div>
         </div>
       </section>
 
-      <section className="w-full flex flex-col">
-        <div className="container-padding ">
-          {/* word cloud thing here */}
-          <div className="relative">
-            {/* Background image needed */}
-            {/* <img
-              src="/image/case_studies/01/0_Extra/Final_R1E.png"
-              alt="Case Study 01"
+      <section className="word-blob-section w-full flex flex-col justify-center items-center container-padding-vertical-quad">
+        <div className="container-padding relative word-cloud-container">
+          <div className="word-cloud">
+            <span className="word-bubble">religion</span>
+            <span className="word-bubble">education</span>
+            <span className="word-bubble">family structure</span>
+            <span className="word-bubble">tech saviness</span>
+            <span className="word-bubble">housing</span>
+            <span className="word-bubble">culture</span>
+            <span className="word-bubble">conditions</span>
+            <span className="word-bubble">geography</span>
+            <span className="word-bubble">age</span>
+            <span className="word-bubble">insurance</span>
+            <span className="word-bubble">gender</span>
+            <span className="word-bubble">childcare</span>
+            <span className="word-bubble">income level</span>
+            <span className="word-bubble">language</span>
+            <span className="word-bubble">urban or rural</span>
+          </div>
+          <div className="word-cloud-center">
+            <p className="text-white text-center text-3rem text-box font-bold">Many factors impact mental healthcare experiences.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+        <div className="container-padding relative grid grid-cols-4">
+          <div className="col-span-3 relative">
+            <img
+              src="/image/case_studies/02/C_group_sketch.png"
+              alt="A group sketch of patients and providers"
               className="w-full h-full object-cover"
-            /> */}
-            <div className="absolute">
-              <p className="text-primary-color text-center text-2rem text-box">Many factors impact mental healthcare experiences.</p>
+            />
+            <div className="absolute feedback">
+              <div className="feedback-item">
+                <p>“I'm not sure I can afford to go to therapy.”</p>
+              </div>
+
+            </div>
+          </div>
+          <div className="col-span-1 relative">
+            <div className="absolute text-primary-color text-2rem cs2-section-5">
+              <h5>Stakeholder Feedback</h5>
+              <p className="quote-box">“It feels cluttered and overwhelming. I get lost in all the graphics and labels.” 
+                <br/><span className=" text-sm italic quotee">State Employee for Health Department</span></p> 
+              <p className="quote-box">“The labels don't resonate. Not sure what we're trying to represent here.”
+                <br/><span className=" text-sm italic quotee">Senior Mental Health Patient </span>
+              </p>
             </div>
           </div>
         </div>
@@ -148,7 +189,7 @@ export default function Slide6() {
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                    <p className="text-white"><span className="font-bold numbered">01</span><span className="font-thin">Develop the character's background and profile</span></p>
+                    <p className="text-white"><span className="font-bold numbered">01</span><span className="font-thin">Develop the character&apos;s background and profile</span></p>
                     <p className="text-white"><span className="font-bold numbered">02</span><span className="font-thin">Create a visual respresentation</span></p>
                     <p className="text-white"><span className="font-bold numbered">03</span><span className="font-thin">Develop dialogue and pair with generated voice</span></p>
                     <p className="text-white"><span className="font-bold numbered">04</span><span className="font-thin">Integrate everything into live site</span></p>

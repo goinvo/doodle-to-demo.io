@@ -57,6 +57,10 @@ body {
   background: linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
   width: 100%;/* or whatever height you need */
 }
+.gradient-bg-2 {
+  background: linear-gradient(322deg, #2D2D68 20%, #FEF6E8 110%);
+  width: 100%;/* or whatever height you need */
+}
 .gradient-overlay {
   background: linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%, );
   /*background: linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%, var(--Primary, #2D2D68) 100%)*/

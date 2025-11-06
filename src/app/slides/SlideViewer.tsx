@@ -45,7 +45,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
       {/* Arrows only shown/active when menu is closed */}
       {!menuOpen && (
         <div className={`absolute left-0 right-0 flex items-center justify-between z-30 ${
-          currentIndex === 5 
+          currentIndex === 5 || currentIndex === 6
             ? 'bottom-[50vh]' 
             : 'inset-y-1/2 -translate-y-1/2'
         }`}>
@@ -55,7 +55,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
             iconSize={88}
             strokeWidth={1.8}
             className="mx-auto pointer-events-auto"
-            isBottomPositioned={currentIndex === 5}
+            isBottomPositioned={currentIndex === 5 || currentIndex === 6}
           />
         </div>
       )}

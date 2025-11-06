@@ -1,5 +1,6 @@
 'use client';
 
+import ResponsiveVideo from "../../components/ResponsiveVideo";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -82,23 +83,39 @@ export default function Slide6() {
         <div className="container-padding relative grid grid-cols-4">
           <div className="col-span-3 relative">
             <img
-              src="/image/case_studies/02/C_group_sketch.png"
+              src="/image/case_studies/02/C_group_sketch_2.png"
               alt="A group sketch of patients and providers"
               className="w-full h-full object-cover"
             />
-            <div className="absolute feedback">
-              <div className="feedback-item">
-                <p>“I'm not sure I can afford to go to therapy.”</p>
+            <span className="container-padding caption text-sm font-mono ">/ First concept sketch</span>
+            {/* <div className="absolute concept-box">
+              <div className="concept-item yellow-box left">
+                <span className="category">Societal & cultural</span> 
+                <span className="title">Fragmented Care (Provider)</span>
+                <p>Poor coordination among mental health, substance abuse, and primary care services lead to significant gaps in treatment and worse health outcomes. Integrating these services requires sufficient infrastructure and funding. Inconsistency in coverage across insurance impacts access to essential mental health support and worsens inequities in care.</p>
+                <p>Allow marriage and family therapists and mental health counselors to bill for services, supporting integration in primary care. Standardize quality measures to improve care coordination and identify gaps. </p>
+              </div>
+              <div className="concept-item blue-box left">
+              <span className="category">Systemic</span> 
+                <span className="title">Administrative Burden (Provider)</span>
+                <p>High severity of patient conditions, overwhelming workloads, complex credentialing and administrative requirements, lengthy billing processes, and low compensation all contribute to burnout and high provider turnover in mental health care. Due to lower reimbursement rates, slow payments, and restrictions on billable services, providers often choose not to accept insurance and prioritize private pay. </p>
+                <p>Allow insurance reimbursement for interprofessional consultations, expanding behavioral health integration and provider enrollment. Increase behavioral health access by adding mental health facilities and recognizing new provider specialties in plans.</p>
+              </div>
+              <div className="absolute-text">
+                <span>Administrative Burdens</span>               
+              </div>
+              <div className="concept-item red-box">
+               
               </div>
 
-            </div>
+            </div> */}
           </div>
           <div className="col-span-1 relative">
             <div className="absolute text-primary-color text-2rem cs2-section-5">
               <h5>Stakeholder Feedback</h5>
-              <p className="quote-box">“It feels cluttered and overwhelming. I get lost in all the graphics and labels.” 
+              <p className="quote-box">&ldquo;It feels cluttered and overwhelming. I get lost in all the graphics and labels.&rdquo; 
                 <br/><span className=" text-sm italic quotee">State Employee for Health Department</span></p> 
-              <p className="quote-box">“The labels don't resonate. Not sure what we're trying to represent here.”
+              <p className="quote-box">&ldquo;The labels don&apos;t resonate. Not sure what we&apos;re trying to represent here.&rdquo;
                 <br/><span className=" text-sm italic quotee">Senior Mental Health Patient </span>
               </p>
             </div>
@@ -107,35 +124,41 @@ export default function Slide6() {
       </section>
 
       <section className="w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="container-padding relative">
-          <img
-            src="/image/case_studies/02/Maria_Sketch_Pencil.png"
-            alt="A sketch of Maria"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute text-primary-color text-2rem cs2-section-5">
-            <p>We envisioned a <span className="font-bold">virtual, interactive space</span> where users could chat with characters based on real interview data. </p>
-            <p>Meet <span className="font-bold">Maria,</span> 
-            <br />a 68 year old retiree living in New Mexico.</p> 
-            <p>Ask her about her experiences getting mental health care in a rural town.</p>
+        <div className="container-padding relative grid grid-cols-3">
+          <div className="col-span-2">
+            <div className="container-padding relative">
+              <img
+                src="/image/case_studies/02/Maria_Sketch_Pencil.png"
+                alt="A sketch of Maria"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute text-primary-color text-2rem cs2-section-5">
+                <p>We envisioned a <span className="font-bold">virtual, interactive space</span> where users could chat with characters based on real interview data. </p>
+                <p>Meet <span className="font-bold">Maria,</span> 
+                <br />a 68 year old retiree living in New Mexico.</p> 
+                <p>Ask her about her experiences getting mental health care in a rural town.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-1">
+            <img
+                src="/image/case_studies/02/D_chat.png"
+                alt="A wireframe of an AI chat interface"
+                className="w-full h-full object-cover"
+              />
           </div>
         </div>
       </section>
 
-      <section className="w-full flex flex-col justify-center items-center">
-        <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-2 mb-8">
-            {/* image needed, to be replaced */}
-            <img
-              src="/image/case_studies/02/Maria_Sketch_Pencil.png"
-              alt="Case Study Small"
-              className="col-span-1 h-full w-full object-contain "
-            />
-            <img
-              src="/image/case_studies/02/Maria_Sketch_Coloured.png"
-              alt="Maria in a coloured drawing"
-              className="col-span-1 h-full w-full object-contain"
-            />
+      <section className="w-full min-h-screen flex flex-col justify-center items-center">
+        <div className="grid grid-cols-2">
+          <div className="col-span-1 gradient-bg-2 text-white">
+            {/* Video goes here */}
+            
+            <span className="container-padding caption text-sm font-mono ">Transcriptions and notes formed the foundation for AI-generated dialogue.</span>
+          </div>
+          <div className="col-span-1">
+          <ResponsiveVideo src="/video/case_studies/02/Maria_Sketch_Animation_final.mp4" title="timelapse of sketch" />
           </div>
         </div>
       </section>
@@ -184,7 +207,7 @@ export default function Slide6() {
       <section className="w-full flex flex-col justify-center items-center primary-bg">
         <div className="w-full container-padding-quad">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <h4 className="col-span-1 text-lger font-bold text-white">
+                <h4 className="col-span-1 text-3rem font-bold text-white">
                     <span className="font-thin opacity-90">/</span>
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>

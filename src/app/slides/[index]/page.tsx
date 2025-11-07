@@ -1,8 +1,10 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import SlideViewer from "../SlideViewer";
+import { slides } from "../slides";
 
-const totalSlides = 6; // keep in sync with SlideViewer
+
+const totalSlides = slides.length; // keep in sync with SlideViewer
 
 // Properly await params Promise as required by latest Next.js spec
 export async function generateMetadata(

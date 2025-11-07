@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import SlideMenu, { slideTitles } from "./SlideMenu";
 
 const slideCount = 6; // Set to match your number of slides
+// Slides that should use primary color instead of white
+const primaryColorSlides = [6]; // Add more slide indices here as needed
 
 export const MenuContext = createContext(false);
 
@@ -41,22 +43,32 @@ export default function Header({ open, setOpen }: { open?: boolean; setOpen?: (o
   if (pathname?.startsWith('/slides/')) {
     idx = parseInt(pathname.replace('/slides/', ''), 10);
     if (!isNaN(idx)) {
-      slideTitle = slideTitles[idx] ? `/ ${slideTitles[idx]}` : '';
+      slideTitle = slideTitles[idx] ? `- ${slideTitles[idx]}` : '';
     }
   }
+  // Use primary color for slides in primaryColorSlides array, white for all others
+  const usePrimaryColor = idx !== undefined && primaryColorSlides.includes(idx);
+  const textColor = usePrimaryColor ? 'text-primary-color' : 'text-white';
+  const textColorWithOpacity = usePrimaryColor ? 'text-primary-color/90' : 'text-white/90';
+  const borderColor = usePrimaryColor ? 'border-[#2D2D68]' : 'border-white/100';
+  
   return (
-    <header className="absolute left-0 right-0 top-0 z-10 border-b border-white/100 bg-transparent">
+    <header className={`absolute left-0 right-0 top-0 z-50 border-b ${borderColor} bg-transparent`}>
       <div className="flex h-14 items-center px-4 gap-3 sm:h-16 sm:px-6">
         <button
           aria-label="Open menu"
-          className="inline-flex h-9 w-9 items-center justify-center text-white focus:outline-none"
+          className={`inline-flex h-9 w-9 items-center justify-center ${textColor} focus:outline-none`}
           onClick={() => resolvedSetOpen(true)}
         >
           <Menu size={24} strokeWidth={2} />
         </button>
-        <div className="font-sans text-white font-black uppercase tracking-tight text-xl sm:text-2xl flex items-center gap-3">
+        <div className={`font-sans ${textColor} font-black uppercase tracking-tight text-xl sm:text-2xl flex items-center gap-3`}>
           DOODLE TO DEMO
-          {slideTitle && <span className="font-normal normal-case text-base sm:text-lg text-white/90 whitespace-nowrap">{slideTitle} of {slideCount}</span>}
+          {idx !== undefined && (
+            <span className={`font-normal normal-case text-base sm:text-lg ${textColorWithOpacity} whitespace-nowrap`}>
+             / {idx + 1} of {slideCount + 1} {slideTitle}
+            </span>
+          )}
         </div>
       </div>
     </header>

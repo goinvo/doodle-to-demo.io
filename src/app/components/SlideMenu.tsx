@@ -4,13 +4,13 @@ import { X } from "lucide-react";
 import Link from "next/link";
 
 export const slideTitles = [
-  '01 Welcome',
-  '02 GenAI Boom',
-  '03 Old Methods',
-  '04 Our Roles',
-  '05 F1 Intro',
-  '06 Case Study 1',
-  'More...',
+  'Welcome',
+  'GenAI Boom',
+  'Old Methods',
+  'Our Roles',
+  'F1 Intro',
+  'Case Study 1',
+  'Case Study 2',
 ];
 
 export default function SlideMenu({ open, setOpen, slideCount }: { open: boolean; setOpen: (open: boolean) => void; slideCount: number }) {

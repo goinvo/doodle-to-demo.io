@@ -5,18 +5,26 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export default function Slide5() {
+  const handleArrowClick = () => {
+    const viewportHeight = window.innerHeight;
+    window.scrollBy({
+      top: viewportHeight * 1,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-5 case-study">
       
       
-      <section className="gradient-bg w-full min-h-screen flex flex-col justify-center items-center">
+      <section className="gradient-bg w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad">
         <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
           <span className="font-thin opacity-90">/ Case Study 01</span>
           <br/> <span className="font-bold">Animating Complex Care Journeys</span>
         </h2>
 
         <motion.div
-          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1"
+          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
           animate={{ y: [0, 14, 0] }}
           transition={{
             repeat: Infinity,
@@ -25,7 +33,7 @@ export default function Slide5() {
             ease: "easeInOut",
             delay: 0.3,
           }}
-          style={{ pointerEvents: 'none' }}
+          onClick={handleArrowClick}
         >
           <ChevronDown size={56} strokeWidth={1.8} className="text-white/80 drop-shadow-lg" />
         </motion.div>
@@ -92,13 +100,13 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col container-padding-vertical-quad margin-top">
+      <section className="w-full flex flex-col container-padding container-padding-vertical-quad margin-top">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <h3 className="h3-all-caps text-primary-color">
             <span className="font-thin opacity-90">/</span>
             <span className="font-bold"> HOW ABOUT 3D?</span>
           </h3>
-          <div className="text-lger text-primary-color">
+          <div className="text-3rem text-primary-color">
             <span>What if we built models of hospitals and clinics to capture our backgrounds faster?</span>
           </div>
         </div>
@@ -147,7 +155,7 @@ export default function Slide5() {
                   className="h-full w-full object-contain "
                 />
                 <div className="caption-overlay">
-                  <p className="text-xs italic">"A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>."</p>
+                  <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
                 </div>
               </div>
             </div>
@@ -163,7 +171,7 @@ export default function Slide5() {
                   className="h-full w-full object-contain"
                 />
                 <div className="caption-overlay">
-                  <p className="text-xs italic">"Hospital trauma room, cinematic lighting, hard-edged blocky brush strokes, rich color gradients with purples, oranges, and greens, high contrast, simplified forms with painterly texture, a moody yet vibrant atmosphere, inspired by the visual style of <span className="font-bold">Joseph Iovescu</span>."</p>
+                  <p className="text-xs italic">&ldquo;Hospital trauma room, cinematic lighting, hard-edged blocky brush strokes, rich color gradients with purples, oranges, and greens, high contrast, simplified forms with painterly texture, a moody yet vibrant atmosphere, inspired by the visual style of <span className="font-bold">Joseph Iovescu</span>.&rdquo;</p>
                 </div>
               </div>
               <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></span>
@@ -177,7 +185,7 @@ export default function Slide5() {
                   className="h-full w-full object-contain"
                 />
                 <div className="caption-overlay">
-                  <p className="text-xs italic">"A friendly and colour hospital waiting room, watercolor textures, playful and minimal detail, inspired by the visual style of <span className="font-bold">Oliver Jeffers</span>."</p>
+                  <p className="text-xs italic">&ldquo;A friendly and colour hospital waiting room, watercolor textures, playful and minimal detail, inspired by the visual style of <span className="font-bold">Oliver Jeffers</span>.&rdquo;</p>
                 </div>
               </div>            
               <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 03</span></span>

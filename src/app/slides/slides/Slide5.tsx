@@ -14,7 +14,7 @@ export default function Slide5() {
   };
 
   return (
-    <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-5 case-study">
       
       
       <section className="gradient-bg w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad">

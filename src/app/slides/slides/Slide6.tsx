@@ -14,7 +14,7 @@ export default function Slide6() {
   };
 
   return (
-    <main className="relative min-h-[calc(100vh)] w-full overflow-auto">
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study">
       
       
       <section className="text-primary-color w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad">
@@ -79,13 +79,13 @@ export default function Slide6() {
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="container-padding relative grid grid-cols-4">
+      <section className="w-full flex flex-col justify-center items-center">
+        <div className="container-padding relative grid grid-cols-4 responsive-grid">
           <div className="col-span-3 relative">
             <img
               src="/image/case_studies/02/C_group_sketch_2.png"
               alt="A group sketch of patients and providers"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
             <span className="container-padding caption text-sm font-mono ">/ First concept sketch</span>
             {/* <div className="absolute concept-box">
@@ -111,7 +111,7 @@ export default function Slide6() {
             </div> */}
           </div>
           <div className="col-span-1 relative">
-            <div className="absolute text-primary-color text-2rem cs2-section-5">
+            <div className="text-primary-color text-1-5rem cs2-section-5 feedback-box">
               <h5>Stakeholder Feedback</h5>
               <p className="quote-box">&ldquo;It feels cluttered and overwhelming. I get lost in all the graphics and labels.&rdquo; 
                 <br/><span className=" text-sm italic quotee">State Employee for Health Department</span></p> 
@@ -123,16 +123,16 @@ export default function Slide6() {
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="container-padding relative grid grid-cols-3">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center container-padding">
+        <div className="grid grid-cols-3 responsive-grid">
           <div className="col-span-2">
-            <div className="container-padding relative">
+            <div className="relative">
               <img
                 src="/image/case_studies/02/Maria_Sketch_Pencil.png"
                 alt="A sketch of Maria"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover maria-sketch"
               />
-              <div className="absolute text-primary-color text-2rem cs2-section-5">
+              <div className="text-primary-color text-1-5rem meet-maria">
                 <p>We envisioned a <span className="font-bold">virtual, interactive space</span> where users could chat with characters based on real interview data. </p>
                 <p>Meet <span className="font-bold">Maria,</span> 
                 <br />a 68 year old retiree living in New Mexico.</p> 
@@ -141,17 +141,18 @@ export default function Slide6() {
             </div>
           </div>
           <div className="col-span-1">
+            {/* This is supposed to be a video. to be replaced */}
             <img
                 src="/image/case_studies/02/D_chat.png"
                 alt="A wireframe of an AI chat interface"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain chat-interface"
               />
           </div>
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col justify-center items-center">
-        <div className="grid grid-cols-2">
+      <section className="w-full flex flex-col justify-center items-center">
+        <div className="grid grid-cols-2 responsive-grid">
           <div className="col-span-1 gradient-bg-2 text-white">
             {/* Video goes here */}
             
@@ -165,7 +166,7 @@ export default function Slide6() {
 
       <section className="w-full flex flex-col justify-center items-center">
         <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-2 mb-8">
+          <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid">
             <div className="col-span-1">
               {/* sound thing here */}
             </div>
@@ -181,18 +182,18 @@ export default function Slide6() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col justify-center items-center">
+      <section className="w-full flex flex-col justify-center items-center tan-bg">
         <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-2 mb-8">
-            <div className="col-span-1">
+          <div className="image-grid image-grid-tall grid grid-cols-3 mb-8 responsive-grid">
+            <div className="col-span-2">
               <div className="relative">
+                <p className="padding-md caption text-sm font-mono font-bold text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
                 <img
                   src="/image/case_studies/02/Maria_Sketch_Coloured.png"
                   alt="Case Study Small"
-                  className="h-full w-full object-contain "
-                />
-                <p className=" absolute caption text-sm font-mono font-bold text-white"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
-                <h3 className="absolute h3-all-caps text-primary-color text-center">/ The design solution</h3>
+                  className="h-full w-full object-contain maria-color"
+                />                
+                <h3 className="absolute h3-all-caps text-3rem text-white text-center design-solution">/ The design solution</h3>
               </div>
               
             </div>
@@ -206,7 +207,7 @@ export default function Slide6() {
 
       <section className="w-full flex flex-col justify-center items-center primary-bg">
         <div className="w-full container-padding-quad">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 responsive-grid">
                 <h4 className="col-span-1 text-3rem font-bold text-white">
                     <span className="font-thin opacity-90">/</span>
                     <span className="font-bold"> Our New Workflow</span>
@@ -226,7 +227,7 @@ export default function Slide6() {
           <span className="font-thin opacity-90">/</span>
           <span className="font-bold"> Learnings</span>
         </h3>
-        <div className="image-grid image-grid-tall grid grid-cols-2 mb-8">
+        <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid">
             <div className="col-span-1">
                 <p className="framed-p-box">Crafting qualitative research with AI generation enables more first hand storytelling.</p>
             </div>

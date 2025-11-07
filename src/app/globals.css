@@ -28,6 +28,30 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Responsive grid - stacks vertically on medium and smaller screens */
+.responsive-grid {
+  display: grid;
+}
+
+@media (max-width: 1023px) {
+  .responsive-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+  
+  .responsive-grid > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto;
+  }
+  
+  /* Reset col-span classes on smaller screens - they become full width in flex column */
+  .responsive-grid [class*="col-span"] {
+    grid-column: unset !important;
+    width: 100% !important;
+  }
+}
+
 .container-padding {
   padding: 20px;
 }
@@ -36,6 +60,9 @@ body {
 }
 .container-padding-vertical-quad {
   padding: 80px 20px;
+}
+.padding-md {
+  padding: 20px;
 }
 .padding-none {
   padding:0;
@@ -49,6 +76,9 @@ body {
 
 .primary-bg {
   background-color: #2D2D68;
+}
+.tan-bg{
+  background-color: #FFF9ED;
 }
 .translucent-bg {
   background-color: rgba(45,45,104,0.5);
@@ -99,6 +129,9 @@ body {
 }
 .text-2rem {
   font-size: 1rem;
+}
+.text-1-5rem {
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .h3-all-caps {
@@ -176,6 +209,8 @@ body {
   }
 }
 
+
+/* slide 6 specific styles */
 .synthesize-section  .synthesize-text {
   top: 50px;
   width: 100%;
@@ -204,12 +239,10 @@ body {
     width: 80%;
   }
 }
-.cs2-section-5 {
-  max-width: 600px;
-  top: 0;
-  left: 0;
-}
 
+.word-blob-section {
+  padding-top:40px;
+}
 .word-blob-section .text-box {
   display: flex;
   align-items: center;
@@ -226,6 +259,9 @@ body {
 }
 
 @media (min-width: 768px) {
+  .word-blob-section {
+    padding: 80px 20px;
+  }
   .word-blob-section .text-box {
     background-size: cover;
     min-height: 200px;
@@ -356,4 +392,75 @@ body {
   .word-bubble:nth-child(13) { top: 19%; left: 44%;  }
   .word-bubble:nth-child(14) { top: 55%; left: 40%; }
   .word-bubble:nth-child(15) { top: 68%; left: 50%; }
+}
+
+.feedback-box {
+  padding: 40px;
+}
+
+.meet-maria {
+  max-width: 600px;
+  position: static;
+  margin-top: 20px;
+}
+
+@media (min-width: 1024px) {
+  .meet-maria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+  }
+}
+.meet-maria p{
+  width:500px;
+  margin: 10px 0;
+}
+.maria-sketch {
+  padding: 0;
+}
+@media (min-width: 1024px) {
+  .maria-sketch {
+    padding-left: 200px;
+  }
+}
+
+.chat-interface {
+  max-height: 600px;
+}
+
+.design-solution {
+  bottom: 0;
+  padding: 10px 45px;
+  width: 100%;
+}
+.cursor-note {
+  max-width: 350px;
+}
+
+.framed-p-box {
+  max-width: 500px;
+  border: solid 1px #6F6F90;
+  padding: 40px;
+  border-radius: 18px;
+  margin: 40px;
+}
+
+/* Align framed-p-box: left column to right, right column to left on desktop */
+.grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box {
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
+  margin-right: auto;
+  margin-left: 40px;
+}
+
+/* Center both on mobile when stacked */
+@media (max-width: 1023px) {
+  .grid.grid-cols-2 > .col-span-1 .framed-p-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

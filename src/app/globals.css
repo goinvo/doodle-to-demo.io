@@ -80,6 +80,15 @@ body {
 .tan-bg{
   background-color: #FFF9ED;
 }
+.dark-grey-bg {
+  background-color: #212121;
+}
+.light-grey-bg {
+  background-color: #F5F5F5;
+}
+.white-bg {
+  background-color: #FFF;
+}
 .translucent-bg {
   background-color: rgba(45,45,104,0.5);
 }
@@ -171,6 +180,13 @@ body {
   border-radius: 40px;
   background-color: rgba(255,255,255,0.25);
   padding: 40px;
+}
+.text-box.white-bg{
+  background-color: #fff;
+}
+.text-box.little-padding{
+  padding: 20px;
+  border-radius: 20px;
 }
 .quote-box {
   border-radius: 20px;

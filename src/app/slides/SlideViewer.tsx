@@ -45,10 +45,8 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
       {/* Arrows only shown/active when menu is closed */}
       {!menuOpen && (
         <div className={`absolute left-0 right-0 flex items-center justify-between z-30 ${
-          currentIndex === 5 || currentIndex === 6
+          currentIndex === 5 || currentIndex === 6 || currentIndex === 7
             ? 'bottom-[50vh]' 
-            : currentIndex === 7
-            ? 'bottom-8'
             : 'inset-y-1/2 -translate-y-1/2'
         }`}>
           <SlideNavArrows

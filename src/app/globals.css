@@ -61,6 +61,10 @@ body {
 .container-padding-vertical-quad {
   padding: 80px 20px;
 }
+.container-padding-horizontal {
+  padding-left: 80px;
+  padding-right: 80px;
+}
 .padding-md {
   padding: 20px;
 }
@@ -73,7 +77,16 @@ body {
 .margin-top {
   margin-top: 40px;
 }
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+  .container-padding-horizontal {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
 
+/* Backgrounds */
 .primary-bg {
   background-color: #2D2D68;
 }
@@ -103,6 +116,20 @@ body {
 .gradient-overlay {
   background: linear-gradient(90deg, rgba(45, 45, 104, 0.00) 30.52%, #2D2D68 100%, );
   /*background: linear-gradient(270deg, rgba(45, 45, 104, 0.00) 30.52%, var(--Primary, #2D2D68) 100%)*/
+}
+
+.grid-1-bg {
+  background-image: url('/image/grid_1.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+}
+
+.gradient-bg-with-grid {
+  background-image: url('/image/grid_1.svg'), linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: auto, cover;
 }
 
 .menu-title {

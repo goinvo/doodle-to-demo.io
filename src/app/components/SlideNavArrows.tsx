@@ -25,12 +25,15 @@ export default function SlideNavArrows({
           href={previousHref}
           prefetch
           aria-label="Previous slide"
-          className={` absolute left-2 text-white sm:left-4 ${
+          className={` absolute left-1 text-white sm:left-4 ${
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >
-          <div className="translucent-bg rounded-full p-1">
-            <ChevronLeft size={iconSize} strokeWidth={strokeWidth} />
+          <div className="translucent-bg rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.8px]">
+            <ChevronLeft 
+              size={iconSize} 
+              strokeWidth={strokeWidth}
+            />
           </div>
         </Link>
       ) : null}
@@ -39,12 +42,15 @@ export default function SlideNavArrows({
           href={nextHref}
           prefetch
           aria-label="Next slide"
-          className={` absolute right-2 text-white sm:right-4 ${
+          className={` absolute right-1 text-white sm:right-4 ${
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >
-          <div className="translucent-bg rounded-full p-1">
-            <ChevronRight size={iconSize} strokeWidth={strokeWidth} />
+          <div className="translucent-bg rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.8px]">
+            <ChevronRight 
+              size={iconSize} 
+              strokeWidth={strokeWidth}
+            />
           </div>
         </Link>
       ) : null}

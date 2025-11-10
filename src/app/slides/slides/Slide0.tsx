@@ -5,7 +5,7 @@ import ResponsiveVideo from "../../components/ResponsiveVideo";
 
 export default function Slide0({ nextIndex }: { nextIndex?: number }) {
   return (
-    <main className="gradient-bg relative min-h-[calc(100vh)] w-full px-4 py-6 sm:px-6">
+    <main className="gradient-bg-with-grid relative min-h-[calc(100vh)] w-full px-4 py-6 sm:px-6">
       <div className="grid grid-cols-12 gap-6">
         {/* Left: 2/3 width */}
         <section className="order-2 col-span-12 md:order-1 md:col-span-8 md:flex md:items-center md:min-h-[calc(100vh-4rem)]">

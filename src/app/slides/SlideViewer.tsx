@@ -47,6 +47,8 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
         <div className={`absolute left-0 right-0 flex items-center justify-between z-30 ${
           currentIndex === 5 || currentIndex === 6
             ? 'bottom-[50vh]' 
+            : currentIndex === 7
+            ? 'bottom-8'
             : 'inset-y-1/2 -translate-y-1/2'
         }`}>
           <SlideNavArrows
@@ -55,7 +57,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
             iconSize={88}
             strokeWidth={1.8}
             className="mx-auto pointer-events-auto"
-            isBottomPositioned={currentIndex === 5 || currentIndex === 6}
+            isBottomPositioned={currentIndex === 5 || currentIndex === 6 || currentIndex === 7}
           />
         </div>
       )}

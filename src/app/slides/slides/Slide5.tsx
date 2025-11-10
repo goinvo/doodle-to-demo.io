@@ -199,11 +199,7 @@ export default function Slide5() {
             <div className="container-padding">
               <div className="relative">
                 {/* wrong image, to be replaced */}
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
-                  alt="Case Study Small"
-                  className="h-full w-full object-contain "
-                />
+                <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" />
               </div>
             </div>
           </div>

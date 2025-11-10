@@ -11,6 +11,13 @@ export const slideTitles = [
   'F1 Intro',
   'Case Study 1',
   'Case Study 2',
+  'Case Study 3',
+  'Live Demo',
+  'Final Thoughts',
+  'Unlimited vision',
+  'Case Study Summary',
+  'Bridging Gaps',
+  'Q&A',
 ];
 
 export default function SlideMenu({ open, setOpen, slideCount }: { open: boolean; setOpen: (open: boolean) => void; slideCount: number }) {

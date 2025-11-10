@@ -4,8 +4,10 @@ import { Menu } from "lucide-react";
 import { useState, createContext, ReactNode, useContext } from "react";
 import { usePathname } from 'next/navigation';
 import SlideMenu, { slideTitles } from "./SlideMenu";
+import { slides } from "../slides/slides";
 
-const slideCount = 6; // Set to match your number of slides
+// Dynamically calculate slide count from slides array (slides are 0-indexed)
+const slideCount = slides.length - 1;
 // Slides that should use primary color instead of white
 const primaryColorSlides = [6]; // Add more slide indices here as needed
 

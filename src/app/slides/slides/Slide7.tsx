@@ -4,7 +4,7 @@ import ResponsiveVideo from "../../components/ResponsiveVideo";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-export default function Slide6() {
+export default function Slide7() {
   const handleArrowClick = () => {
     const viewportHeight = window.innerHeight;
     window.scrollBy({
@@ -15,9 +15,7 @@ export default function Slide6() {
 
   return (
     <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study">
-      
-      
-      <section className="w-full min-h-screen flex flex-col justify-center relative">
+      <section className="w-full flex flex-col justify-center relative">
         <img
             src="/image/case_studies/03/Slide7_Hero.png"
             alt="the back of a person sitting in front of several computer screens in a pixellated style"
@@ -26,7 +24,7 @@ export default function Slide6() {
         <div className="container-padding container-padding-vertical-quad absolute text-white">
           <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
             <span className="font-thin opacity-90">/ Case Study 03</span>
-            <br/> <span className="font-bold">Moving Away from Static Design</span>
+            <br/> <span className="font-bold leading-tight">Moving Away from Static Design</span>
           </h2>
           <p className="p-max text-2rem">How can we create <span className="font-bold all-caps">quick</span> prototypes that make ideas easy to understand and explore?</p>
 

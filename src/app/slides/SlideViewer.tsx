@@ -3,7 +3,7 @@
 import { useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 import SlideNavArrows from "../components/SlideNavArrows";
-import { MenuContext } from "../components/Header";
+import { MenuContext, primaryColorSlides } from "../components/Header";
 import { slides } from "./slides";
 
 // Slides are now imported from separate files in the slides directory
@@ -56,6 +56,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
             strokeWidth={1.8}
             className="mx-auto pointer-events-auto"
             isBottomPositioned={currentIndex === 5 || currentIndex === 6 || currentIndex === 7}
+            usePrimaryColor={primaryColorSlides.includes(currentIndex)}
           />
         </div>
       )}

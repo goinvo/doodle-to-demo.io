@@ -31,7 +31,7 @@ export default function Slide10() {
       />
       {/* Overlay for text contrast */}
       <div className="absolute inset-0 bg-black/35 z-10" />
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24 z-20">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24 z-20 container-padding-horizontal">
         <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] leading-[1.05] tracking-tight">
           <span className="block">We are not</span>
           <span className="block">limited by our</span>
@@ -40,7 +40,7 @@ export default function Slide10() {
           <span className="text-sm tracking-wider">Khalil Gibran</span>
         </h2>
       </div>
-      <div className="absolute bottom-6 right-6 text-right text-white/90 z-20">
+      <div className="absolute bottom-6 right-6 text-right text-white/90 z-20 container-padding-horizontal">
         <span className="opacity-80">/ Original 
         <span className="font-bold"> GoInvo Illustration</span> animated by
         <span className="font-bold"> Midjourney V7</span></span>

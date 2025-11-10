@@ -18,7 +18,7 @@ export default function Slide8() {
       
       
       <section className="w-full min-h-screen flex flex-col justify-center relative">
-        <div className="container-padding container-padding-vertical-quad absolute text-primary-color">
+        <div className="container-padding container-padding-vertical-quad absolute text-primary-color container-padding-horizontal">
           <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
             <span className="font-thin opacity-90">04</span>
             <br/> <span className="font-bold">Live Demo</span>

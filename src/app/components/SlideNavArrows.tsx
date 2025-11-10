@@ -8,6 +8,7 @@ type SlideNavArrowsProps = {
   strokeWidth?: number;
   className?: string;
   isBottomPositioned?: boolean;
+  usePrimaryColor?: boolean;
 };
 
 export default function SlideNavArrows({
@@ -17,7 +18,9 @@ export default function SlideNavArrows({
   strokeWidth = 2,
   className,
   isBottomPositioned = false,
+  usePrimaryColor = false,
 }: SlideNavArrowsProps) {
+  const textColor = usePrimaryColor ? 'text-primary-color' : 'text-white';
   return (
     <div className={`${className ?? ""} z-20`}>
       {previousHref ? (
@@ -25,7 +28,7 @@ export default function SlideNavArrows({
           href={previousHref}
           prefetch
           aria-label="Previous slide"
-          className={` absolute left-1 text-white sm:left-4 ${
+          className={` absolute left-1 ${textColor} sm:left-4 ${
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >
@@ -42,7 +45,7 @@ export default function SlideNavArrows({
           href={nextHref}
           prefetch
           aria-label="Next slide"
-          className={` absolute right-1 text-white sm:right-4 ${
+          className={` absolute right-1 ${textColor} sm:right-4 ${
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >

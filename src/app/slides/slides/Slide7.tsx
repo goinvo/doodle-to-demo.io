@@ -15,21 +15,21 @@ export default function Slide7() {
 
   return (
     <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study">
-      <section className="w-full flex flex-col justify-center relative">
+      <section className="w-full min-h-screen flex flex-col justify-center relative max-h-screen">
         <img
             src="/image/case_studies/03/Slide7_Hero.png"
             alt="the back of a person sitting in front of several computer screens in a pixellated style"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover absolute inset-0 max-h-screen"
           />
         <div className="container-padding container-padding-vertical-quad absolute text-white">
-          <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
+          <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight leading-none">
             <span className="font-thin opacity-90">/ Case Study 03</span>
-            <br/> <span className="font-bold leading-tight">Moving Away from Static Design</span>
+            <br/> <span className="font-bold ">Moving Away from Static Design</span>
           </h2>
-          <p className="p-max text-2rem">How can we create <span className="font-bold all-caps">quick</span> prototypes that make ideas easy to understand and explore?</p>
+          <p className="p-max text-2rem leading-snug mt-10">How can we create <span className="font-bold all-caps">quick</span> prototypes that make ideas easy to understand and explore?</p>
 
           <motion.div
-            className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
+            className="absolute left-1/2 top-120 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
             animate={{ y: [0, 14, 0] }}
             transition={{
               repeat: Infinity,
@@ -40,7 +40,7 @@ export default function Slide7() {
             }}
             onClick={handleArrowClick}
           >
-            <ChevronDown size={56} strokeWidth={1.8} className="text-primary-color drop-shadow-lg" />
+            <ChevronDown size={56} strokeWidth={1.8} className="text-white drop-shadow-lg" />
           </motion.div>
         </div>
         

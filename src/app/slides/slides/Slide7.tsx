@@ -16,11 +16,13 @@ export default function Slide7() {
   return (
     <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study">
       <section className="w-full min-h-screen flex flex-col justify-center relative max-h-screen">
+        
         <img
-            src="/image/case_studies/03/Slide7_Hero.png"
+            src="/image/case_studies/03/Slide7_Hero.gif"
             alt="the back of a person sitting in front of several computer screens in a pixellated style"
-            className="w-full h-full object-cover absolute inset-0 max-h-screen"
+            className="w-full h-full object-cover absolute inset-0 max-h-screen slide7-hero bg-black/30"
           />
+          <div className="absolute inset-0 bg-black/50 w-full" />
         <div className="container-padding container-padding-vertical-quad absolute text-white">
           <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight leading-none">
             <span className="font-thin opacity-90">/ Case Study 03</span>
@@ -88,9 +90,17 @@ export default function Slide7() {
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
-        {/* two images side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        <div className="w-full grid grid-cols-2 responsive-grid">
+          <div className="col-span-1 text-white">
+            <div className="masked-video-offset-design">
+              <div className="video-masked-design">
+                <ResponsiveVideo src="/video/case_studies/03/design.mp4" title="video of a design artboard in Figma" />
+              </div>
+            </div>
+          </div>
+          <div className="col-span-1">
+            <ResponsiveVideo src="/video/case_studies/03/cursor.mp4" title="video of coding and prompting in Cursor" />
+          </div>
         </div>
       </section>
 
@@ -103,7 +113,7 @@ export default function Slide7() {
           </h3>
           <div className="container-padding">
             <div className="hidden md:block">
-              <div className="grid grid-cols-[1fr_60px_1fr] grid-rows-[1fr_auto_1fr] gap-8 items-center justify-items-center">
+              <div className="grid grid-cols-[1fr_60px_1fr] gap-8 items-center justify-items-center">
                 {/* Prompt 1 */}
                   <div className="w-full">
                     <img
@@ -140,7 +150,7 @@ export default function Slide7() {
                   <img
                     src="/image/case_studies/03/cursor_prompts/horiz_arrow_long.svg"
                     alt=""
-                    className="w-[95%] h-auto object-contain"
+                    className="h-auto object-contain horiz_arrow_long"
                   />
                 </div>
 

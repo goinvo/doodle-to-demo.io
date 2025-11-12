@@ -6,7 +6,7 @@ type ResponsiveVideoProps = {
 export default function ResponsiveVideo({ src, title }: ResponsiveVideoProps) {
   if (!src) {
     return (
-      <div className="aspect-video w-full rounded-2xl border border-white/40 bg-white/5 text-white/80 backdrop-blur-sm">
+      <div className="aspect-video w-full border border-white/40 bg-white/5 text-white/80 backdrop-blur-sm">
         <div className="flex h-full w-full items-center justify-center">
           <span className="text-sm">Video placeholder</span>
         </div>
@@ -15,7 +15,7 @@ export default function ResponsiveVideo({ src, title }: ResponsiveVideoProps) {
   }
 
   return (
-    <div className="aspect-video w-full overflow-hidden rounded-2xl">
+    <div className="aspect-video w-full overflow-hidden">
       <video
         className="h-full w-full object-cover"
         src={src}

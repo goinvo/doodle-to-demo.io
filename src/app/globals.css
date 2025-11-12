@@ -320,6 +320,9 @@ body {
     max-width: 300px;
   }
 }
+.square-corners {
+  border-radius: 0px;
+}
 .workflow-list {
   display: grid;
   grid-template-columns: 2.5em 1fr;
@@ -829,4 +832,14 @@ body {
   .learnings-section .col-span-1 {
     max-height: 700px;
   }
+}
+
+/* Slide 7 specific styles */
+.slide7-hero {
+  filter: grayscale(100%);
+}
+
+.horiz_arrow_long {
+  width: 80% !important;
+  margin: 0 auto;
 }

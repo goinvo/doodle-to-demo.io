@@ -142,6 +142,9 @@ body {
   margin-left: 7px;
 }
 
+a {
+  text-decoration: underline;
+}
 .p-max {
   max-width:900px;
 }

@@ -431,6 +431,10 @@ export default function Slide5() {
           <span>The result of this workflow was <span className="font-bold">4 animations</span> telling the stories of our patients and providers, accomplished in a third of the time — from <span className="font-bold">600</span> hours to <em className="italic font-bold">200 </em> hours.</span>
         </div>
       </section>
+
+      <section className="case-study-nav-section w-full min-h-[200px] flex items-end">
+        {/* Navigation arrows will be inserted here by SlideViewer */}
+      </section>
       
     </main>
   );

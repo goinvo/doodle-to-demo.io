@@ -327,6 +327,10 @@ export default function Slide7() {
           </div>
         </div>
       </section>
+
+      <section className="case-study-nav-section w-full min-h-[200px] flex items-end">
+        {/* Navigation arrows will be inserted here by SlideViewer */}
+      </section>
       
     </main>
   );

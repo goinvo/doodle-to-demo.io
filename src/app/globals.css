@@ -340,7 +340,92 @@ body {
   grid-column: 2;
   margin: 0;
 }
+.case-study-nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  padding: 0;
+}
 
+.cs-prev-nav {
+  width: 33.333%;
+  min-height: 200px;
+  background-color: #2D2D68;
+  background-image: url('/image/grid_1.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px 20px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  position: relative;
+}
+
+.cs-prev-nav:hover {
+  opacity: 0.9;
+}
+
+.cs-prev-nav-arrow {
+  transform: scale(0.7);
+}
+
+@media (min-width: 640px) {
+  .cs-prev-nav-arrow {
+    transform: scale(1);
+  }
+}
+
+.cs-prev-nav-text {
+  margin-left: auto;
+  margin-top: 0;
+}
+
+.cs-prev-nav-text, .cs-next-nav-text {
+  font-size: 3rem;
+}
+
+.cs-next-nav {
+  width: 66.667%;
+  min-height: 200px;
+  background-color: #2D2D68;
+  background-image: url('/image/grid_1.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  position: relative;
+}
+
+.cs-next-nav:hover {
+  opacity: 0.9;
+}
+
+.cs-next-nav-arrow {
+  margin-left: auto;
+  transform: scale(0.7);
+}
+
+@media (min-width: 640px) {
+  .cs-next-nav-arrow {
+    transform: scale(1);
+  }
+}
+
+.cs-next-nav-text {
+  margin-top: 0;
+  order: -1;
+}
 /* slide 6 specific styles */
 
 /* Slide 6 hero section with grid waves background */
@@ -842,4 +927,10 @@ body {
 .horiz_arrow_long {
   width: 80% !important;
   margin: 0 auto;
+}
+
+/* Case study navigation section */
+.case-study-nav-section {
+  position: relative;
+  padding-bottom: 40px;
 }

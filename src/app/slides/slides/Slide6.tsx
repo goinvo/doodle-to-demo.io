@@ -217,10 +217,10 @@ export default function Slide6() {
         </h3>
         <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid text-center dots-bg justify-center">
             <div className="col-span-1">
-                <p className="framed-p-box">Crafting qualitative research with AI generation enables more first hand storytelling.</p>
+                <p className="framed-p-box text-2rem">Crafting qualitative research with AI generation enables more first hand storytelling.</p>
             </div>
             <div className="col-span-1">
-            <p className="framed-p-box">The experience allows decision-makers to connect with research insights and drive better policy.</p>
+            <p className="framed-p-box text-2rem">The experience allows decision-makers to connect with research insights and drive better policy.</p>
             </div>
             
           </div>

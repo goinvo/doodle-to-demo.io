@@ -135,7 +135,7 @@ export default function Slide5() {
       </section>
 
       <section className="w-full flex flex-col container-padding">
-        <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation.mov" title="Video of emergency room 3D model" />
+        <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" />
         <span className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span></span>
       </section>
 

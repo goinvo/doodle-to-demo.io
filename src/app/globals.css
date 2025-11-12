@@ -320,7 +320,23 @@ body {
     max-width: 300px;
   }
 }
+.workflow-list {
+  display: grid;
+  grid-template-columns: 2.5em 1fr;
+  gap: 0 0.5em 10px 0;
+  align-items: start;
+}
 
+.workflow-list dt {
+  grid-column: 1;
+  text-align: right;
+  justify-self: end;
+}
+
+.workflow-list dd {
+  grid-column: 2;
+  margin: 0;
+}
 
 /* slide 6 specific styles */
 
@@ -581,19 +597,75 @@ body {
   max-width: 100%;
   box-sizing: border-box;
 }
+
+/* Ensure relative container in tan-bg section has height for maria-color anchoring */
+.tan-bg .col-span-2 > .relative {
+  height: 100%;
+  min-height: 720px;
+}
 .chat-col {
   height: 600px;
 }
 
+/* Mobile/Tablet: Set heights for stacked columns in tan-bg section */
+@media (max-width: 1023px) {
+  .tan-bg {
+    min-height: 1200px;
+  }
+  
+  .tan-bg .image-grid-tall {
+    height: auto;
+    min-height: 1200px;
+  }
+  
+  .tan-bg .maria-col {
+    height: 600px;
+    min-height: 600px;
+  }
+  
+  .tan-bg .chat-col {
+    height: 500px;
+    min-height: 600px;
+  }
+  
+  .tan-bg .col-span-2 > .relative {
+    min-height: 600px;
+  }
+}
 .design-solution {
   bottom: 0;
   padding: 10px 45px;
   width: 100%;
 }
+.maria-color {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
 
 .cursor-note {
   max-width: 350px;
 }
+
+@media (min-width: 768px) {
+  .cursor-note {
+    max-width: 325px;
+  }
+}
+@media (min-width: 1024px) {
+  .maria-col {
+    height: 752px;
+  }
+  .cursor-note {
+    max-width: 350px;
+  }
+}
+
 
 /* Video mask - rectangular mask with 50px inset on all sides */
 /* Override responsive video sizing for masked videos */
@@ -661,21 +733,21 @@ body {
     height: 500px;
   }
   .video-masked-voice {
-    clip-path: inset(116px 7px 90px 150px);
-    -webkit-clip-path: inset(116px 7px 90px 150px);
+    clip-path: inset(80px 7px 170px 115px);
+    -webkit-clip-path: inset(80px 7px 170px 115px);
   }
   .masked-video-offset-voice {
     width: 750px;
     height: 500px;
     left: 50%;
-    transform: scale(1.25) translateX(calc(-50%)) translateY(100px);
+    transform: scale(1.5) translateX(-43%) translateY(100px);
   }
   .video-masked-chat {
     clip-path: inset(5px 0px 0px 528px);
     -webkit-clip-path: inset(5px 0px 0px 528px);
   }
   .masked-video-offset-chat {
-    transform: scale(1.5) translateX(calc(-50% - 150px)) translateY(107px);
+    transform: scale(1.5) translateX(calc(-50% - 150px)) translateY(116px);
     width: 750px;
     height: 700px;
   }

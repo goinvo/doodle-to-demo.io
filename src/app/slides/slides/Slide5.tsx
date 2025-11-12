@@ -394,10 +394,16 @@ export default function Slide5() {
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                    <p className="text-white"><span className="font-bold numbered">01</span><span className="font-thin">Frame the shot in 3D</span></p>
-                    <p className="text-white"><span className="font-bold numbered">02</span><span className="font-thin">Style in Midjourney (using our own illustrations as reference)</span></p>
-                    <p className="text-white"><span className="font-bold numbered">03</span><span className="font-thin">Post-processing in Photoshop & add Procreate drawn characters</span></p>
-                    <p className="text-white"><span className="font-bold numbered">04</span><span className="font-thin">Back to Midjourney to animate</span></p>
+                <dl className="text-white workflow-list">
+                    <dt className="font-bold numbered">01</dt>
+                    <dd className="font-thin">Frame the shot in 3D</dd>
+                    <dt className="font-bold numbered">02</dt>
+                    <dd className="font-thin">Style in Midjourney (using our own illustrations as reference)</dd>
+                    <dt className="font-bold numbered">03</dt>
+                    <dd className="font-thin">Post-processing in Photoshop & add Procreate drawn characters</dd>
+                    <dt className="font-bold numbered">04</dt>
+                    <dd className="font-thin">Back to Midjourney to animate</dd>
+                  </dl>
                 </div>
             </div>
         </div>

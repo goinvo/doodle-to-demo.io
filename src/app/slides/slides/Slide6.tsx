@@ -163,9 +163,9 @@ export default function Slide6() {
       <section className="w-full flex flex-col justify-center items-center tan-bg">
         <div className="w-full">
           <div className="image-grid image-grid-tall grid grid-cols-3 mb-8 responsive-grid">
-            <div className="col-span-2">
+            <div className="col-span-2 maria-col">
               <div className="relative">
-                <p className="padding-md caption text-sm font-mono font-bold text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
+                <p className="padding-md caption text-sm font-mono text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
                 <img
                   src="/image/case_studies/02/Maria_Sketch_Coloured.png"
                   alt="Case Study Small"
@@ -195,10 +195,16 @@ export default function Slide6() {
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                    <p className="text-white"><span className="font-bold numbered">01</span><span className="font-thin">Develop the character&apos;s background and profile</span></p>
-                    <p className="text-white"><span className="font-bold numbered">02</span><span className="font-thin">Create a visual respresentation</span></p>
-                    <p className="text-white"><span className="font-bold numbered">03</span><span className="font-thin">Develop dialogue and pair with generated voice</span></p>
-                    <p className="text-white"><span className="font-bold numbered">04</span><span className="font-thin">Integrate everything into live site</span></p>
+                  <dl className="text-white workflow-list">
+                    <dt className="font-bold numbered">01</dt>
+                    <dd className="font-thin">Develop the character&apos;s background and profile</dd>
+                    <dt className="font-bold numbered">02</dt>
+                    <dd className="font-thin">Create a visual respresentation</dd>
+                    <dt className="font-bold numbered">03</dt>
+                    <dd className="font-thin">Develop dialogue and pair with generated voice</dd>
+                    <dt className="font-bold numbered">04</dt>
+                    <dd className="font-thin">Integrate everything into live site</dd>
+                  </dl>
                 </div>
             </div>
         </div>

@@ -1,12 +1,26 @@
 type ResponsiveVideoProps = {
   src?: string;
   title?: string;
+  rounded?: boolean;
+  roundedSize?: string | number;
 };
 
-export default function ResponsiveVideo({ src, title }: ResponsiveVideoProps) {
+export default function ResponsiveVideo({ 
+  src, 
+  title, 
+  rounded = false, 
+  roundedSize = '1rem' 
+}: ResponsiveVideoProps) {
+  const roundedStyle = rounded 
+    ? { borderRadius: typeof roundedSize === 'number' ? `${roundedSize}px` : roundedSize }
+    : {};
+
   if (!src) {
     return (
-      <div className="aspect-video w-full border border-white/40 bg-white/5 text-white/80 backdrop-blur-sm">
+      <div 
+        className="aspect-video w-full border border-white/40 bg-white/5 text-white/80 backdrop-blur-sm overflow-hidden"
+        style={roundedStyle}
+      >
         <div className="flex h-full w-full items-center justify-center">
           <span className="text-sm">Video placeholder</span>
         </div>
@@ -15,7 +29,10 @@ export default function ResponsiveVideo({ src, title }: ResponsiveVideoProps) {
   }
 
   return (
-    <div className="aspect-video w-full overflow-hidden">
+    <div 
+      className="aspect-video w-full overflow-hidden"
+      style={roundedStyle}
+    >
       <video
         className="h-full w-full object-cover"
         src={src}

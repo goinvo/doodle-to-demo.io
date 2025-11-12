@@ -84,7 +84,7 @@ export default function SlideNavArrows({
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >
-          <div className="translucent-bg rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.8px]">
+          <div className="rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.2px]">
             <ChevronLeft 
               size={iconSize} 
               strokeWidth={strokeWidth}
@@ -101,7 +101,7 @@ export default function SlideNavArrows({
             isBottomPositioned ? '' : 'top-1/2 -translate-y-1/2'
           }`}
         >
-          <div className="translucent-bg rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.8px]">
+          <div className="rounded-full p-0.5 sm:p-1 scale-[0.7] sm:scale-100 [&_svg]:[stroke-width:1.26px] md:[&_svg]:[stroke-width:1.2px]">
             <ChevronRight 
               size={iconSize} 
               strokeWidth={strokeWidth}

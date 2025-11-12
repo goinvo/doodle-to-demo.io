@@ -83,10 +83,10 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } }}
             >
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src="/video/Maverick_Midjourney_profile_animation_final.mp4" title="Top Right Video" />
+                <ResponsiveVideo src="/video/Maverick_Midjourney_profile_animation_final.mp4" title="Top Right Video" rounded={true} roundedSize="20px" />
               </motion.div>
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src="/video/Claire_Midjourney_profile_animation_final.mp4" title="Bottom Right Video" />
+                <ResponsiveVideo src="/video/Claire_Midjourney_profile_animation_final.mp4" title="Bottom Right Video" rounded={true} roundedSize="20px" />
               </motion.div>
             </motion.div>
             <div className="pt-4 text-right text-white/90">

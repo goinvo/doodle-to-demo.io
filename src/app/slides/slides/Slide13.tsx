@@ -14,7 +14,7 @@ export default function Slide13({ nextIndex }: { nextIndex?: number }) {
         <span className="font-mono mt-10">Conversation Starters</span>
         <p className="p-max text-2rem">How do you feel about <span className="font-bold">using AI</span> in your work?
         <br />How do we <span className="font-bold">co-design</span> with our clients and team?</p>
-        <p className="font-mono mt-10">Share your thoughts or questions at <a href="mailto:doodletoemo@goinvo.com">doodletoemo@goinvo.com</a></p>
+        <p className="font-mono mt-10">Share your thoughts or questions at <a href="mailto:doodletodemo@goinvo.com">doodletodemo@goinvo.com</a></p>
       </section>
     </main>
   );

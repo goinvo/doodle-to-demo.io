@@ -131,6 +131,12 @@ body {
   background-position: center, center;
   background-size: auto, cover;
 }
+.dots-bg {
+  background-image: url('/image/dots_bg.svg');
+  background-repeat: repeat, no-repeat;
+  background-position: center, center;
+  background-size: auto;
+}
 
 .menu-title {
   margin-left: 7px;
@@ -169,6 +175,9 @@ body {
 .text-1-5rem {
   font-size: 1.5rem;
 }
+.text-1rem {
+  font-size: 1rem;
+}
 @media (min-width: 768px) {
   .h3-all-caps {
     font-size: 3rem;
@@ -181,6 +190,9 @@ body {
   }
   .text-2rem {
     font-size: 1.5rem;
+  }
+  .text-1rem {
+    font-size: 1rem;
   }
 }
 @media (min-width: 1024px) {
@@ -195,6 +207,10 @@ body {
   }
   .text-2rem {
     font-size: 2rem;
+  }
+  .text-1rem {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
   }
 }
 .text-underline {
@@ -218,14 +234,67 @@ body {
 .quote-box {
   border-radius: 20px;
   border: solid 1px #6F6F90;
-  padding: 20px;
-  margin: 6px;
+  padding: 15px;
+  margin: 20px 6px;
+  position: relative;
+  overflow: visible;
+  line-height: 1.8rem;
 }
+.quote-box:last-child {
+  transform: translateX(15px);
+}
+
+/* Create border outline for chat bubble using mask */
+.quote-box::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -6px;
+  width: 19px;
+  height: 14px;
+  background-color: #6F6F90;
+  mask: url('/image/chat_bubble.svg') no-repeat center;
+  mask-size: 19px 14px;
+  -webkit-mask: url('/image/chat_bubble.svg') no-repeat center;
+  -webkit-mask-size: 19px 14px;
+  z-index: 1;
+}
+
+/* Fill the chat bubble shape - white version on top */
+.quote-box::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -3px;
+  width: 15px;
+  height: 10px;
+  background-image: url('/image/chat_bubble.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 2;
+}
+
 @media (min-width: 768px) {
   .quote-box {
-    border-radius: 40px;
-    padding: 40px;
     margin: 10px;
+    transform: translateX(0);
+  }
+  
+  .quote-box::before {
+    bottom: -7px;
+    right: -8px;
+    width: 24px;
+    height: 17px;
+    mask-size: 24px 17px;
+    -webkit-mask-size: 24px 17px;
+  }
+  
+  .quote-box::after {
+    bottom: -4px;
+    right: -5px;
+    width: 20px;
+    height: 13px;
   }
 }
 
@@ -251,9 +320,58 @@ body {
     max-width: 300px;
   }
 }
+.workflow-list {
+  display: grid;
+  grid-template-columns: 2.5em 1fr;
+  gap: 0 0.5em 10px 0;
+  align-items: start;
+}
 
+.workflow-list dt {
+  grid-column: 1;
+  text-align: right;
+  justify-self: end;
+}
+
+.workflow-list dd {
+  grid-column: 2;
+  margin: 0;
+}
 
 /* slide 6 specific styles */
+
+/* Slide 6 hero section with grid waves background */
+.slide6-hero {
+  position: relative;
+  overflow: hidden;
+}
+.slide6-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+  right: 0;
+  width: 115%;
+  margin: 0 -50px -70px -50px;
+  height: auto;
+  min-height: 300px;
+  padding-bottom: 16.9%; /* Aspect ratio based on SVG: 399/2360 ≈ 0.169 */
+  background-image: url('/image/case_studies/02/grid_waves.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+  z-index: 0;
+  pointer-events: none;
+}
+.slide6-hero > *:not(.bounce_arrow) {
+  position: relative;
+  z-index: 1;
+}
+.slide6-hero .bounce_arrow {
+  z-index: 10 !important;
+  position: absolute;
+}
+
 .synthesize-section  .synthesize-text {
   top: 50px;
   width: 100%;
@@ -300,7 +418,6 @@ body {
   background-position: center;
   background-color: transparent;
 }
-
 @media (min-width: 768px) {
   .word-blob-section {
     padding: 80px 20px;
@@ -310,7 +427,6 @@ body {
     min-height: 200px;
   }
 }
-
 .word-cloud-container {
   width: 100%;
   max-width: 1200px;
@@ -318,7 +434,6 @@ body {
   margin: 0 auto;
   position: relative;
 }
-
 .word-cloud {
   position: absolute;
   width: 100%;
@@ -327,7 +442,6 @@ body {
   left: 0;
   z-index: 3;
 }
-
 .word-cloud-center {
   position: relative;
   z-index: 1;
@@ -335,13 +449,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 400px;
-  padding: 40px;
+  padding: 20px;
 }
-
 .word-cloud-center .text-box {
   font-size: clamp(1rem, 4vw, 3rem);
 }
-
 .word-bubble {
   position: absolute;
   background-color: white;
@@ -354,7 +466,6 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 4;
 }
-
 /* Mobile positioning */
 .word-bubble:nth-child(1) { top: 14%; left: 26%; }
   .word-bubble:nth-child(2) { top: 10%; right: 27%; }
@@ -377,17 +488,13 @@ body {
   .word-cloud-container {
     min-height: 700px;
   }
-  
   .word-cloud-center {
     min-height: 500px;
   }
-  
   .word-bubble {
     font-size: 1rem;
     padding: 10px 20px;
   }
-  
-
   .word-bubble:nth-child(1) { top: 14%; left: 28%; }.word-bubble:nth-child(1) { top: 14%; left: 28%; }
   .word-bubble:nth-child(2) { top: 10%; right: 27%; }
   .word-bubble:nth-child(3) { top: 18%; left: 6%; }
@@ -410,16 +517,13 @@ body {
   .word-cloud-container {
     min-height: 800px;
   }
-  
   .word-cloud-center {
     min-height: 600px;
   }
-  
   .word-bubble {
     font-size: 1.1rem;
     padding: 12px 24px;
   }
-  
   .word-bubble:nth-child(1) { top: 14%; left: 28%; }
   .word-bubble:nth-child(2) { top: 10%; right: 27%; }
   .word-bubble:nth-child(3) { top: 18%; left: 6%; }
@@ -438,26 +542,44 @@ body {
 }
 
 .feedback-box {
-  padding: 40px;
+  padding: 30px;
 }
-
+.meet-maria-container {
+  width:100%;
+}
 .meet-maria {
-  max-width: 600px;
-  position: static;
-  margin-top: 20px;
+  position: relative;
+  max-width: 100%;
+  margin: 20px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
-
 @media (min-width: 1024px) {
+  .meet-maria-container {
+    height: 800px;
+  }
   .meet-maria {
     position: absolute;
     top: 0;
     left: 0;
     margin-top: 0;
+    max-width: 600px;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    right: auto;
   }
 }
-.meet-maria p{
-  width:500px;
+.meet-maria p {
+  max-width: 100%;
   margin: 10px 0;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .meet-maria p {
+    width: 500px;
+    max-width: 500px;
+  }
 }
 .maria-sketch {
   padding: 0;
@@ -468,42 +590,243 @@ body {
   }
 }
 
-.chat-interface {
-  max-height: 600px;
+/* Ensure the relative parent containing meet-maria has proper constraints */
+.col-span-2 > .relative {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+/* Ensure relative container in tan-bg section has height for maria-color anchoring */
+.tan-bg .col-span-2 > .relative {
+  height: 100%;
+  min-height: 720px;
+}
+.chat-col {
+  height: 600px;
+}
+
+/* Mobile/Tablet: Set heights for stacked columns in tan-bg section */
+@media (max-width: 1023px) {
+  .tan-bg {
+    min-height: 1200px;
+  }
+  
+  .tan-bg .image-grid-tall {
+    height: auto;
+    min-height: 1200px;
+  }
+  
+  .tan-bg .maria-col {
+    height: 600px;
+    min-height: 600px;
+  }
+  
+  .tan-bg .chat-col {
+    height: 500px;
+    min-height: 600px;
+  }
+  
+  .tan-bg .col-span-2 > .relative {
+    min-height: 600px;
+  }
+}
 .design-solution {
   bottom: 0;
   padding: 10px 45px;
   width: 100%;
 }
+.maria-color {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
 .cursor-note {
   max-width: 350px;
+}
+
+@media (min-width: 768px) {
+  .cursor-note {
+    max-width: 325px;
+  }
+}
+@media (min-width: 1024px) {
+  .maria-col {
+    height: 752px;
+  }
+  .cursor-note {
+    max-width: 350px;
+  }
+}
+
+
+/* Video mask - rectangular mask with 50px inset on all sides */
+/* Override responsive video sizing for masked videos */
+.masked-video-offset-profile-building > div,
+.masked-video-offset-voice > div,
+.masked-video-offset-chat > div {
+  aspect-ratio: unset !important;
+  width: auto !important;
+  height: 100% !important;
+}
+
+.masked-video-offset-profile-building video,
+.masked-video-offset-voice video,
+.masked-video-offset-chat video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* Mobile (default) */
+.masked-video-offset-profile-building, .masked-video-offset-voice, .masked-video-offset-chat {
+  position: relative;
+  left: 50%;
+  overflow: hidden;
+}
+.video-masked-profile-building {
+  clip-path: inset(55px 20px 80px 250px);
+  -webkit-clip-path: inset(55px 20px 80px 250px);
+}
+.masked-video-offset-profile-building {
+  transform: scale(1) translateX(calc(-50% - 50px));
+  width: 600px;
+  height: 400px;
+}
+.video-masked-voice {
+  clip-path: inset(94px 7px 70px 100px);
+  -webkit-clip-path: inset(94px 7px 70px 100px);
+}
+.masked-video-offset-voice {
+  transform: scale(1.15) translateX(calc(-50%));
+  max-width: 600px;
+  height: 400px;
+}
+.video-masked-chat {
+  clip-path: inset(5px 0px 0px 352px);
+  -webkit-clip-path: inset(5px 0px 0px 352px);
+}
+.masked-video-offset-chat {
+  transform: scale(2) translateX(calc(-50% - 50px)) translateY(150px);
+  width: 500px;
+  height: 500px;
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .video-masked-profile-building {
+    clip-path: inset(65px 20px 100px 310px);
+    -webkit-clip-path: inset(65px 20px 100px 310px);
+  }
+  .masked-video-offset-profile-building {
+    position: relative;
+    left: 50%;
+    transform: scale(1) translateX(calc(-50% - 140px)) translateY(50px);
+    width: 750px;
+    height: 500px;
+  }
+  .video-masked-voice {
+    clip-path: inset(80px 7px 170px 115px);
+    -webkit-clip-path: inset(80px 7px 170px 115px);
+  }
+  .masked-video-offset-voice {
+    width: 750px;
+    height: 500px;
+    left: 50%;
+    transform: scale(1.5) translateX(-43%) translateY(100px);
+  }
+  .video-masked-chat {
+    clip-path: inset(5px 0px 0px 528px);
+    -webkit-clip-path: inset(5px 0px 0px 528px);
+  }
+  .masked-video-offset-chat {
+    transform: scale(1.5) translateX(calc(-50% - 150px)) translateY(116px);
+    width: 750px;
+    height: 700px;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .video-masked-profile-building {
+    clip-path: inset(77px 30px 120px 370px);
+    -webkit-clip-path: inset(77px 30px 120px 370px);
+  }
+  .masked-video-offset-profile-building {
+    left: 45%;
+    transform: scale(1) translateX(calc(-50% - 140px));
+    width: 900px;
+    height: 600px;
+  }
+  .video-masked-voice {
+    clip-path: inset(106px 7px 205px 150px);
+    -webkit-clip-path: inset(106px 7px 205px 150px);
+  }
+  .masked-video-offset-voice {
+    position: relative;
+    left: 57%;
+    transform: scale(1.5) translateX(calc(-50%)) translateY(100px);
+    max-width: 900px;
+    height: 600px;
+  }
+  .video-masked-chat {
+    clip-path: inset(5px 0px 0px 633px);
+    -webkit-clip-path: inset(5px 0px 0px 633px);
+  }
+  .masked-video-offset-chat {
+    position: relative;
+    left: auto;
+    right: 0;
+    transform: scale(1.5) translateX(-500px) translateY(128px);
+    width: 900px;
+    height: 800px;
+  } 
 }
 
 .framed-p-box {
   max-width: 500px;
   border: solid 1px #6F6F90;
+  background: #fff;
   padding: 40px;
   border-radius: 18px;
   margin: 40px;
 }
 
-/* Align framed-p-box: left column to right, right column to left on desktop */
-.grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box {
-  margin-left: auto;
-  margin-right: 40px;
+/* Center framed-p-box vertically in its container */
+.learnings-section .grid.grid-cols-2 > .col-span-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
-  margin-right: auto;
-  margin-left: 40px;
+.learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box,
+.learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
+  margin: 0 auto;
+}
+.learnings-section .col-span-1 {
+  max-height: 200px;
 }
 
 /* Center both on mobile when stacked */
-@media (max-width: 1023px) {
-  .grid.grid-cols-2 > .col-span-1 .framed-p-box {
+@media (min-width: 1023px) {
+  .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box {
     margin-left: auto;
+    margin-right: 40px;
+  }
+  
+  .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
     margin-right: auto;
+    margin-left: 40px;
+  }
+
+  .learnings-section .col-span-1 {
+    max-height: 700px;
   }
 }

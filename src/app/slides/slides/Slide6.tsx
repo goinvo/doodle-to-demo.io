@@ -104,7 +104,7 @@ export default function Slide6() {
       </section>
 
       <section className="w-full min-h-screen flex flex-col justify-center items-center container-padding">
-        <div className="grid grid-cols-3 responsive-grid">
+        <div className="grid grid-cols-3 responsive-grid meet-maria-container">
           <div className="col-span-2">
             <div className="relative">
               <img
@@ -120,7 +120,7 @@ export default function Slide6() {
               </div>
             </div>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1 chat-col w-full">
             <div className="masked-video-offset-chat">
                 <div className="video-masked-chat">
                   <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" />
@@ -131,7 +131,7 @@ export default function Slide6() {
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
-        <div className="grid grid-cols-2 responsive-grid">
+        <div className="w-full grid grid-cols-2 responsive-grid">
           <div className="col-span-1 gradient-bg-2 text-white">
             {/* Video goes here */}
             <div className="masked-video-offset-profile-building">
@@ -140,7 +140,7 @@ export default function Slide6() {
               </div>
             </div>
             
-            <span className="container-padding caption text-sm font-mono ">/ Transcriptions and notes formed the foundation for AI-generated dialogue.</span>
+            <p className="container-padding caption text-sm font-mono ">/ Transcriptions and notes formed the foundation for AI-generated dialogue.</p>
           </div>
           <div className="col-span-1">
             <ResponsiveVideo src="/video/case_studies/02/Maria_Sketch_Animation_final.mp4" title="timelapse of sketch" />

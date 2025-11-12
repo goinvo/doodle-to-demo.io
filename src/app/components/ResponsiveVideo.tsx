@@ -24,7 +24,6 @@ export default function ResponsiveVideo({ src, title }: ResponsiveVideoProps) {
         muted
         loop
         playsInline
-        controls
       />
     </div>
   );

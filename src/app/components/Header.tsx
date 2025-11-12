@@ -7,7 +7,7 @@ import SlideMenu, { slideTitles } from "./SlideMenu";
 import { slides } from "../slides/slides";
 
 // Dynamically calculate slide count from slides array (slides are 0-indexed)
-const slideCount = slides.length - 1;
+const slideCount = slides.length;
 // Slides that should use primary color instead of white
 export const primaryColorSlides = [6,8]; // Add more slide indices here as needed
 
@@ -68,7 +68,7 @@ export default function Header({ open, setOpen }: { open?: boolean; setOpen?: (o
           DOODLE TO DEMO
           {idx !== undefined && (
             <span className={`font-normal normal-case text-base sm:text-lg ${textColorWithOpacity} whitespace-nowrap`}>
-             / {idx + 1} of {slideCount + 1} {slideTitle}
+             / {idx + 1} of {slideCount} {slideTitle}
             </span>
           )}
         </div>

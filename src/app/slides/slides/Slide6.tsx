@@ -120,12 +120,12 @@ export default function Slide6() {
               </div>
             </div>
           </div>
-          <div className="col-span-1 chat-col w-full">
-            <div className="masked-video-offset-chat">
-                <div className="video-masked-chat">
-                  <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" />
-                </div>
-              </div>
+          <div className="col-span-1 ">
+              <img
+                src="/image/case_studies/02/D_chat.png"
+                alt="A wireframe of an AI chat interface"
+                className="w-full h-full object-contain chat-interface"
+              />
           </div>
         </div>
       </section>
@@ -133,13 +133,11 @@ export default function Slide6() {
       <section className="w-full flex flex-col justify-center items-center">
         <div className="w-full grid grid-cols-2 responsive-grid">
           <div className="col-span-1 gradient-bg-2 text-white">
-            {/* Video goes here */}
             <div className="masked-video-offset-profile-building">
               <div className="video-masked-profile-building">
                 <ResponsiveVideo src="/video/case_studies/02/Profile_Building.mp4" title="video of profile building with AI prompts" />
               </div>
             </div>
-            
             <p className="container-padding caption text-sm font-mono ">/ Transcriptions and notes formed the foundation for AI-generated dialogue.</p>
           </div>
           <div className="col-span-1">
@@ -157,16 +155,7 @@ export default function Slide6() {
                   <ResponsiveVideo src="/video/case_studies/02/11labs.mp4" title="video of profile building with AI prompts" />
                 </div>
               </div>
-              {/* sound thing here */}
             </div>
-            {/* <div className="col-span-1">
-              {/* image needed */}
-              {/* <img
-                src="/image/case_studies/02/Maria_Sketch_Coloured.png"
-                alt="Maria in a coloured drawing"
-                className="col-span-1 h-full w-full object-contain"
-              /> *
-            </div> */}
           </div>
         </div>
       </section>
@@ -186,8 +175,12 @@ export default function Slide6() {
               </div>
               
             </div>
-            <div className="col-span-1">
-              
+            <div className="col-span-1 chat-col w-full">
+              <div className="masked-video-offset-chat">
+                <div className="video-masked-chat">
+                  <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" />
+                </div>
+              </div>
             </div>
             
           </div>
@@ -211,12 +204,12 @@ export default function Slide6() {
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col container-padding">
+      <section className="w-full min-h-screen flex flex-col container-padding learnings-section">
         <h3 className="h3-all-caps text-primary-color">
           <span className="font-thin opacity-90">/</span>
           <span className="font-bold"> Learnings</span>
         </h3>
-        <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid text-center">
+        <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid text-center dots-bg justify-center">
             <div className="col-span-1">
                 <p className="framed-p-box">Crafting qualitative research with AI generation enables more first hand storytelling.</p>
             </div>

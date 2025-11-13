@@ -21,14 +21,29 @@ export default function VideoTimeframeEditor() {
 
   const handleTimeframeChange = (slideIndex: number, field: 'start' | 'end', value: number) => {
     const newTimeframes = [...timeframes];
-    if (newTimeframes[slideIndex] === null) {
+    const currentTimeframe = newTimeframes[slideIndex];
+    
+    if (currentTimeframe === null) {
       newTimeframes[slideIndex] = [0, 0];
-    }
-    const [start, end] = newTimeframes[slideIndex]!;
-    if (field === 'start') {
-      newTimeframes[slideIndex] = [Math.max(0, value), end];
+    } else if (Array.isArray(currentTimeframe[0])) {
+      // Multiple clips - only edit the first clip for simplicity
+      const clips = currentTimeframe as number[][];
+      const firstClip = [...clips[0]];
+      if (field === 'start') {
+        firstClip[0] = Math.max(0, value);
+      } else {
+        firstClip[1] = Math.max(firstClip[0], value);
+      }
+      clips[0] = firstClip;
+      newTimeframes[slideIndex] = clips;
     } else {
-      newTimeframes[slideIndex] = [start, Math.max(start, value)];
+      // Single clip
+      const [start, end] = currentTimeframe as number[];
+      if (field === 'start') {
+        newTimeframes[slideIndex] = [Math.max(0, value), end];
+      } else {
+        newTimeframes[slideIndex] = [start, Math.max(start, value)];
+      }
     }
     setTimeframes(newTimeframes);
   };
@@ -40,7 +55,7 @@ export default function VideoTimeframeEditor() {
   };
 
   const copyToClipboard = () => {
-    const code = `export const slideVideoTimeframes: (number[] | null)[] = ${JSON.stringify(timeframes, null, 2)
+    const code = `export const slideVideoTimeframes: (number[] | number[][] | null)[] = ${JSON.stringify(timeframes, null, 2)
       .replace(/"/g, '')
       .replace(/\[/g, '[')
       .replace(/\]/g, ']')
@@ -95,29 +110,45 @@ export default function VideoTimeframeEditor() {
               </button>
             </div>
             {timeframe !== null && (
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Start (seconds)</label>
-                  <input
-                    type="number"
-                    value={timeframe[0]}
-                    onChange={(e) => handleTimeframeChange(index, 'start', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border rounded"
-                    min="0"
-                    step="0.1"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">End (seconds)</label>
-                  <input
-                    type="number"
-                    value={timeframe[1]}
-                    onChange={(e) => handleTimeframeChange(index, 'end', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border rounded"
-                    min={timeframe[0]}
-                    step="0.1"
-                  />
-                </div>
+              <div>
+                {Array.isArray(timeframe[0]) ? (
+                  // Multiple clips - show info
+                  <div className="text-sm text-gray-600">
+                    <p>Multiple clips configured:</p>
+                    <ul className="list-disc list-inside mt-2">
+                      {(timeframe as number[][]).map((clip, clipIdx) => (
+                        <li key={clipIdx}>Clip {clipIdx + 1}: {clip[0]}s - {clip[1]}s</li>
+                      ))}
+                    </ul>
+                    <p className="mt-2 text-xs text-gray-500">Edit multiple clips directly in PictureInPictureVideo.tsx</p>
+                  </div>
+                ) : (
+                  // Single clip - show editable inputs
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-1">Start (seconds)</label>
+                      <input
+                        type="number"
+                        value={(timeframe as number[])[0]}
+                        onChange={(e) => handleTimeframeChange(index, 'start', parseFloat(e.target.value) || 0)}
+                        className="w-full px-3 py-2 border rounded"
+                        min="0"
+                        step="0.1"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-1">End (seconds)</label>
+                      <input
+                        type="number"
+                        value={(timeframe as number[])[1]}
+                        onChange={(e) => handleTimeframeChange(index, 'end', parseFloat(e.target.value) || 0)}
+                        className="w-full px-3 py-2 border rounded"
+                        min={(timeframe as number[])[0]}
+                        step="0.1"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

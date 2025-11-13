@@ -8,23 +8,24 @@ export default function Slide5() {
   const handleArrowClick = () => {
     const viewportHeight = window.innerHeight;
     window.scrollBy({
-      top: viewportHeight * 1,
+      top: viewportHeight * 0.8,
       behavior: 'smooth'
     });
   };
 
   return (
-    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-5 case-study">
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study">
       
       
-      <section className="gradient-bg w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad">
-        <h2 className="text-white text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
-          <span className="font-thin opacity-90">/ Case Study 01</span>
-          <br/> <span className="font-bold">Animating Complex Care Journeys</span>
+      <section className="text-primary-color w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad slide6-hero">
+        <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
+          <span className="font-thin opacity-90">/ Case Study 02</span>
+          <br/> <span className="font-bold">Bringing Mental Health Stories to Life</span>
         </h2>
+        <p className="p-max text-2rem">How can we best communicate <span className="font-bold all-caps">COMPLEX</span> mental health care challenges for both patients and providers?</p>
 
         <motion.div
-          className="absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
+          className="bounce_arrow absolute left-1/2 top-200 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-10"
           animate={{ y: [0, 14, 0] }}
           transition={{
             repeat: Infinity,
@@ -35,185 +36,151 @@ export default function Slide5() {
           }}
           onClick={handleArrowClick}
         >
-          <ChevronDown size={56} strokeWidth={1.8} className="text-white/80 drop-shadow-lg" />
+          <ChevronDown size={56} strokeWidth={1.8} className="text-primary-color drop-shadow-lg" />
         </motion.div>
       </section>
 
-      <section className="w-full flex flex-col justify-center items-center">
-        <div className="container-padding">
+      <section className="synthesize-section w-full flex flex-col justify-center items-center">
+        <div className="relative">
           <img
-            src="/image/case_studies/01/0_Extra/Final_R1E.png"
-            alt="Case Study 01"
-            className="w-full h-full object-contain"
+            src="/image/case_studies/02/A_synthesize.png"
+            alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
+            className="w-full h-full object-cover"
           />
-          <span className="caption text-sm font-mono ">/ Past static storytelling methods started to feel limited.</span>
+          <div className="absolute synthesize-text">
+            <h3 className="h3-all-caps text-primary-color text-center font-bold">/ Synthesizing data</h3>
+            <p className="text-primary-color text-center text-2rem text-box">Collected huge amounts of information and nuances in conversations with patients and providers.</p>
+          </div>
         </div>
       </section>
 
-      <section className="w-full flex flex-col">
-        <div className="text-block-lg text-primary-color">
-          <span className="font-bold">Our task — </span>
-          <span>visualize the challenges <em className="italic">patients & providers</em> face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
+      <section className="word-blob-section w-full flex flex-col justify-center items-center container-padding-vertical-quad">
+        <div className="container-padding relative word-cloud-container">
+          <div className="word-cloud">
+            <span className="word-bubble">religion</span>
+            <span className="word-bubble">education</span>
+            <span className="word-bubble">family structure</span>
+            <span className="word-bubble">tech saviness</span>
+            <span className="word-bubble">housing</span>
+            <span className="word-bubble">culture</span>
+            <span className="word-bubble">conditions</span>
+            <span className="word-bubble">geography</span>
+            <span className="word-bubble">age</span>
+            <span className="word-bubble">insurance</span>
+            <span className="word-bubble">gender</span>
+            <span className="word-bubble">childcare</span>
+            <span className="word-bubble">income level</span>
+            <span className="word-bubble">language</span>
+            <span className="word-bubble">urban or rural</span>
+          </div>
+          <div className="word-cloud-center">
+            <p className="text-white text-center text-3rem text-box font-bold">Many factors impact mental healthcare experiences.</p>
+          </div>
         </div>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
-        
+        <div className="container-padding relative grid grid-cols-4 responsive-grid">
+          <div className="col-span-3 relative">
+            <img
+              src="/image/case_studies/02/C_group_sketch_2.png"
+              alt="A group sketch of patients and providers"
+              className="w-full h-full object-contain"
+            />
+            <span className="container-padding caption text-sm font-mono ">/ First concept sketch</span>
+          </div>
+          <div className="col-span-1 relative">
+            <div className="text-primary-color text-1-5rem cs2-section-5 feedback-box">
+              <h5>Stakeholder Feedback</h5>
+              <div className="quote-box"><span className="quote-text text-1rem">&ldquo;It feels cluttered and overwhelming. I get lost in all the graphics and labels.&rdquo;</span> 
+                <br/><span className=" text-sm italic quotee">State Employee for Health Department</span>
+              </div> 
+              <div className="quote-box"><span className="quote-text text-1rem">&ldquo;The labels don&apos;t resonate. Not sure what we&apos;re trying to represent here.&rdquo;</span>
+                <br/><span className=" text-sm italic quotee">Senior Mental Health Patient </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full min-h-screen flex flex-col justify-center items-center container-padding">
+        <div className="grid grid-cols-3 responsive-grid meet-maria-container">
+          <div className="col-span-2">
+            <div className="relative">
+              <img
+                src="/image/case_studies/02/Maria_Sketch_Pencil.png"
+                alt="A sketch of Maria"
+                className="w-full h-full object-cover maria-sketch"
+              />
+              <div className="text-primary-color text-1-5rem meet-maria">
+                <p>We envisioned a <span className="font-bold">virtual, interactive space</span> where users could chat with characters based on real interview data. </p>
+                <p>Meet <span className="font-bold">Maria,</span> 
+                <br />a 68 year old retiree living in New Mexico.</p> 
+                <p>Ask her about her experiences getting mental health care in a rural town.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-1 ">
+              <img
+                src="/image/case_studies/02/D_chat.png"
+                alt="A wireframe of an AI chat interface"
+                className="w-full h-full object-contain chat-interface"
+              />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full flex flex-col justify-center items-center">
+        <div className="w-full grid grid-cols-2 responsive-grid">
+          <div className="col-span-1 gradient-bg-2 text-white">
+            <div className="masked-video-offset-profile-building">
+              <div className="video-masked-profile-building">
+                <ResponsiveVideo src="/video/case_studies/02/Profile_Building.mp4" title="video of profile building with AI prompts" />
+              </div>
+            </div>
+            <p className="container-padding caption text-sm font-mono ">/ Transcriptions and notes formed the foundation for AI-generated dialogue.</p>
+          </div>
+          <div className="col-span-1">
+            <ResponsiveVideo src="/video/case_studies/02/Maria_Sketch_Animation_final.mp4" title="timelapse of sketch" />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full flex flex-col justify-center items-center">
         <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8">
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
-              alt="Case Study Small"
-              className="col-span-1 h-full w-full object-contain "
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
-              alt="Case Study Large"
-              className="col-span-2 h-full w-full object-contain"
-            />
-          </div>
-
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4">
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png"
-              alt="Grid 1"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_2.png"
-              alt="Grid 2"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_3.png"
-              alt="Grid 3"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_4.png"
-              alt="Grid 4"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          
-          <span className="container-padding caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</span>
-        </div>
-      </section>
-
-      <section className="w-full flex flex-col container-padding container-padding-vertical-quad margin-top">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <h3 className="h3-all-caps text-primary-color">
-            <span className="font-thin opacity-90">/</span>
-            <span className="font-bold"> HOW ABOUT 3D?</span>
-          </h3>
-          <div className="text-3rem text-primary-color">
-            <span>What if we built models of hospitals and clinics to capture our backgrounds faster?</span>
+          <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid">
+            <div className="col-span-2">
+              <div className="masked-video-offset-voice">
+                <div className="video-masked-voice">
+                  <ResponsiveVideo src="/video/case_studies/02/11labs.mp4" title="video of profile building with AI prompts" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full flex flex-col justify-center items-center">
-        
-        <div className="w-full image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8">
-          <div className="col-span-2 h-full w-full object-contain ">
-            <img
-              src="/image/case_studies/01/C_How_About_3D/r4-B.png"
-              alt="Case Study Small"
-              className="h-full w-full object-contain "
-            />
-            <span className="container-padding caption text-sm font-mono ">/ Hospital bed, hallway scene</span>
-          </div>
-          <div className="col-span-1 h-full w-full object-contain">
-            <img
-              src="/image/case_studies/01/C_How_About_3D/r1-A.png"
-              alt="Case Study Large"
-              className="h-full w-full object-contain"
-            />
-          <span className="container-padding caption text-sm font-mono ">/ Emergency room bay</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full flex flex-col container-padding">
-        <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" />
-        <span className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span></span>
-      </section>
-
-      <section className="w-full min-h-screen flex flex-col container-padding">
-        <h3 className="h3-all-caps text-primary-color">
-          <span className="font-thin opacity-90">/</span>
-          <span className="font-bold"> Midjourney testing</span>
-        </h3>
-
-        <div className="w-full image-grid grid grid-cols-2 gap-4 mb-8">
-          <div className="col-span-1 h-full w-full object-contain ">
-            <div className="container-padding">
+      <section className="w-full flex flex-col justify-center items-center tan-bg">
+        <div className="w-full">
+          <div className="image-grid image-grid-tall grid grid-cols-3 mb-8 responsive-grid">
+            <div className="col-span-2 maria-col">
               <div className="relative">
+                <p className="padding-md caption text-sm font-mono text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
                 <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
+                  src="/image/case_studies/02/Maria_Sketch_Coloured.png"
                   alt="Case Study Small"
-                  className="h-full w-full object-contain "
-                />
-                <div className="caption-overlay">
-                  <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
+                  className="h-full w-full object-contain maria-color"
+                />                
+                <h3 className="absolute h3-all-caps text-3rem text-white text-center design-solution">/ The design solution</h3>
+              </div>
+              
+            </div>
+            <div className="col-span-1 chat-col w-full">
+              <div className="masked-video-offset-chat">
+                <div className="video-masked-chat">
+                  <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" />
                 </div>
               </div>
-            </div>
-            <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 01</span></span>
-          </div>
-
-          <div className="col-span-1 h-full w-full object-contain">
-            <div className="container-padding">
-              <div className="relative">
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_2.png"
-                  alt="Case Study Large"
-                  className="h-full w-full object-contain"
-                />
-                <div className="caption-overlay">
-                  <p className="text-xs italic">&ldquo;Hospital trauma room, cinematic lighting, hard-edged blocky brush strokes, rich color gradients with purples, oranges, and greens, high contrast, simplified forms with painterly texture, a moody yet vibrant atmosphere, inspired by the visual style of <span className="font-bold">Joseph Iovescu</span>.&rdquo;</p>
-                </div>
-              </div>
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></span>
-            </div>
-
-            <div className="container-padding">
-              <div className="relative">
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_3.png"
-                  alt="Case Study Large"
-                  className="h-full w-full object-contain"
-                />
-                <div className="caption-overlay">
-                  <p className="text-xs italic">&ldquo;A friendly and colour hospital waiting room, watercolor textures, playful and minimal detail, inspired by the visual style of <span className="font-bold">Oliver Jeffers</span>.&rdquo;</p>
-                </div>
-              </div>            
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 03</span></span>
-            </div>
-            
-          </div>
-        </div>
-
-        <div className="w-full image-grid grid grid-cols-2 gap-4 mb-8">
-          <div className="col-span-1 h-full w-full object-contain ">
-            <div className="container-padding">
-              <div className="relative">
-                {/* wrong image, to be replaced */}
-                <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" />
-              </div>
-            </div>
-          </div>
-          
-          <div className="col-span-1 h-full w-full object-contain">
-            <div className="container-padding">
-              <div className="relative">
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_4.png"
-                  alt="Case Study Large"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">/ Midjourney V7 Style Test 04 with GoInvo reference</span></span>
             </div>
             
           </div>
@@ -221,215 +188,42 @@ export default function Slide5() {
       </section>
 
       <section className="w-full flex flex-col justify-center items-center primary-bg">
-        
         <div className="w-full container-padding-quad">
-          {/* Row 1: Rhino 3D */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r1-A.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Rhino 3D</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r1-B.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r1-C.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r1-D.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
-                </div>
-            </div>
-          </div>
-
-          {/* Row 2: Midjourney Retexture */} 
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r2-A.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Midjourney Retexture</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r2-B.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r2-C.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r2-D.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
-                </div>
-            </div>
-          </div>
-
-    
-        {/* Row 3: Photoshop & Procreate */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r3-A.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Photoshop & Procreate</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r3-B.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r3-C.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
-                </div>
-            </div>
-            <div>
-                <img
-                src="/image/case_studies/01/E_New-Workflow/r3-D.png"
-                alt="Grid 1"
-                className="h-full w-full object-cover"
-                />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
-                </div>
-            </div>
-          </div>
-
-          {/* Row 4: animations */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" />
-                <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
-                </div>
-            </div>
-            <div>
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
-                </div>
-            </div>
-            <div>
-                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
-                </div>
-            </div>
-            <div>
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
-                </div>
-            </div>
-          </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <h4 className="col-span-1 text-lger font-bold text-white">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 responsive-grid">
+                <h4 className="col-span-1 text-3rem font-bold text-white">
                     <span className="font-thin opacity-90">/</span>
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                <dl className="text-white workflow-list">
+                  <dl className="text-white workflow-list">
                     <dt className="font-bold numbered">01</dt>
-                    <dd className="font-thin">Frame the shot in 3D</dd>
+                    <dd className="font-thin">Develop the character&apos;s background and profile</dd>
                     <dt className="font-bold numbered">02</dt>
-                    <dd className="font-thin">Style in Midjourney (using our own illustrations as reference)</dd>
+                    <dd className="font-thin">Create a visual respresentation</dd>
                     <dt className="font-bold numbered">03</dt>
-                    <dd className="font-thin">Post-processing in Photoshop & add Procreate drawn characters</dd>
+                    <dd className="font-thin">Develop dialogue and pair with generated voice</dd>
                     <dt className="font-bold numbered">04</dt>
-                    <dd className="font-thin">Back to Midjourney to animate</dd>
+                    <dd className="font-thin">Integrate everything into live site</dd>
                   </dl>
                 </div>
             </div>
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col container-padding">
+      <section className="w-full min-h-screen flex flex-col container-padding learnings-section">
         <h3 className="h3-all-caps text-primary-color">
           <span className="font-thin opacity-90">/</span>
-          <span className="font-bold"> A Snippet</span>
+          <span className="font-bold"> Learnings</span>
         </h3>
-        <div className="container-padding">
-          <div className="relative">
-            <img
-              src="/image/case_studies/01/E_New-Workflow/r3-A.png"
-              alt="Grid 1"
-              className="h-full w-full object-cover"
-              />
+        <div className="image-grid image-grid-tall grid grid-cols-2 mb-8 responsive-grid text-center dots-bg justify-center">
+            <div className="col-span-1">
+                <p className="framed-p-box text-2rem">Crafting qualitative research with AI generation enables more first hand storytelling.</p>
             </div>
-          <span className="caption text-sm font-mono ">/ Care Journey Snippet</span>
-        </div>
-      </section>
-
-      <section className="w-full flex flex-col container-padding-vertical-quad">
-        <div className="text-block-lg text-primary-color">
-          <span>The result of this workflow was <span className="font-bold">4 animations</span> telling the stories of our patients and providers, accomplished in a third of the time — from <span className="font-bold">600</span> hours to <em className="italic font-bold">200 </em> hours.</span>
-        </div>
+            <div className="col-span-1">
+            <p className="framed-p-box text-2rem">The experience allows decision-makers to connect with research insights and drive better policy.</p>
+            </div>
+            
+          </div>
       </section>
 
       <section className="case-study-nav-section w-full min-h-[200px] flex items-end">

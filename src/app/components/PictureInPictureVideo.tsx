@@ -7,21 +7,19 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 // For multiple clips on one slide, use an array of timeframes: [[start1, end1], [start2, end2]]
 // Set to null to disable video for that slide
 export const slideVideoTimeframes: (number[] | number[][] | null)[] = [
-  [[1389, 1428], [1484, 1499]],  // Slide 0: First clip then second clip
-  [1504, 1516],     // Slide 1: 30-60 seconds -- if we keep current slide 1
-  [1504, 1523],     // Slide 1: 30-60 seconds -- if we remove current slide 1
-  [1517, 1523],     // Slide 2: 60-90 seconds -- revisit timing here
-  [1524, 1558],    // Slide 3: 90-120 seconds
-  [1560, 1611],   // Slide 4: 120-150 seconds
-  [[1612, 1628], [1635, 2081]],   // Slide 5: 150-180 seconds
-  [2082, 2409],   // Slide 6: 180-210 seconds
-  [2410, 2644],   // Slide 7: 210-240 seconds
-  [2646, 3130],   // Slide 8: 240-270 seconds
-  [3134, 3159],   // Slide 9: 270-300 seconds
-  [3159, 3194],   // Slide 10: 300-330 seconds
-  [3195, 3242],   // Slide 11: 330-360 seconds
-  [3242, 3273],   // Slide 12: 360-390 seconds
-  [3273, 3285],   // Slide 13: 390-420 seconds
+  [[1389, 1428], [1484, 1499]],  // Slide 0: Introductions
+  [1503, 1533.5],     // Slide 1 - prompts and old methods
+  [1534, 1558],    // Slide 2 - roles
+  [1560, 1611],   // Slide 3 - f1
+  [[1612, 1628], [1635, 2081]],   // Slide 4
+  [2082, 2409],   // Slide 5
+  [2410, 2644],   // Slide 6
+  [2646, 3130],   // Slide 7
+  [3134, 3159],   // Slide 8
+  [3159, 3194],   // Slide 9
+  [3195, 3242],   // Slide 10
+  [3242, 3273],   // Slide 11
+  [3273, 3285],   // Slide 12
 ];
 
 type PictureInPictureVideoProps = {
@@ -192,7 +190,7 @@ export default function PictureInPictureVideo({
         <video
           ref={videoRef}
           src={videoSrc}
-          className="w-[320px] h-[180px] sm:w-[400px] sm:h-[225px] md:w-[480px] md:h-[270px]"
+          className="w-[224px] h-[126px] sm:w-[280px] sm:h-[158px] md:w-[336px] md:h-[189px]"
           muted={isMuted}
           playsInline
         />

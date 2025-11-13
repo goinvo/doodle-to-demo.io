@@ -39,7 +39,7 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [currentIndex, router, totalSlides]);
 
-  const isCaseStudy = currentIndex === 5 || currentIndex === 6 || currentIndex === 7;
+  const isCaseStudy = currentIndex === 4 || currentIndex === 5 || currentIndex === 6;
 
   return (
     <div className="relative w-full min-h-[calc(100vh)] overflow-hidden">

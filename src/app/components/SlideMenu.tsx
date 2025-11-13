@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export const slideTitles = [
   'Welcome',
-  'GenAI Boom',
   'Old Methods',
   'Our Roles',
   'F1 Intro',

@@ -9,7 +9,7 @@ import { slides } from "../slides/slides";
 // Dynamically calculate slide count from slides array (slides are 0-indexed)
 const slideCount = slides.length;
 // Slides that should use primary color instead of white
-export const primaryColorSlides = [6,8]; // Add more slide indices here as needed
+export const primaryColorSlides = [5, 7]; // Add more slide indices here as needed
 
 export const MenuContext = createContext(false);
 

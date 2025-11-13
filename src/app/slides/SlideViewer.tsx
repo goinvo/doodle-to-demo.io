@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import SlideNavArrows from "../components/SlideNavArrows";
 import { MenuContext, primaryColorSlides } from "../components/Header";
 import { slides } from "./slides";
+import PictureInPictureVideo from "../components/PictureInPictureVideo";
 
 // Slides are now imported from separate files in the slides directory
 
@@ -38,12 +39,14 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [currentIndex, router, totalSlides]);
 
-  const isCaseStudy = currentIndex === 5 || currentIndex === 6 || currentIndex === 7;
+  const isCaseStudy = currentIndex === 4 || currentIndex === 5 || currentIndex === 6;
 
   return (
     <div className="relative w-full min-h-[calc(100vh)] overflow-hidden">
       {/* For slide 0, pass nextIndex so button works correctly. For others, pass nothing. */}
       <SlideContent {...(currentIndex === 0 ? { nextIndex } : {})} />
+      {/* Picture-in-picture video */}
+      <PictureInPictureVideo currentSlideIndex={currentIndex} />
       {/* Arrows only shown/active when menu is closed */}
       {!menuOpen && (
         <>

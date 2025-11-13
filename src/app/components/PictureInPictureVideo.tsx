@@ -8,19 +8,20 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 // Set to null to disable video for that slide
 export const slideVideoTimeframes: (number[] | number[][] | null)[] = [
   [[1389, 1428], [1484, 1499]],  // Slide 0: First clip then second clip
-  [30, 60],     // Slide 1: 30-60 seconds
-  [60, 90],     // Slide 2: 60-90 seconds
-  [90, 120],    // Slide 3: 90-120 seconds
-  [120, 150],   // Slide 4: 120-150 seconds
-  [150, 180],   // Slide 5: 150-180 seconds
-  [180, 210],   // Slide 6: 180-210 seconds
-  [210, 240],   // Slide 7: 210-240 seconds
-  [240, 270],   // Slide 8: 240-270 seconds
-  [270, 300],   // Slide 9: 270-300 seconds
-  [300, 330],   // Slide 10: 300-330 seconds
-  [330, 360],   // Slide 11: 330-360 seconds
-  [360, 390],   // Slide 12: 360-390 seconds
-  [390, 420],   // Slide 13: 390-420 seconds
+  [1504, 1516],     // Slide 1: 30-60 seconds -- if we keep current slide 1
+  [1504, 1523],     // Slide 1: 30-60 seconds -- if we remove current slide 1
+  [1517, 1523],     // Slide 2: 60-90 seconds -- revisit timing here
+  [1524, 1558],    // Slide 3: 90-120 seconds
+  [1560, 1611],   // Slide 4: 120-150 seconds
+  [[1612, 1628], [1635, 2081]],   // Slide 5: 150-180 seconds
+  [2082, 2409],   // Slide 6: 180-210 seconds
+  [2410, 2644],   // Slide 7: 210-240 seconds
+  [2646, 3130],   // Slide 8: 240-270 seconds
+  [3134, 3159],   // Slide 9: 270-300 seconds
+  [3159, 3194],   // Slide 10: 300-330 seconds
+  [3195, 3242],   // Slide 11: 330-360 seconds
+  [3242, 3273],   // Slide 12: 360-390 seconds
+  [3273, 3285],   // Slide 13: 390-420 seconds
 ];
 
 type PictureInPictureVideoProps = {
@@ -30,11 +31,11 @@ type PictureInPictureVideoProps = {
 
 export default function PictureInPictureVideo({ 
   currentSlideIndex, 
-  videoSrc = '/video/presentation_recordings/recording_640x360.mp4' 
+  videoSrc = 'https://dd17w042cevyt.cloudfront.net/videos/features/doodle-to-demo/recording_640x360_compressed1.mp4' 
 }: PictureInPictureVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prevSlideIndexRef = useRef<number>(currentSlideIndex);
-  const [isVisible, setIsVisible] = useState(true);
+  const hasUserInteractedRef = useRef<boolean>(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
@@ -69,11 +70,56 @@ export default function PictureInPictureVideo({
     const currentClip = clips[currentClipIndex] || clips[0];
     const [startTime] = currentClip;
 
-    // Set video to start time (but don't autoplay due to browser restrictions)
+    // Set video to start time
     video.currentTime = startTime;
     
-    // Pause the video initially (user must click play)
-    video.pause();
+    // Always try to autoplay when entering a slide or transitioning between clips
+    // Browser will block if user interaction is required, but we attempt it anyway
+    let timeoutId: NodeJS.Timeout | null = null;
+    let metadataHandler: (() => void) | null = null;
+    
+    // Use a small delay to ensure video.currentTime is set and video is ready
+    const playVideo = () => {
+      // Ensure currentTime is set (sometimes it needs a moment)
+      if (Math.abs(video.currentTime - startTime) > 0.5) {
+        video.currentTime = startTime;
+      }
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            // Mark that playback started (user interaction may have been required)
+            hasUserInteractedRef.current = true;
+          })
+          .catch(() => {
+            // Autoplay failed, user will need to click play
+            console.log('Autoplay prevented, user interaction required');
+            video.pause();
+          });
+      }
+    };
+    
+    // Small delay to ensure currentTime is set and video metadata is loaded
+    if (video.readyState >= 2) {
+      // Video metadata is loaded, can play immediately
+      timeoutId = setTimeout(playVideo, 10);
+    } else {
+      // Wait for video to load metadata
+      metadataHandler = playVideo;
+      video.addEventListener('loadedmetadata', metadataHandler, { once: true });
+    }
+    
+    // Cleanup
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      if (metadataHandler) {
+        video.removeEventListener('loadedmetadata', metadataHandler);
+      }
+    };
   }, [currentSlideIndex, clips, currentClipIndex]);
 
   useEffect(() => {
@@ -88,26 +134,40 @@ export default function PictureInPictureVideo({
     // Handle when video reaches end time
     const handleTimeUpdate = () => {
       if (video.currentTime >= endTime) {
-        // If there's another clip, move to it
+        // If there's another clip, move to it and autoplay
         if (currentClipIndex < clips.length - 1) {
           const nextClip = clips[currentClipIndex + 1];
           const [nextStartTime] = nextClip;
           video.currentTime = nextStartTime;
           setCurrentClipIndex(currentClipIndex + 1);
-          // Continue playing if it was playing
-          if (!video.paused) {
-            video.play();
+          // Automatically play the next clip
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                setIsPlaying(true);
+              })
+              .catch(() => {
+                console.log('Autoplay prevented for next clip');
+                video.pause();
+                setIsPlaying(false);
+              });
           }
         } else {
           // Last clip, just pause
           video.pause();
           video.currentTime = endTime; // Stay at end time
+          setIsPlaying(false);
         }
       }
     };
 
     // Handle play/pause state changes
-    const handlePlay = () => setIsPlaying(true);
+    const handlePlay = () => {
+      setIsPlaying(true);
+      // Mark that user has interacted with the video
+      hasUserInteractedRef.current = true;
+    };
     const handlePause = () => setIsPlaying(false);
 
     video.addEventListener('timeupdate', handleTimeUpdate);
@@ -141,10 +201,22 @@ export default function PictureInPictureVideo({
           <button
             onClick={async () => {
               const video = videoRef.current;
-              if (video) {
+              if (video && clips.length > 0) {
                 try {
                   if (video.paused) {
+                    // Check if video has reached the end - if so, restart from beginning
+                    const currentClip = clips[currentClipIndex] || clips[0];
+                    const [startTime, endTime] = currentClip;
+                    
+                    // If video is at or past the end time, restart from start
+                    if (video.currentTime >= endTime || Math.abs(video.currentTime - endTime) < 0.5) {
+                      video.currentTime = startTime;
+                      setCurrentClipIndex(0); // Reset to first clip if multiple clips
+                    }
+                    
                     await video.play();
+                    // Mark that user has interacted
+                    hasUserInteractedRef.current = true;
                   } else {
                     video.pause();
                   }
@@ -185,29 +257,7 @@ export default function PictureInPictureVideo({
             </button>
           )}
         </div>
-        {/* Close button */}
-        <button
-          onClick={() => setIsVisible(false)}
-          className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 hover:bg-black/70 rounded-full p-1"
-          aria-label="Close video"
-        >
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
       </div>
-      {/* Show button to reopen if closed */}
-      {!isVisible && (
-        <button
-          onClick={() => setIsVisible(true)}
-          className="fixed bottom-4 right-4 z-40 bg-primary-color hover:bg-primary-color/80 text-white rounded-full p-3 shadow-lg"
-          aria-label="Show video"
-        >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106a1 1 0 00-1.106 0l-3 1.5a1 1 0 00-.447.894v3a1 1 0 00.447.894l3 1.5a1 1 0 001.106 0l3-1.5A1 1 0 0018 12v-3a1 1 0 00-.447-.894l-3-1.5z" />
-          </svg>
-        </button>
-      )}
     </div>
   );
 }

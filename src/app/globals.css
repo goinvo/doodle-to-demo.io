@@ -158,11 +158,10 @@ body {
   background-size: auto, cover;
 }
 .gradient-bg-with-grid {
-  background-color: linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
-  background-image: url('/image/grid_1.svg');
+  background-image: url('/image/grid_1.svg'), linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
-  background-size: 50% auto, cover;
+  background-size: auto, cover;
 }
 .dots-bg {
   background-image: url('/image/dots_bg.svg');

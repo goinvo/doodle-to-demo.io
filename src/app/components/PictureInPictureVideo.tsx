@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { useVideoSync } from '../contexts/VideoSyncContext';
+import { useVideoVisibility } from '../contexts/VideoVisibilityContext';
 
 // Configuration for video timeframes per slide
 // Format: [startTime in seconds, endTime in seconds]
@@ -38,7 +39,7 @@ export default function PictureInPictureVideo({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const { isVisible, setIsVisible } = useVideoVisibility();
   const videoSync = useVideoSync();
   const videoId = 'picture-in-picture';
 

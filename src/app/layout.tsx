@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { MenuProvider } from "./components/Header";
 import { VideoSyncProvider } from "./contexts/VideoSyncContext";
+import { VideoVisibilityProvider } from "./contexts/VideoVisibilityContext";
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
@@ -26,7 +27,9 @@ export default function RootLayout({
       <body className={`${plexMono.variable} antialiased`}>
         <MenuProvider>
           <VideoSyncProvider>
-            {children}
+            <VideoVisibilityProvider>
+              {children}
+            </VideoVisibilityProvider>
           </VideoSyncProvider>
         </MenuProvider>
       </body>

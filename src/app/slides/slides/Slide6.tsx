@@ -55,7 +55,7 @@ export default function Slide6() {
             <span className="font-thin opacity-90">/</span>
             <span className="font-bold"> Request for Proposal</span>
           </h3>
-          <p>RFPs usually only ask for examples of past work. For the CHIA RFP, we also ran a short design sprint to quickly <span className="text-underline"><span className="font-bold">explore</span> and <span className="font-bold">prototype</span></span> new concepts.</p>
+          <p>RFPs usually only ask for examples of past work. For the CHIA RFP, we also ran a short design sprint to quickly <span className="custom-underline"><span className="font-bold">explore</span> and <span className="font-bold">prototype</span></span> new concepts.</p>
         </div>
       </section>
 

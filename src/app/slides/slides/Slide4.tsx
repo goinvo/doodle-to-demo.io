@@ -53,7 +53,7 @@ export default function Slide4() {
       <section className="w-full flex flex-col">
         <div className="text-block-lg text-primary-color">
           <span className="font-bold">Our task — </span>
-          <span>visualize the challenges <em className="italic">patients & providers</em> face during their care journeys to ultimately help <span className="text-underline">drive policy change</span>.</span>
+          <span>visualize the challenges <em className="italic">patients & providers</em> face during their care journeys to ultimately help <span className="custom-underline">drive policy change</span>.</span>
         </div>
       </section>
 

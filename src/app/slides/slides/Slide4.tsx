@@ -60,20 +60,24 @@ export default function Slide4() {
       <section className="w-full flex flex-col justify-center items-center">
         
         <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8">
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
-              alt="Case Study Small"
-              className="col-span-1 h-full w-full object-contain "
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
-              alt="Case Study Large"
-              className="col-span-2 h-full w-full object-contain"
-            />
+          <div className="image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
+            <div className="col-span-1 flex items-center justify-center">
+              <img
+                src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
+                alt="Case Study Small"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="col-span-2 flex items-center justify-center">
+              <img
+                src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
+                alt="Case Study Large"
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
 
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4">
+          <div className="image-grid image-grid-short grid grid-cols-2 md:grid-cols-4 gap-4">
             <img
               src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png"
               alt="Grid 1"
@@ -96,7 +100,7 @@ export default function Slide4() {
             />
           </div>
           
-          <span className="container-padding caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</span>
+          <p className="container-padding caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</p>
         </div>
       </section>
 
@@ -107,36 +111,40 @@ export default function Slide4() {
             <span className="font-bold"> HOW ABOUT 3D?</span>
           </h3>
           <div className="text-3rem text-primary-color">
-            <span>What if we built models of hospitals and clinics to capture our backgrounds faster?</span>
+            <p>What if we built models of hospitals and clinics to capture our backgrounds faster?</p>
           </div>
         </div>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
         
-        <div className="w-full image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8">
-          <div className="col-span-2 h-full w-full object-contain ">
-            <img
-              src="/image/case_studies/01/C_How_About_3D/r4-B.png"
-              alt="Case Study Small"
-              className="h-full w-full object-contain "
-            />
-            <span className="container-padding caption text-sm font-mono ">/ Hospital bed, hallway scene</span>
+        <div className="w-full image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
+          <div className="col-span-2 flex flex-col">
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src="/image/case_studies/01/C_How_About_3D/r4-B.png"
+                alt="Case Study Small"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <p className="container-padding caption text-sm font-mono ">/ Hospital bed, hallway scene</p>
           </div>
-          <div className="col-span-1 h-full w-full object-contain">
-            <img
-              src="/image/case_studies/01/C_How_About_3D/r1-A.png"
-              alt="Case Study Large"
-              className="h-full w-full object-contain"
-            />
-          <span className="container-padding caption text-sm font-mono ">/ Emergency room bay</span>
+          <div className="col-span-1 flex flex-col">
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src="/image/case_studies/01/C_How_About_3D/r1-A.png"
+                alt="Case Study Large"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <p className="container-padding caption text-sm font-mono ">/ Emergency room bay</p>
           </div>
         </div>
       </section>
 
       <section className="w-full flex flex-col container-padding">
         <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" />
-        <span className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span></span>
+        <p className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span></p>
       </section>
 
       <section className="w-full min-h-screen flex flex-col container-padding">
@@ -145,36 +153,36 @@ export default function Slide4() {
           <span className="font-bold"> Midjourney testing</span>
         </h3>
 
-        <div className="w-full image-grid grid grid-cols-2 gap-4 mb-8">
-          <div className="col-span-1 h-full w-full object-contain ">
+        <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="col-span-1 w-full object-contain ">
             <div className="container-padding">
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
                   alt="Case Study Small"
-                  className="h-full w-full object-contain "
+                  className="w-full object-contain "
                 />
                 <div className="caption-overlay">
                   <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
                 </div>
               </div>
             </div>
-            <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 01</span></span>
+            <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 01</span></p>
           </div>
 
-          <div className="col-span-1 h-full w-full object-contain">
+          <div className="col-span-1 w-full object-contain">
             <div className="container-padding">
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_2.png"
                   alt="Case Study Large"
-                  className="h-full w-full object-contain"
+                  className="w-full object-contain"
                 />
                 <div className="caption-overlay">
                   <p className="text-xs italic">&ldquo;Hospital trauma room, cinematic lighting, hard-edged blocky brush strokes, rich color gradients with purples, oranges, and greens, high contrast, simplified forms with painterly texture, a moody yet vibrant atmosphere, inspired by the visual style of <span className="font-bold">Joseph Iovescu</span>.&rdquo;</p>
                 </div>
               </div>
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></span>
+              <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></p>
             </div>
 
             <div className="container-padding">
@@ -182,20 +190,20 @@ export default function Slide4() {
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_3.png"
                   alt="Case Study Large"
-                  className="h-full w-full object-contain"
+                  className="w-full object-contain"
                 />
                 <div className="caption-overlay">
                   <p className="text-xs italic">&ldquo;A friendly and colour hospital waiting room, watercolor textures, playful and minimal detail, inspired by the visual style of <span className="font-bold">Oliver Jeffers</span>.&rdquo;</p>
                 </div>
               </div>            
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 03</span></span>
+              <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 03</span></p>
             </div>
             
           </div>
         </div>
 
-        <div className="w-full image-grid grid grid-cols-2 gap-4 mb-8">
-          <div className="col-span-1 h-full w-full object-contain ">
+        <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="col-span-1 w-full object-contain ">
             <div className="container-padding">
               <div className="relative">
                 {/* wrong image, to be replaced */}
@@ -204,13 +212,13 @@ export default function Slide4() {
             </div>
           </div>
           
-          <div className="col-span-1 h-full w-full object-contain">
+          <div className="col-span-1 w-full object-contain">
             <div className="container-padding">
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_4.png"
                   alt="Case Study Large"
-                  className="h-full w-full object-contain"
+                  className="w-full object-contain"
                 />
               </div>
               <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">/ Midjourney V7 Style Test 04 with GoInvo reference</span></span>
@@ -224,19 +232,22 @@ export default function Slide4() {
         
         <div className="w-full container-padding-quad">
           {/* Row 1: Rhino 3D */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
+          <div className="image-grid image-grid-short grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 padding-top">
+            <div className="mb-4 md:mb-0">
+                <div className="flex justify-between items-center mobile-only">
+                  <span className="caption text-sm font-mono font-bold text-white">Rhino 3D</span>
+                </div>
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r1-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
                 />
                 <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Rhino 3D</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
+                  <span className="caption text-sm font-mono font-bold text-white no-mobile">Rhino 3D</span>
+                  <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r1-B.png"
                 alt="Grid 1"
@@ -246,7 +257,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r1-C.png"
                 alt="Grid 1"
@@ -256,7 +267,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r1-D.png"
                 alt="Grid 1"
@@ -269,19 +280,22 @@ export default function Slide4() {
           </div>
 
           {/* Row 2: Midjourney Retexture */} 
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
+          <div className="image-grid image-grid-short grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 padding-top mt-6 md:mt-8">
+            <div className="mb-4 md:mb-0">
+                <div className="flex justify-between items-center mobile-only">
+                  <span className="caption text-sm font-mono font-bold text-white">Midjourney Retexture</span>
+                </div>
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r2-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
                 />
                 <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Midjourney Retexture</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
+                  <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Retexture</span>
+                  <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r2-B.png"
                 alt="Grid 1"
@@ -291,7 +305,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r2-C.png"
                 alt="Grid 1"
@@ -301,7 +315,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r2-D.png"
                 alt="Grid 1"
@@ -315,19 +329,22 @@ export default function Slide4() {
 
     
         {/* Row 3: Photoshop & Procreate */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
+          <div className="image-grid image-grid-short grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 padding-top mt-6 md:mt-8">
+            <div className="mb-4 md:mb-0">
+                <div className="flex justify-between items-center mobile-only">
+                  <span className="caption text-sm font-mono font-bold text-white">Photoshop & Procreate</span>
+                </div>
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r3-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
                 />
                 <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white">Photoshop & Procreate</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
+                  <span className="caption text-sm font-mono font-bold text-white no-mobile">Photoshop & Procreate</span>
+                  <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r3-B.png"
                 alt="Grid 1"
@@ -337,7 +354,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r3-C.png"
                 alt="Grid 1"
@@ -347,7 +364,7 @@ export default function Slide4() {
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <img
                 src="/image/case_studies/01/E_New-Workflow/r3-D.png"
                 alt="Grid 1"
@@ -360,27 +377,30 @@ export default function Slide4() {
           </div>
 
           {/* Row 4: animations */}
-          <div className="image-grid image-grid-short grid grid-cols-4 gap-4 padding-top">
-            <div>
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" />
-                <div className="flex justify-between items-center">
+          <div className="image-grid image-grid-short grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 padding-top mt-6 md:mt-8">
+            <div className="mb-4 md:mb-0">
+                <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH101</span>
+                </div>
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" />
+                <div className="flex justify-between items-center">
+                  <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Animate</span>
+                  <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
-            <div>
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" />
+            <div className="mb-4 md:mb-0">
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
                 <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
-            <div>
+            <div className="mb-4 md:mb-0">
             <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
@@ -409,7 +429,7 @@ export default function Slide4() {
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex flex-col container-padding">
+      <section className="w-full flex flex-col container-padding">
         <h3 className="h3-all-caps text-primary-color">
           <span className="font-thin opacity-90">/</span>
           <span className="font-bold"> A Snippet</span>

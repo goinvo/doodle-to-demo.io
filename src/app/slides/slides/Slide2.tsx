@@ -23,7 +23,7 @@ export default function Slide2() {
       <div className="absolute inset-0 bg-black/35 z-10" />
       {/* Right-aligned question text */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24 z-20">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
+        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight mr-[70px]">
           <span className="block">Where do we</span>
           <span className="block">as designers,</span>
           <span className="block">fit in the</span>

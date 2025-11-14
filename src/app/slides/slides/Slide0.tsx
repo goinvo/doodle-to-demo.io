@@ -8,7 +8,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
     <main className="gradient-bg-with-grid relative min-h-[calc(100vh)] w-full px-4 py-6 sm:px-6">
       <div className="grid grid-cols-12 gap-6">
         {/* Left: 2/3 width */}
-        <section className="order-2 col-span-12 md:order-1 md:col-span-8 md:flex md:items-center md:min-h-[calc(100vh-4rem)]">
+        <section className="order-1 col-span-12 mt-[42px] md:mt-0 md:order-1 md:col-span-8 md:flex md:items-center md:min-h-[calc(100vh-4rem)]">
           <div className="text-white">
             <motion.p
               className="mb-10 font-mono text-sm tracking-wide opacity-80"
@@ -25,16 +25,16 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
             >
               <motion.span
-                className="block italic text-[clamp(2.5rem,6vw+1rem,6rem)] font-normal"
+                className="inline-blockitalic text-[clamp(3rem,7vw+1rem,7rem)] font-normal"
                 variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               >
-                Doodle
+                Doodle&nbsp;
               </motion.span>
               <motion.span
-                className="block text-[clamp(3rem,7vw+1rem,7rem)] font-black"
+                className="inline-block text-[clamp(3rem,7vw+1rem,7rem)] font-black"
                 variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               >
-                <span className="mr-3">to</span>
+                <span className="mr-3"> to</span>
                 <span className="relative inline-block after:mt-2 after:block after:h-1 after:w-full after:bg-white">Demo</span>
               </motion.span>
             </motion.h1>
@@ -77,7 +77,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
           </div>
         </section>
         {/* Right: 1/3 width */}
-        <aside className="pt-16 order-1 col-span-12 md:order-2 md:col-span-4">
+        <aside className="pt-16 order-2 col-span-12 md:order-2 md:col-span-4">
           <div className="flex h-full flex-col justify-start md:justify-between">
             <motion.div
               className="space-y-4"

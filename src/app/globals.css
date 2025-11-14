@@ -29,6 +29,20 @@ body {
 }
 
 /* Responsive grid - stacks vertically on medium and smaller screens */
+.no-mobile {
+  display: none;
+}
+.mobile-only {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .no-mobile {
+    display: inline-block;
+  }
+  .mobile-only {
+    display: none;
+  }
+}
 .responsive-grid {
   display: grid;
 }
@@ -162,9 +176,16 @@ a {
   text-transform: uppercase;
 }
 .text-block-lg {
-  font-size: 3rem;
+  font-size: 2rem;
   max-width: 1100px;
-  padding: 150px 50px;
+  padding: 50px 50px;
+}
+@media (min-width: 768px) {
+  .text-block-lg {
+    font-size: 3rem;
+    max-width: 1100px;
+    padding: 150px 50px;
+  }
 }
 .text-4rem {
   font-size: 2rem;
@@ -223,9 +244,15 @@ a {
   margin-right: 20px;
 }
 .text-box{
-  border-radius: 40px;
+  border-radius: 20px;
   background-color: rgba(255,255,255,0.25);
-  padding: 40px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .text-box {
+    border-radius: 40px;
+    padding: 40px;
+  }
 }
 .text-box.white-bg{
   background-color: #fff;
@@ -302,10 +329,17 @@ a {
 }
 
 .image-grid-tall {
-  height: 720px;
+  height: auto;
+  min-height: 150px;
+}
+
+@media (min-width: 768px) {
+  .image-grid-tall {
+    min-height: 400px;
+  }
 }
 .image-grid-short {
-  height: 262px;
+  height: auto;
 }
 .caption-overlay {
   background: #fff;
@@ -803,16 +837,16 @@ a {
   -webkit-clip-path: inset(55px 20px 80px 250px);
 }
 .masked-video-offset-profile-building {
-  transform: scale(1) translateX(calc(-50% - 50px));
+  transform: scale(1) translateX(calc(-50% - 120px));
   width: 600px;
   height: 400px;
 }
 .video-masked-voice {
-  clip-path: inset(94px 7px 70px 100px);
-  -webkit-clip-path: inset(94px 7px 70px 100px);
+  clip-path: inset(80px 7px 70px 90px);
+  -webkit-clip-path: inset(80px 7px 70px 90px);
 }
 .masked-video-offset-voice {
-  transform: scale(1.15) translateX(calc(-50%));
+  transform: scale(1.15) translateX(calc(-50% - 10px));
   max-width: 600px;
   height: 400px;
 }
@@ -914,22 +948,27 @@ a {
 
 .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box,
 .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
-  margin: 0 auto;
+  margin: 20px 20px;
 }
 .learnings-section .col-span-1 {
   max-height: 200px;
+}
+@media (min-width: 768px) {
+  .learnings-section .col-span-1 {
+    margin: 20px 40px;
+  }
 }
 
 /* Center both on mobile when stacked */
 @media (min-width: 1023px) {
   .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(1) .framed-p-box {
     margin-left: auto;
-    margin-right: 40px;
+    margin-right: 20px;
   }
   
   .learnings-section .grid.grid-cols-2 > .col-span-1:nth-child(2) .framed-p-box {
     margin-right: auto;
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
   .learnings-section .col-span-1 {
@@ -946,3 +985,4 @@ a {
   width: 80% !important;
   margin: 0 auto;
 }
+

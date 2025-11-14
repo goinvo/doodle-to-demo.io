@@ -25,7 +25,7 @@ export default function Slide1() {
         poster=""
       />
       <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
+        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight ml-[80px] sm:ml-0">
           <span className="block">Old methods</span>
           <span className="block">& workflows</span>
           <span className="block">feel <em className="italic font-normal opacity-90">slow</em> and</span>

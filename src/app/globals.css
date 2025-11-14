@@ -138,7 +138,25 @@ body {
   background-position: center;
   background-size: auto;
 }
-
+.grid-2-bg {
+  background-image: url('/image/grid_2.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+}
+.primary-bg-with-grid-2 {
+  background-color: #2D2D68;
+  background-image: url('/image/grid_2.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 50% auto;
+}
+.gradient-bg-with-grid-2 {
+  background-image: url('/image/grid_2.svg'), linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
+  background-repeat: repeat, repeat;
+  background-position: center, center;
+  background-size: auto, cover;
+}
 .gradient-bg-with-grid {
   background-image: url('/image/grid_1.svg'), linear-gradient(45deg, #2D2D68 0%, #6F6F90 100%);
   background-repeat: no-repeat, no-repeat;
@@ -150,6 +168,7 @@ body {
   background-repeat: repeat, no-repeat;
   background-position: center, center;
   background-size: auto;
+  background-size: 40% auto;
 }
 
 .menu-title {

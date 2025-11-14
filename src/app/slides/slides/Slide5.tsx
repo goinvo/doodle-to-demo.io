@@ -187,7 +187,7 @@ export default function Slide5() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col justify-center items-center primary-bg">
+      <section className="primary-bg-with-grid-2 w-full flex flex-col justify-center items-center primary-bg">
         <div className="w-full container-padding-quad">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 responsive-grid">
                 <h4 className="col-span-1 text-3rem font-bold text-white">

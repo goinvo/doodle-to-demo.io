@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion";
 import ResponsiveVideo from "../../components/ResponsiveVideo";
+import { TranscriptEntry } from "../../components/VideoTranscript";
+
+// Transcript will be added here
+const slide0Transcript: TranscriptEntry[] = [];
 
 export default function Slide0({ nextIndex }: { nextIndex?: number }) {
   return (
@@ -102,4 +106,8 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
     </main>
   );
 }
+
+// Adding transcript property to component for SlideViewer
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(Slide0 as any).transcript = slide0Transcript;
 

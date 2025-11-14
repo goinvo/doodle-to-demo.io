@@ -168,6 +168,9 @@ a {
 .text-primary-color {
   color: #2D2D68;
 }
+.bg-primary-color {
+  background-color: #2D2D68;
+}
 .h3-all-caps {
   font-size: 2rem;
   text-transform: uppercase;

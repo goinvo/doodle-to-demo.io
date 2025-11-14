@@ -46,7 +46,10 @@ export default function SlideViewer({ currentIndex }: { currentIndex: number }) 
       {/* For slide 0, pass nextIndex so button works correctly. For others, pass nothing. */}
       <SlideContent {...(currentIndex === 0 ? { nextIndex } : {})} />
       {/* Picture-in-picture video */}
-      <PictureInPictureVideo currentSlideIndex={currentIndex} />
+      <PictureInPictureVideo 
+        currentSlideIndex={currentIndex}
+        transcript={SlideContent.transcript || []}
+      />
       {/* Arrows only shown/active when menu is closed */}
       {!menuOpen && (
         <>

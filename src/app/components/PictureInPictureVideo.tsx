@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { useVideoSync } from '../contexts/VideoSyncContext';
+import VideoTranscript, { TranscriptEntry } from './VideoTranscript';
 
 // Configuration for video timeframes per slide
 // Format: [startTime in seconds, endTime in seconds]
@@ -26,11 +27,13 @@ export const slideVideoTimeframes: (number[] | number[][] | null)[] = [
 type PictureInPictureVideoProps = {
   currentSlideIndex: number;
   videoSrc?: string;
+  transcript?: TranscriptEntry[];
 };
 
 export default function PictureInPictureVideo({ 
   currentSlideIndex, 
-  videoSrc = 'https://dd17w042cevyt.cloudfront.net/videos/features/doodle-to-demo/recording_640x360_compressed1.mp4' 
+  videoSrc = 'https://dd17w042cevyt.cloudfront.net/videos/features/doodle-to-demo/recording_640x360_compressed1.mp4',
+  transcript = []
 }: PictureInPictureVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prevSlideIndexRef = useRef<number>(currentSlideIndex);
@@ -39,6 +42,8 @@ export default function PictureInPictureVideo({
   const [isMuted, setIsMuted] = useState(false);
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isTranscriptOpen, setIsTranscriptOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
   const videoSync = useVideoSync();
   const videoId = 'picture-in-picture';
 
@@ -233,6 +238,13 @@ export default function PictureInPictureVideo({
     const currentClip = clips[currentClipIndex];
     const [, endTime] = currentClip;
 
+    // Update current time for transcript
+    const updateCurrentTime = () => {
+      if (videoRef.current) {
+        setCurrentTime(videoRef.current.currentTime);
+      }
+    };
+
     // Handle when video reaches end time - use both timeupdate and a more frequent check
     const checkEndTime = () => {
       if (video.currentTime >= endTime) {
@@ -266,7 +278,8 @@ export default function PictureInPictureVideo({
       return false;
     };
 
-    const handleTimeUpdate = () => {
+    const handleTimeUpdateWrapper = () => {
+      updateCurrentTime();
       checkEndTime();
     };
 
@@ -304,7 +317,7 @@ export default function PictureInPictureVideo({
       checkEndTime();
     };
 
-    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('timeupdate', handleTimeUpdateWrapper);
     video.addEventListener('play', handlePlay);
     video.addEventListener('pause', handlePause);
     video.addEventListener('seeking', handleSeeking);
@@ -317,7 +330,7 @@ export default function PictureInPictureVideo({
 
     // Cleanup
     return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('timeupdate', handleTimeUpdateWrapper);
       video.removeEventListener('play', handlePlay);
       video.removeEventListener('pause', handlePause);
       video.removeEventListener('seeking', handleSeeking);
@@ -326,6 +339,15 @@ export default function PictureInPictureVideo({
       }
     };
   }, [currentSlideIndex, clips, currentClipIndex, videoSync, videoId]);
+
+  // Listen for transcript toggle keyboard shortcut
+  useEffect(() => {
+    const handleToggleTranscript = () => {
+      setIsTranscriptOpen(true);
+    };
+    window.addEventListener('toggleTranscript', handleToggleTranscript);
+    return () => window.removeEventListener('toggleTranscript', handleToggleTranscript);
+  }, []);
 
   // Register video for syncing
   useEffect(() => {
@@ -436,8 +458,33 @@ export default function PictureInPictureVideo({
               )}
             </button>
           )}
+          {/* Transcript toggle button */}
+          {transcript.length > 0 && (
+            <button
+              onClick={() => setIsTranscriptOpen(!isTranscriptOpen)}
+              className={`opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 hover:bg-white/30 rounded-full p-2 ${
+                isTranscriptOpen ? 'opacity-100 bg-white/30' : ''
+              }`}
+              aria-label={isTranscriptOpen ? 'Hide transcript' : 'Show transcript'}
+              aria-pressed={isTranscriptOpen}
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
+      {/* Transcript panel */}
+      {transcript.length > 0 && (
+        <VideoTranscript
+          transcript={transcript}
+          currentTime={currentTime}
+          isOpen={isTranscriptOpen}
+          onClose={() => setIsTranscriptOpen(false)}
+          videoId={videoId}
+        />
+      )}
     </div>
   );
 }

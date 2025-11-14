@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useMemo } from 'react';
+import { useVideoSync } from '../contexts/VideoSyncContext';
 
 // Configuration for video timeframes per slide
 // Format: [startTime in seconds, endTime in seconds]
@@ -38,6 +39,8 @@ export default function PictureInPictureVideo({
   const [isMuted, setIsMuted] = useState(false);
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const videoSync = useVideoSync();
+  const videoId = 'picture-in-picture';
 
   const timeframe = slideVideoTimeframes[currentSlideIndex];
   
@@ -282,6 +285,8 @@ export default function PictureInPictureVideo({
       if (animationFrameId === null) {
         animationFrameId = requestAnimationFrame(checkWhilePlaying);
       }
+      // Sync with other videos
+      videoSync.syncPlayPause(videoId, true);
     };
 
     const handlePause = () => {
@@ -290,6 +295,8 @@ export default function PictureInPictureVideo({
         cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
       }
+      // Sync with other videos
+      videoSync.syncPlayPause(videoId, false);
     };
 
     // Also check on seeking to catch manual time changes
@@ -318,7 +325,17 @@ export default function PictureInPictureVideo({
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [currentSlideIndex, clips, currentClipIndex]);
+  }, [currentSlideIndex, clips, currentClipIndex, videoSync, videoId]);
+
+  // Register video for syncing
+  useEffect(() => {
+    if (videoRef.current) {
+      videoSync.registerVideo(videoId, videoRef);
+    }
+    return () => {
+      videoSync.unregisterVideo(videoId);
+    };
+  }, [videoSync, videoId]);
 
   if (clips.length === 0) {
     return null;

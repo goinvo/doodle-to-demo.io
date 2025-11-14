@@ -63,16 +63,16 @@ export default function Slide7() {
   }, [videoSync, videoId]);
 
   return (
-    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study white-bg">
+    <main className="relative min-h-[calc(100vh)] w-full overflow-auto slide-6 case-study white-bg flex flex-col">
       
       
       <div 
         ref={videoContainerRef}
-        className="relative min-h-[calc(100vh)] w-full"
+        className="relative flex-1 w-full flex flex-col"
       >
         {/* Video wrapper to position button relative to video */}
         <div 
-          className="absolute top-14 left-0 sm:top-16 w-full h-auto z-0"
+          className="flex-1 flex items-start pt-14 sm:pt-16 w-full z-0"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -110,16 +110,9 @@ export default function Slide7() {
         </div>
       </div>
 
-      {/* <section className="w-full min-h-screen flex flex-col justify-center relative">
-        <div className="container-padding container-padding-vertical-quad absolute text-primary-color container-padding-horizontal">
-          <h2 className="text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
-            <span className="font-thin opacity-90">04</span>
-            <br/> <span className="font-bold">Live Demo</span>
-          </h2>
-          <p className="p-max text-2rem">What if we used <span className="font-bold">Midjourney</span> What if we used Midjourney as the starting point for a project? What could an <span className="italic">[app]</span> inspired by <span className="italic">[character/movie]</span> look like?</p>
-        </div>
-        
-      </section> */}
+      <section className="case-study-nav-section w-full min-h-[200px] flex items-end">
+        {/* Navigation arrows will be inserted here by SlideViewer */}
+      </section>
       
     </main>
   );

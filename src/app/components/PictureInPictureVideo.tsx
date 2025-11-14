@@ -37,6 +37,7 @@ export default function PictureInPictureVideo({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentClipIndex, setCurrentClipIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   const timeframe = slideVideoTimeframes[currentSlideIndex];
   
@@ -57,6 +58,106 @@ export default function PictureInPictureVideo({
       setTimeout(() => setCurrentClipIndex(0), 0);
     }
   }, [currentSlideIndex]);
+
+  // Reset video to slide's start time when reopened after being dismissed
+  useEffect(() => {
+    if (!isVisible || clips.length === 0) {
+      return;
+    }
+
+    const video = videoRef.current;
+    if (!video) {
+      return;
+    }
+
+    // Reset to first clip of current slide
+    const firstClip = clips[0];
+    const [startTime, endTime] = firstClip;
+    
+    // Reset clip index (defer to avoid synchronous setState)
+    // This will trigger the existing timeupdate handler to be set up for the correct clip
+    setTimeout(() => setCurrentClipIndex(0), 0);
+    
+    // Set video time and handle playback
+    const resetVideo = () => {
+      // Ensure we're within the valid time range - if past end time, reset to start
+      if (video.currentTime < startTime || video.currentTime > endTime) {
+        video.currentTime = startTime;
+      }
+      
+      // If video is already at or past end time, pause it immediately
+      if (video.currentTime >= endTime) {
+        video.pause();
+        video.currentTime = endTime;
+        setIsPlaying(false);
+        return;
+      }
+      
+      // Add a temporary check to ensure video stops at end time
+      // This will be replaced by the main timeupdate handler once currentClipIndex is reset
+      const tempCheckEndTime = () => {
+        if (video.currentTime >= endTime) {
+          video.pause();
+          video.currentTime = endTime;
+          setIsPlaying(false);
+        }
+      };
+      
+      const tempTimeUpdate = () => tempCheckEndTime();
+      const tempCheckWhilePlaying = () => {
+        if (!video.paused) {
+          tempCheckEndTime();
+          requestAnimationFrame(tempCheckWhilePlaying);
+        }
+      };
+      
+      video.addEventListener('timeupdate', tempTimeUpdate);
+      if (!video.paused) {
+        requestAnimationFrame(tempCheckWhilePlaying);
+      }
+      
+      // Try to autoplay if user has interacted before
+      if (hasUserInteractedRef.current && video.currentTime < endTime) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+              requestAnimationFrame(tempCheckWhilePlaying);
+            })
+            .catch(() => {
+              // Autoplay failed, user will need to click play
+              video.pause();
+              setIsPlaying(false);
+            });
+        }
+      } else {
+        video.pause();
+        setIsPlaying(false);
+      }
+      
+      // Cleanup temporary handler after a short delay (once main handler is set up)
+      setTimeout(() => {
+        video.removeEventListener('timeupdate', tempTimeUpdate);
+      }, 100);
+    };
+
+    // Ensure video metadata is loaded before setting time
+    let metadataHandler: (() => void) | null = null;
+    if (video.readyState >= 2) {
+      resetVideo();
+    } else {
+      metadataHandler = resetVideo;
+      video.addEventListener('loadedmetadata', metadataHandler, { once: true });
+    }
+
+    // Cleanup
+    return () => {
+      if (metadataHandler) {
+        video.removeEventListener('loadedmetadata', metadataHandler);
+      }
+    };
+  }, [isVisible, clips]);
 
   // Set video to correct start time when slide or clip changes
   useEffect(() => {
@@ -129,8 +230,8 @@ export default function PictureInPictureVideo({
     const currentClip = clips[currentClipIndex];
     const [, endTime] = currentClip;
 
-    // Handle when video reaches end time
-    const handleTimeUpdate = () => {
+    // Handle when video reaches end time - use both timeupdate and a more frequent check
+    const checkEndTime = () => {
       if (video.currentTime >= endTime) {
         // If there's another clip, move to it and autoplay
         if (currentClipIndex < clips.length - 1) {
@@ -157,31 +258,85 @@ export default function PictureInPictureVideo({
           video.currentTime = endTime; // Stay at end time
           setIsPlaying(false);
         }
+        return true; // Indicates we handled the end time
+      }
+      return false;
+    };
+
+    const handleTimeUpdate = () => {
+      checkEndTime();
+    };
+
+    // Use requestAnimationFrame for more frequent checks when playing
+    let animationFrameId: number | null = null;
+    const checkWhilePlaying = () => {
+      if (!video.paused && !checkEndTime()) {
+        animationFrameId = requestAnimationFrame(checkWhilePlaying);
       }
     };
 
-    // Handle play/pause state changes
+    // Start the frequent check when video starts playing
     const handlePlay = () => {
       setIsPlaying(true);
-      // Mark that user has interacted with the video
       hasUserInteractedRef.current = true;
+      if (animationFrameId === null) {
+        animationFrameId = requestAnimationFrame(checkWhilePlaying);
+      }
     };
-    const handlePause = () => setIsPlaying(false);
+
+    const handlePause = () => {
+      setIsPlaying(false);
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
+
+    // Also check on seeking to catch manual time changes
+    const handleSeeking = () => {
+      checkEndTime();
+    };
 
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('play', handlePlay);
     video.addEventListener('pause', handlePause);
+    video.addEventListener('seeking', handleSeeking);
+
+    // Initial check in case video is already past end time
+    if (!video.paused) {
+      animationFrameId = requestAnimationFrame(checkWhilePlaying);
+    }
+    checkEndTime();
 
     // Cleanup
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('play', handlePlay);
       video.removeEventListener('pause', handlePause);
+      video.removeEventListener('seeking', handleSeeking);
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, [currentSlideIndex, clips, currentClipIndex]);
 
   if (clips.length === 0) {
     return null;
+  }
+
+  // If video is closed, show a reopen button
+  if (!isVisible) {
+    return (
+      <button
+        onClick={() => setIsVisible(true)}
+        className="fixed bottom-4 right-4 z-40 bg-black/80 hover:bg-black rounded-lg p-3 shadow-2xl transition-colors"
+        aria-label="Reopen video"
+      >
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </button>
+    );
   }
 
   return (
@@ -194,6 +349,16 @@ export default function PictureInPictureVideo({
           muted={isMuted}
           playsInline
         />
+        {/* Close button */}
+        <button
+          onClick={() => setIsVisible(false)}
+          className="absolute top-2 right-2 z-50 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-colors"
+          aria-label="Close video"
+        >
+          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
         {/* Controls overlay - always show play button when paused */}
         <div className={`absolute inset-0 ${!isPlaying ? 'bg-black/30' : 'bg-black/0 hover:bg-black/20'} transition-colors flex items-center justify-center gap-2`}>
           <button

@@ -830,6 +830,30 @@ a {
     min-height: 600px;
   }
 }
+
+/* Reduce spacing in maria-col on very small mobile screens */
+@media (max-width: 570px) {
+  .tan-bg .maria-col {
+    height: auto;
+    min-height: 450px;
+  }
+  
+  .tan-bg .col-span-2 > .relative {
+    min-height: 450px;
+  }
+}
+
+/* Add spacing back for medium mobile screens (571-767px) to prevent overlap */
+@media (min-width: 571px) and (max-width: 767px) {
+  .tan-bg .maria-col {
+    height: auto;
+    min-height: 550px;
+  }
+  
+  .tan-bg .col-span-2 > .relative {
+    min-height: 550px;
+  }
+}
 .design-solution {
   bottom: 0;
   padding: 10px 45px;

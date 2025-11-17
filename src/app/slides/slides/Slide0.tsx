@@ -17,6 +17,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               By Maverick Chan, Claire Lin, Shirley Xu
+              <br /><a href="mailto:doodletodemo@goinvo.com">doodletodemo@goinvo.com</a>
             </motion.p>
             <motion.h1
               className="leading-[0.9]"

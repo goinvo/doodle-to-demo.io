@@ -10,6 +10,14 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
         {/* Left: 2/3 width */}
         <section className="order-1 col-span-12 mt-[42px] md:mt-0 md:order-1 md:col-span-8 md:flex md:items-center md:min-h-[calc(100vh-4rem)]">
           <div className="text-white">
+            <motion.div
+              className="goinvo_logo"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <img src="/image/goinvo_logo.svg" alt="GoInvo Logo" className="scale-80" />
+            </motion.div>
             <motion.p
               className="mb-10 font-mono text-sm tracking-wide opacity-80"
               initial={{ opacity: 0, y: -8 }}
@@ -26,17 +34,17 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
             >
               <motion.span
-                className="inline-blockitalic text-[clamp(3rem,7vw+1rem,7rem)] font-normal"
+                className="inline-block italic text-[clamp(3rem,7vw+1rem,7rem)] font-normal"
                 variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               >
                 Doodle&nbsp;
               </motion.span>
               <motion.span
-                className="inline-block text-[clamp(3rem,7vw+1rem,7rem)] font-black"
+                className="inline-block text-[clamp(3rem,7vw+1rem,7rem)] "
                 variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               >
                 <span className="mr-3"> to</span>
-                <span className="relative inline-block after:mt-2 after:block after:h-1 after:w-full after:bg-white">Demo</span>
+                <span className="relative inline-block after:mt-2 after:block after:h-1 after:w-full after:bg-white font-black">Demo</span>
               </motion.span>
             </motion.h1>
             <motion.p

@@ -58,6 +58,9 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
             <p className="mt-6 text-[clamp(1rem,1.2vw+0.6rem,1.5rem)] opacity-90">
               View the presentation on <a href="https://rosenverse.rosenfeldmedia.com/videos/from-doodle-to-demo-ai-as-our-storytelling-partner" target="_blank" rel="noopener noreferrer">Rosenverse</a>, or follow along at your own pace by continuing to the next slide.
             </p>
+            <p className="mt-6 opacity-70 text-xs">
+              This project and designs are licensed under <a href="https://creativecommons.org/licenses/by/4.0/deed.en" target="_blank" rel="noopener noreferrer">creative commons attribution</a>.
+            </p>
             {/* <motion.div
               className="mt-8"
               initial={{ opacity: 0, scale: 0.96 }}

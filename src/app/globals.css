@@ -760,18 +760,31 @@ a {
   margin: 10px 0;
   box-sizing: border-box;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .meet-maria p {
-    width: 500px;
     max-width: 500px;
   }
 }
 .maria-sketch {
   padding: 0;
+  margin-top: -50px;
 }
 @media (min-width: 1024px) {
   .maria-sketch {
     padding-left: 200px;
+    margin-top: 0;
+  }
+}
+
+.chat-interface {
+  margin: 30px;
+}
+
+/* Reduce chat-interface by 30% on mobile and keep it centered */
+@media (max-width: 768px) {
+  .chat-interface {
+    transform: scale(0.7);
+    margin: -90px auto;
   }
 }
 

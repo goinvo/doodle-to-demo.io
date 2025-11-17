@@ -41,6 +41,7 @@ export default function SlideMenu({ open, setOpen, slideCount }: { open: boolean
             <Link
               href={`/slides/${idx}`}
               className="block w-full px-6 py-3 text-white/90 hover:bg-zinc-700 transition-colors text-lg no-underline"
+              style={{ textDecoration: 'none' }}
               onClick={() => setOpen(false)}
             >
               {/* </Link><span className="slide-number">{idx + 1} </span><span className="font-bold">{slideTitles[idx] || `Slide ${idx + 1}`}</span> */}

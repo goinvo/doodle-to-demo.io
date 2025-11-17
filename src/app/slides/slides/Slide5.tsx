@@ -107,17 +107,17 @@ export default function Slide5() {
         <div className="grid grid-cols-3 responsive-grid meet-maria-container">
           <div className="col-span-2">
             <div className="relative">
-              <img
-                src="/image/case_studies/02/Maria_Sketch_Pencil.png"
-                alt="A sketch of Maria"
-                className="w-full h-full object-cover maria-sketch"
-              />
-              <div className="text-primary-color text-1-5rem meet-maria">
+            <div className="text-primary-color text-1-5rem meet-maria">
                 <p>We envisioned a <span className="font-bold">virtual, interactive space</span> where users could chat with characters based on real interview data. </p>
                 <p>Meet <span className="font-bold">Maria,</span> 
                 <br />a 68 year old retiree living in New Mexico.</p> 
                 <p>Ask her about her experiences getting mental health care in a rural town.</p>
               </div>
+              <img
+                src="/image/case_studies/02/Maria_Sketch_Pencil.png"
+                alt="A sketch of Maria"
+                className="w-full h-full object-cover maria-sketch"
+              />
             </div>
           </div>
           <div className="col-span-1 ">

@@ -47,7 +47,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               AI as Our Storytelling Partner
             </motion.p>
             <p className="mt-6 text-[clamp(1rem,1.2vw+0.6rem,1.5rem)] opacity-90">
-              View the presentation on <a href="https://rosenverse.rosenfeldmedia.com/videos/from-doodle-to-demo-ai-as-our-storytelling-partner" target="_blank" rel="noopener noreferrer">Rosenverse20</a>, or follow along at your own pace by continuing to the next slide.
+              View the presentation on <a href="https://rosenverse.rosenfeldmedia.com/videos/from-doodle-to-demo-ai-as-our-storytelling-partner" target="_blank" rel="noopener noreferrer">Rosenverse</a>, or follow along at your own pace by continuing to the next slide.
             </p>
             {/* <motion.div
               className="mt-8"

@@ -174,7 +174,9 @@ export default function Slide4() {
       </section>
 
       <section className="w-full flex flex-col container-padding">
-        <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" />
+        <div className="w-full">
+          <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" preload="auto" />
+        </div>
         <p className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span>
           Explore the model for yourself at <a href="https://goinvo.com/vision/visual-storytelling-with-genai/" target="_blank" rel="noopener noreferrer">Goinvo.com</a>
         </p>

@@ -23,15 +23,19 @@ export default function Slide3() {
       <div className="absolute inset-0 bg-black/35 z-10" />
       {/* Right-aligned metaphor text */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24 z-20">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight mr-[70px]">
-          <span className="block"><em className="font-black">Formula 1</em> represents</span>
+        <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] leading-[1.05] tracking-tight mr-[70px]">
+          <span className="block"><em className="font-bold">Formula 1</em> represents</span>
           <span className="block">the speed possible</span>
           <span className="block">with hardware</span>
           <span className="block">design</span>
           <br />
-          <span className="block"><em className="font-black">What&apos;s software&apos;s</em></span>
-          <span className="block"><em className="font-black">equivalent?</em></span>
+          <span className="block"><em className="font-bold">What&apos;s software&apos;s</em></span>
+          <span className="block"><em className="font-bold">equivalent?</em></span>
         </h2>
+      </div>
+      <div className="absolute bottom-6 left-20 sm:left-[30px] text-white/90">
+        <span className="opacity-80">/ Credit to </span>
+        <strong><a href="https://www.youtube.com/watch?v=VJgdOMXhEj0&t=576s" target="_blank" rel="noopener noreferrer">Cleo Abram</a></strong>
       </div>
     </div>
   );

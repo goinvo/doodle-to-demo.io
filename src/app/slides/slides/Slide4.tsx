@@ -1,6 +1,7 @@
 'use client';
 
 import ResponsiveVideo from "../../components/ResponsiveVideo";
+import OptimizedImage from "../../components/OptimizedImage";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -40,12 +41,19 @@ export default function Slide4() {
       </section>
 
       <section className="w-full flex flex-col justify-center items-center">
-        <div className="container-padding">
-          <img
-            src="/image/case_studies/01/0_Extra/Final_R1E.png"
-            alt="Case Study 01"
-            className="w-full h-full object-contain"
-          />
+        <div className="container-padding w-full max-w-none">
+          <div className="relative w-full" style={{ aspectRatio: '16 / 9', width: '100%', maxWidth: '100%' }}>
+            <img
+              src="/image/case_studies/01/0_Extra/Final_R1E.png"
+              alt="Case Study 01"
+              className="w-full h-full object-contain no-mobile"
+            />
+            <OptimizedImage
+              src="/image/case_studies/01/0_Extra/Final_R1E.png"
+              alt="Case Study 01"
+              className="w-full h-full object-contain mobile-only"
+            />
+          </div>
           <span className="caption text-sm font-mono ">/ Past static storytelling methods started to feel limited.</span>
         </div>
       </section>
@@ -61,14 +69,29 @@ export default function Slide4() {
         
         <div className="w-full">
           <div className="image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
-            <div className="col-span-1 flex items-center justify-center">
+            <div className="col-span-1 flex items-center justify-center mobile-only" style={{ aspectRatio: '1/2' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
+                alt="Case Study Small"
+                className="h-full w-full object-contain mobile-only"
+              />
+            </div>
+            <div className="col-span-2 flex items-center justify-center mobile-only" style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
+                alt="Case Study Large"
+                className="h-full w-full object-contain "
+              />
+            </div>
+              
+            <div className="col-span-1 flex items-center justify-center no-mobile" >
               <img
                 src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
                 alt="Case Study Small"
                 className="h-full w-full object-contain"
               />
             </div>
-            <div className="col-span-2 flex items-center justify-center">
+            <div className="col-span-2 flex items-center justify-center no-mobile" >
               <img
                 src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
                 alt="Case Study Large"
@@ -78,26 +101,34 @@ export default function Slide4() {
           </div>
 
           <div className="image-grid image-grid-short grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png"
-              alt="Grid 1"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_2.png"
-              alt="Grid 2"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_3.png"
-              alt="Grid 3"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_4.png"
-              alt="Grid 4"
-              className="h-full w-full object-cover"
-            />
+            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png"
+                alt="Grid 1"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_2.png"
+                alt="Grid 2"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_3.png"
+                alt="Grid 3"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
+                src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_4.png"
+                alt="Grid 4"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
           
           <p className="container-padding caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</p>
@@ -120,8 +151,8 @@ export default function Slide4() {
         
         <div className="w-full image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
           <div className="col-span-2 flex flex-col">
-            <div className="flex-1 flex items-center justify-center">
-              <img
+            <div className="flex-1 flex items-center justify-center " style={{ aspectRatio: '16/9' }}>
+              <OptimizedImage
                 src="/image/case_studies/01/C_How_About_3D/r4-B.png"
                 alt="Case Study Small"
                 className="h-full w-full object-contain"
@@ -131,10 +162,10 @@ export default function Slide4() {
           </div>
           <div className="col-span-1 flex flex-col">
             <div className="flex-1 flex items-center justify-center">
-              <img
+              <OptimizedImage
                 src="/image/case_studies/01/C_How_About_3D/r1-A.png"
                 alt="Case Study Large"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
               />
             </div>
             <p className="container-padding caption text-sm font-mono ">/ Emergency room bay</p>

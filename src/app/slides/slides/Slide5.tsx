@@ -42,11 +42,16 @@ export default function Slide5() {
       </section>
 
       <section className="synthesize-section w-full flex flex-col justify-center items-center">
-        <div className="relative">
+        <div className="relative w-full" style={{ aspectRatio: '16 / 9', width: '100%', maxWidth: '100%' }}>
+          <img
+            src="/image/case_studies/02/A_synthesize.png"
+            alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
+            className="w-full h-full object-cover no-mobile"
+          />
           <OptimizedImage
             src="/image/case_studies/02/A_synthesize.png"
             alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mobile-only"
           />
           <div className="absolute synthesize-text">
             <h3 className="h3-all-caps text-primary-color text-center font-bold">/ Synthesizing data</h3>
@@ -165,13 +170,16 @@ export default function Slide5() {
         <div className="w-full">
           <div className="image-grid image-grid-tall grid grid-cols-3 mb-8 responsive-grid">
             <div className="col-span-2 maria-col">
-              <div className="relative">
+              <div className="relative h-full min-h-[600px]">
                 <p className="padding-md caption text-sm font-mono text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
-                <OptimizedImage
-                  src="/image/case_studies/02/Maria_Sketch_Coloured.png"
-                  alt="Case Study Small"
-                  className="h-full w-full object-contain maria-color"
-                />                
+                <div className="relative w-full" style={{ height: 'calc(100% - 80px)', marginTop: 'auto' }}>
+                  <OptimizedImage
+                    src="/image/case_studies/02/Maria_Sketch_Coloured.png"
+                    alt="Case Study Small"
+                    className="h-full w-full object-contain"
+                    style={{ objectPosition: 'bottom' }}
+                  />
+                </div>                
                 <h3 className="absolute h3-all-caps text-3rem text-white text-center design-solution">/ The design solution</h3>
               </div>
               

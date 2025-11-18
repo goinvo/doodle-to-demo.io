@@ -3,13 +3,17 @@ type ResponsiveVideoProps = {
   title?: string;
   rounded?: boolean;
   roundedSize?: string | number;
+  priority?: boolean; // For above-the-fold videos
+  preload?: 'none' | 'metadata' | 'auto';
 };
 
 export default function ResponsiveVideo({ 
   src, 
   title, 
   rounded = false, 
-  roundedSize = '1rem' 
+  roundedSize = '1rem',
+  priority = false,
+  preload = 'none'
 }: ResponsiveVideoProps) {
   const roundedStyle = rounded 
     ? { borderRadius: typeof roundedSize === 'number' ? `${roundedSize}px` : roundedSize }
@@ -37,10 +41,11 @@ export default function ResponsiveVideo({
         className="h-full w-full object-cover"
         src={src}
         title={title}
-        autoPlay
+        autoPlay={priority}
         muted
         loop
         playsInline
+        preload={preload}
       />
     </div>
   );

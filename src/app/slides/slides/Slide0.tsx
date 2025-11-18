@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import ResponsiveVideo from "../../components/ResponsiveVideo";
+import OptimizedImage from "../../components/OptimizedImage";
 
 export default function Slide0({ nextIndex }: { nextIndex?: number }) {
   return (
@@ -16,7 +17,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <img src="/image/goinvo_logo.svg" alt="GoInvo Logo" className="scale-80" />
+              <OptimizedImage src="/image/goinvo_logo.svg" alt="GoInvo Logo" className="scale-80" />
             </motion.div>
             <motion.p
               className="mb-10 font-mono text-sm tracking-wide opacity-80"
@@ -98,10 +99,10 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } }}
             >
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src="/video/Maverick_Midjourney_profile_animation_final.mp4" title="Top Right Video" rounded={true} roundedSize="20px" />
+                <ResponsiveVideo src="/video/Maverick_Midjourney_profile_animation_final.mp4" title="Top Right Video" rounded={true} roundedSize="20px" priority preload="auto" />
               </motion.div>
               <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
-                <ResponsiveVideo src="/video/Claire_Midjourney_profile_animation_final.mp4" title="Bottom Right Video" rounded={true} roundedSize="20px" />
+                <ResponsiveVideo src="/video/Claire_Midjourney_profile_animation_final.mp4" title="Bottom Right Video" rounded={true} roundedSize="20px" priority preload="auto" />
               </motion.div>
             </motion.div>
             <div className="pt-4 text-right text-white/90">

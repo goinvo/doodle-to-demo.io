@@ -1,6 +1,7 @@
 'use client';
 
 import ResponsiveVideo from "../../components/ResponsiveVideo";
+import OptimizedImage from "../../components/OptimizedImage";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -42,7 +43,7 @@ export default function Slide5() {
 
       <section className="synthesize-section w-full flex flex-col justify-center items-center">
         <div className="relative">
-          <img
+          <OptimizedImage
             src="/image/case_studies/02/A_synthesize.png"
             alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
             className="w-full h-full object-cover"
@@ -166,7 +167,7 @@ export default function Slide5() {
             <div className="col-span-2 maria-col">
               <div className="relative">
                 <p className="padding-md caption text-sm font-mono text-primary-color cursor-note"><span className="font-bold">Cursor</span> allowed us to build an interactive digital environment for exploring these conversations.</p>
-                <img
+                <OptimizedImage
                   src="/image/case_studies/02/Maria_Sketch_Coloured.png"
                   alt="Case Study Small"
                   className="h-full w-full object-contain maria-color"

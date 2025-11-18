@@ -32,15 +32,15 @@ export default function Slide11() {
       {/* Overlay for text contrast */}
       <div className="absolute inset-0 bg-black/35 z-10 " />
       <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24 z-20 container-padding-horizontal">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] leading-[1.05] tracking-tight">
-          <span className="block">Use GenAI to</span>
-          <span className="block">bridge gaps in</span>
-          <span className="block">abilities, but</span>
-          <span className="block"><span className="font-bold">time</span>, <span className="font-bold">skill</span>, and</span>
-          <span className="block font-bold">scale</span>
+        <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight">
+          Use GenAI to
+          <br />bridge gaps in
+          <br />abilities, but
+          <br /><span className="font-bold">time</span>, <span className="font-bold">skill</span>, and
+          <br /><span className="font-bold">scale</span>
         </h2>
       </div>
-      <div className="absolute bottom-6 right-6 text-right text-white/90 z-20 container-padding-horizontal">
+      <div className="absolute bottom-6 left-4 sm:left-24 text-white/90 z-20 container-padding-horizontal">
         <span className="opacity-80">/ Original
         <span className="font-bold"> GoInvo Illustration</span> animated by
         <span className="font-bold"> Midjourney V7</span></span>

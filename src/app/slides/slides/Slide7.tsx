@@ -88,6 +88,7 @@ export default function Slide7() {
             preload="auto"
             poster=""
             onClick={togglePlayPause}
+            controls
           />
           {/* Play/Pause button - centered over video, visible on hover */}
           <button

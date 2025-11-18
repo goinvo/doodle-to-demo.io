@@ -24,10 +24,10 @@ export default function Slide2() {
       {/* Right-aligned question text */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 sm:right-24 z-20">
         <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight mr-[70px]">
-          <span className="block">Where do we</span>
-          <span className="block">as designers,</span>
-          <span className="block">fit in the</span>
-          <span className="block"><em className="italic font-bold">GenAI</em> boom?</span>
+          Where do we
+          <br />as designers,
+          <br />fit in the
+          <br /><span className="italic font-bold">GenAI</span> boom?
         </h2>
       </div>
     </div>

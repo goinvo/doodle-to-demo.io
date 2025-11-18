@@ -25,12 +25,12 @@ export default function Slide8() {
         poster=""
       />
       <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24 container-padding-horizontal">
-        <h2 className="max-w-xl text-white text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] font-semibold leading-[1.05] tracking-tight">
-          <span className="block text-bold"><span className="font-thin">/</span> Final</span>
-          <span className="block font-bold">Thoughts</span>
+        <h2 className="max-w-xl text-white font-bold text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight">
+          <span className="font-thin">/</span> Final
+          <br />Thoughts
         </h2>
       </div>
-      <div className="absolute bottom-6 right-6 text-right text-white/90 container-padding-horizontal">
+      <div className="absolute bottom-6 left-4 sm:left-24 text-white/90 container-padding-horizontal">
         <span className="opacity-80">/ Generated in </span>
         <strong>Midjourney V7</strong>
       </div>

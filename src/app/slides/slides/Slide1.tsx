@@ -24,15 +24,15 @@ export default function Slide1() {
         preload="auto"
         poster=""
       />
-      <div className="absolute left-2 top-1/2 -translate-y-1/2 sm:left-24">
-        <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight ml-[80px] sm:ml-0 lg:ml-[50px]">
-          <span className="block">Old methods</span>
-          <span className="block">& workflows</span>
-          <span className="block">feel <em className="italic font-bold">slow</em> and</span>
-          <span className="block"><em className="italic font-bold">redundant</em></span>
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 sm:left-24 container-padding-horizontal">
+        <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight">
+          Old methods
+          <br />& workflows
+          <br />feel <span className="italic font-bold">slow</span> and
+          <br /><span className="italic font-bold">redundant</span>
         </h2>
       </div>
-      <div className="absolute bottom-6 left-20 sm:left-[30px] text-white/90">
+      <div className="absolute bottom-6 left-4 sm:left-24 text-white/90 container-padding-horizontal">
         <span className="opacity-80">/ Generated in </span>
         <strong>Midjourney V7</strong>
       </div>

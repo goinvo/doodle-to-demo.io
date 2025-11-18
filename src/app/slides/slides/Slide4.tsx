@@ -406,26 +406,26 @@ export default function Slide4() {
                 <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
                 </div>
-              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" />
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" preload="auto" />
                 <div className="flex justify-between items-center">
                   <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Animate</span>
                   <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" />
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" preload="auto" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" />
+                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" preload="auto" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" />
+            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" preload="auto" />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
                 </div>

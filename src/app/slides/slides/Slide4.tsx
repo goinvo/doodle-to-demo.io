@@ -403,32 +403,32 @@ export default function Slide4() {
           {/* Row 4: animations */}
           <div className="image-grid image-grid-short grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 padding-top mt-6 md:mt-8">
             <div className="mb-4 md:mb-0">
-                <div className="flex justify-between items-center mobile-only">
-                  <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
-                </div>
+              <div className="flex justify-between items-center mobile-only">
+                <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
+              </div>
               <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
-                <div className="flex justify-between items-center">
-                  <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Animate</span>
-                  <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Animate</span>
+                <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
+              </div>
             </div>
             <div className="mb-4 md:mb-0">
               <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
-                </div>
+              <div className="text-right">
+                <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
+              </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
-                </div>
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
+              <div className="text-right">
+                <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
+              </div>
             </div>
             <div className="mb-4 md:mb-0">
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
-                <div className="text-right">
-                  <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
-                </div>
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
+              <div className="text-right">
+                <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
+              </div>
             </div>
           </div>
 
@@ -459,13 +459,9 @@ export default function Slide4() {
           <span className="font-bold"> A Snippet</span>
         </h3>
         <div className="relative">
-          <img
-            src="/image/case_studies/01/E_New-Workflow/r3-A.png"
-            alt="Grid 1"
-            className="h-full w-full object-cover"
-            />
+          <ResponsiveVideo src="/video/case_studies/01/Final_Animation_Snippet.mp4" title="Walkthrough of a patient receiving care animated with Midjourney" preload="auto" priority={true} />
         </div>
-        <span className="caption text-sm font-mono ">/ Care Journey Snippet</span>
+        <p className="caption text-sm font-mono ">/ Care Journey Snippet</p>
         
       </section>
 

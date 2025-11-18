@@ -190,7 +190,6 @@ export default function Slide4() {
 
         <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="col-span-1 w-full object-contain ">
-            <div className="container-padding">
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
@@ -201,12 +200,10 @@ export default function Slide4() {
                   <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
                 </div>
               </div>
-            </div>
             <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 01</span></p>
           </div>
 
-          <div className="col-span-1 w-full object-contain">
-            <div className="container-padding">
+          <div className="col-span-1 w-full object-contain">            
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_2.png"
@@ -218,9 +215,7 @@ export default function Slide4() {
                 </div>
               </div>
               <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></p>
-            </div>
-
-            <div className="container-padding">
+            
               <div className="relative">
                 <img
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_3.png"
@@ -232,32 +227,26 @@ export default function Slide4() {
                 </div>
               </div>            
               <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 03</span></p>
-            </div>
             
           </div>
         </div>
 
         <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="col-span-1 w-full object-contain ">
-            <div className="container-padding">
-              <div className="relative">
-                {/* wrong image, to be replaced */}
-                <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" />
-              </div>
+            <div className="w-full">
+              <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" preload="auto" />
             </div>
           </div>
           
           <div className="col-span-1 w-full object-contain">
-            <div className="container-padding">
-              <div className="relative">
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_4.png"
-                  alt="Case Study Large"
-                  className="w-full object-contain"
-                />
-              </div>
-              <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">/ Midjourney V7 Style Test 04 with GoInvo reference</span></span>
+            <div className="relative">
+              <img
+                src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_4.png"
+                alt="Case Study Large"
+                className="w-full object-contain"
+              />
             </div>
+            <span className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">/ Midjourney V7 Style Test 04 with GoInvo reference</span></span>
             
           </div>
         </div>

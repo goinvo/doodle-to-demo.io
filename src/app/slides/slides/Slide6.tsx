@@ -94,12 +94,12 @@ export default function Slide6() {
           <div className="col-span-1 text-white">
             <div className="masked-video-offset-design">
               <div className="video-masked-design">
-                <ResponsiveVideo src="/video/case_studies/03/design.mp4" title="video of a design artboard in Figma" preload="auto" />
+                <ResponsiveVideo src="/video/case_studies/03/design.mp4" title="video of a design artboard in Figma" preload="auto" priority={true} />
               </div>
             </div>
           </div>
           <div className="col-span-1">
-            <ResponsiveVideo src="/video/case_studies/03/cursor.mp4" title="video of coding and prompting in Cursor" preload="auto" />
+            <ResponsiveVideo src="/video/case_studies/03/cursor.mp4" title="video of coding and prompting in Cursor" preload="auto" priority={true} />
           </div>
         </div>
       </section>

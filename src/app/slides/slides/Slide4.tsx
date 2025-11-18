@@ -175,7 +175,7 @@ export default function Slide4() {
 
       <section className="w-full flex flex-col container-padding">
         <div className="w-full">
-          <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" preload="auto" />
+          <ResponsiveVideo src="/video/case_studies/01/C_How_About_3D/3D_Model_Animation_cropped.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
         </div>
         <p className="container-padding caption text-sm font-mono font-bold ">/ Emergency room 3D model animation <span className="font-thin opacity-50">(Rhinoceros 3D)</span>
           Explore the model for yourself at <a href="https://goinvo.com/vision/visual-storytelling-with-genai/" target="_blank" rel="noopener noreferrer">Goinvo.com</a>
@@ -234,7 +234,7 @@ export default function Slide4() {
         <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="col-span-1 w-full object-contain ">
             <div className="w-full">
-              <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" preload="auto" />
+              <ResponsiveVideo src="/video/case_studies/01/D_Midjourney_Testing/GoInvo_Style_Midjourney_Capture_animation_final.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
             </div>
           </div>
           
@@ -406,26 +406,26 @@ export default function Slide4() {
                 <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Midjourney Animate</span>
                 </div>
-              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" preload="auto" />
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-A.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
                 <div className="flex justify-between items-center">
                   <span className="caption text-sm font-mono font-bold text-white no-mobile">Midjourney Animate</span>
                   <span className="caption text-sm font-mono font-bold text-white ml-auto"><span className="font-thin">Shot:</span> SH101</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" preload="auto" />
+              <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-B.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH102</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" preload="auto" />
+                <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-C.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH103</span>
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" preload="auto" />
+            <ResponsiveVideo src="/video/case_studies/01/E_New-Workflow/Video_R4-D.mp4" title="Video of emergency room 3D model" preload="auto" priority={true} />
                 <div className="text-right">
                   <span className="caption text-sm font-mono font-bold text-white"><span className="font-thin">Shot:</span> SH104</span>
                 </div>
@@ -438,7 +438,7 @@ export default function Slide4() {
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                <dl className="text-white text-1rem workflow-list">
+                  <dl className="text-white text-1rem workflow-list">
                     <dt className="font-black numbered">01</dt>
                     <dd className="">Frame the shot in 3D</dd>
                     <dt className="font-black numbered">02</dt>

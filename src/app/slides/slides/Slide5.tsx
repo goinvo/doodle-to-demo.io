@@ -141,13 +141,13 @@ export default function Slide5() {
           <div className="col-span-1 gradient-bg-2 text-white">
             <div className="masked-video-offset-profile-building">
               <div className="video-masked-profile-building">
-                <ResponsiveVideo src="/video/case_studies/02/Profile_Building.mp4" title="video of profile building with AI prompts" preload="auto" />
+                <ResponsiveVideo src="/video/case_studies/02/Profile_Building.mp4" title="video of profile building with AI prompts" preload="auto" priority={true} />
               </div>
             </div>
             <p className="container-padding caption text-sm font-mono ">/ Transcriptions and notes formed the foundation for AI-generated dialogue.</p>
           </div>
           <div className="col-span-1">
-            <ResponsiveVideo src="/video/case_studies/02/Maria_Sketch_Animation_final.mp4" title="timelapse of sketch" preload="auto" />
+            <ResponsiveVideo src="/video/case_studies/02/Maria_Sketch_Animation_final.mp4" title="timelapse of sketch" preload="auto" priority={true} />
           </div>
         </div>
       </section>
@@ -158,7 +158,7 @@ export default function Slide5() {
             <div className="col-span-2">
               <div className="masked-video-offset-voice">
                 <div className="video-masked-voice">
-                  <ResponsiveVideo src="/video/case_studies/02/11labs.mp4" title="video of profile building with AI prompts" preload="auto" />
+                  <ResponsiveVideo src="/video/case_studies/02/11labs.mp4" title="video of profile building with AI prompts" preload="auto" priority={true} />
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function Slide5() {
             <div className="col-span-1 chat-col w-full">
               <div className="masked-video-offset-chat">
                 <div className="video-masked-chat">
-                  <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" preload="auto" />
+                  <ResponsiveVideo src="/video/case_studies/02/Chat.mp4" title="video of profile building with AI prompts" preload="auto" priority={true} />
                 </div>
               </div>
             </div>

@@ -204,15 +204,15 @@ export default function Slide5() {
                     <span className="font-bold"> Our New Workflow</span>
                 </h4>
                 <div className="col-span-2 container-padding">
-                  <dl className="text-white workflow-list">
-                    <dt className="font-bold numbered">01</dt>
-                    <dd className="font-thin">Develop the character&apos;s background and profile</dd>
-                    <dt className="font-bold numbered">02</dt>
-                    <dd className="font-thin">Create a visual respresentation</dd>
-                    <dt className="font-bold numbered">03</dt>
-                    <dd className="font-thin">Develop dialogue and pair with generated voice</dd>
-                    <dt className="font-bold numbered">04</dt>
-                    <dd className="font-thin">Integrate everything into live site</dd>
+                  <dl className="text-white text-1rem workflow-list">
+                    <dt className="font-black numbered">01</dt>
+                    <dd className="">Develop the character&apos;s background and profile</dd>
+                    <dt className="font-black numbered">02</dt>
+                    <dd className="">Create a visual respresentation</dd>
+                    <dt className="font-black numbered">03</dt>
+                    <dd className="">Develop dialogue and pair with generated voice</dd>
+                    <dt className="font-black numbered">04</dt>
+                    <dd className="">Integrate everything into live site</dd>
                   </dl>
                 </div>
             </div>

@@ -317,6 +317,7 @@ export default function Slide6() {
                     <span>3. Filtered data from 2017-2019</span>
                   </li>
                 </ol>
+                <p><a href="https://designchia.com/" target="_blank" rel="noopener noreferrer">See the demo</a></p>
               </div>
             </div>
             <img

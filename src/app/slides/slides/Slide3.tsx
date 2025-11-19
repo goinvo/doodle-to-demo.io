@@ -34,8 +34,8 @@ export default function Slide3() {
           <br /><span className="font-bold">equivalent?</span>
         </h2>
       </div>
-      <div className="absolute bottom-6 left-20 sm:left-[30px] text-white/90">
-        <span className="opacity-80">/ Credit to </span>
+      <div className="absolute bottom-6 left-20 sm:left-[30px] text-white/90 z-20 container-padding-horizontal">
+        <span className="opacity-80">/ Video credit to </span>
         <strong><a href="https://www.youtube.com/watch?v=VJgdOMXhEj0&t=576s" target="_blank" rel="noopener noreferrer">Cleo Abram</a></strong>
       </div>
     </div>

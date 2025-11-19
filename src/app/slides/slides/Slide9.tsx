@@ -28,7 +28,7 @@ export default function Slide9() {
         className="absolute inset-0 z-[5]"
         style={{ background: "linear-gradient(90deg, #2D2D68 0%, rgba(45, 45, 104, 0.00) 69.48%)" }}
       />
-      <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2 sm:left-24">
+      <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2 sm:left-24 container-padding-horizontal">
         <h2 className="max-w-xl text-white font-thin text-[clamp(1.75rem,3.4vw+1rem,3.5rem)] lg:text-[clamp(2.1875rem,4.25vw+1.25rem,4.375rem)] leading-[1.05] tracking-tight">
           We are not
           <br />limited by our

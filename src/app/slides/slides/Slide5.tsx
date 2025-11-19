@@ -43,15 +43,10 @@ export default function Slide5() {
 
       <section className="synthesize-section w-full flex flex-col justify-center items-center">
         <div className="relative w-full" style={{ aspectRatio: '16 / 9', width: '100%', maxWidth: '100%' }}>
-          <img
-            src="/image/case_studies/02/A_synthesize.png"
-            alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
-            className="w-full h-full object-cover no-mobile"
-          />
           <OptimizedImage
             src="/image/case_studies/02/A_synthesize.png"
             alt="scattered items, picturing a zoom window, a notebook, the Microsoft Teams logo, the Zoom logo, a PDF, and a clock."
-            className="w-full h-full object-cover mobile-only"
+            className="w-full h-full object-cover"
           />
           <div className="absolute synthesize-text">
             <h3 className="h3-all-caps text-primary-color text-center font-bold">/ Synthesizing data</h3>
@@ -88,7 +83,7 @@ export default function Slide5() {
       <section className="w-full flex flex-col justify-center items-center">
         <div className="container-padding relative grid grid-cols-4 responsive-grid">
           <div className="col-span-3 relative">
-            <img
+            <OptimizedImage
               src="/image/case_studies/02/C_group_sketch_2.png"
               alt="A group sketch of patients and providers"
               className="w-full h-full object-contain"
@@ -119,7 +114,7 @@ export default function Slide5() {
                 <br />a 68 year old retiree living in New Mexico.</p> 
                 <p>Ask her about her experiences getting mental health care in a rural town.</p>
               </div>
-              <img
+              <OptimizedImage
                 src="/image/case_studies/02/Maria_Sketch_Pencil.png"
                 alt="A sketch of Maria"
                 className="w-full h-full object-cover maria-sketch"
@@ -127,7 +122,7 @@ export default function Slide5() {
             </div>
           </div>
           <div className="col-span-1 ">
-              <img
+              <OptimizedImage
                 src="/image/case_studies/02/D_chat.png"
                 alt="A wireframe of an AI chat interface"
                 className="w-full h-full object-contain chat-interface"

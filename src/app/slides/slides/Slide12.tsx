@@ -6,8 +6,8 @@ import ResponsiveVideo from "../../components/ResponsiveVideo";
 export default function Slide12({ nextIndex }: { nextIndex?: number }) {
   return (
     <main className="gradient-bg-with-grid relative min-h-[calc(100vh)] w-full px-4 py-6 sm:px-6 ">
-      <section className="text-white w-full min-h-screen flex flex-col justify-center container-padding container-padding-vertical-quad container-padding-horizontal">
-        <h2 className=" text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight">
+      <section className="text-white w-full min-h-screen flex flex-col justify-center ml-[70px] container-padding-horizontal">
+        <h2 className=" text-[clamp(2rem,6vw+1rem,5rem)] tracking-tight leading-none">
           <span className="font-bold">Q&A</span> with
           <br/>the team
         </h2>

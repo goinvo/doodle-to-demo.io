@@ -17,7 +17,7 @@ export default function Slide0({ nextIndex }: { nextIndex?: number }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <OptimizedImage src="/image/goinvo_logo.svg" alt="GoInvo Logo" className="scale-80" />
+              <OptimizedImage src="/image/goinvo_logo.svg" alt="GoInvo Logo" />
             </motion.div>
             <motion.p
               className="mb-10 font-mono text-sm tracking-wide opacity-80"

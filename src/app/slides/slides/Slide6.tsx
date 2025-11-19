@@ -1,6 +1,7 @@
 'use client';
 
 import ResponsiveVideo from "../../components/ResponsiveVideo";
+import OptimizedImage from "../../components/OptimizedImage";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -62,22 +63,22 @@ export default function Slide6() {
       <section className="w-full flex flex-col container-padding container-padding-vertical-quad">
         {/* Logo grid - horizontal on desktop, stacks on mobile */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center max-w-6xl mx-auto">
-          <img
+          <OptimizedImage
             src="/image/case_studies/03/logos/logo_cursor.png"
             alt="Cursor logo"
             className="w-full max-w-[200px] h-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
           />
-          <img
+          <OptimizedImage
             src="/image/case_studies/03/logos/logo_figma.png"
             alt="Figma logo"
             className="w-full max-w-[200px] h-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
           />
-          <img
+          <OptimizedImage
             src="/image/case_studies/03/logos/logo_framer.png"
             alt="Framer logo"
             className="w-full max-w-[200px] h-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
           />
-          <img
+          <OptimizedImage
             src="/image/case_studies/03/logos/logo_lovabe.png"
             alt="Lovabe logo"
             className="w-full max-w-[200px] h-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
@@ -116,7 +117,7 @@ export default function Slide6() {
               <div className="grid grid-cols-[1fr_60px_1fr] gap-8 items-center justify-items-center">
                 {/* Prompt 1 */}
                   <div className="w-full">
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_1.png"
                       alt="Prompt 1 - Base Setup"
                       className="w-full h-auto object-contain"
@@ -124,7 +125,7 @@ export default function Slide6() {
                   </div>
                   {/* Arrow --> to be flipped on mobile */}
                   <div className="flex items-center justify-center">
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/arrow_short.svg"
                       alt=""
                       className="w-auto h-8 object-contain"
@@ -132,12 +133,12 @@ export default function Slide6() {
                   </div>
                   {/*  Prompt 2 */}
                   <div className="w-full">
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_2.png"
                       alt="Prompt 2 - Navbar"
                       className="w-full h-auto object-contain"
                     />
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_3.png"
                       alt="Prompt 3 - Hero Section"
                       className="w-full h-auto object-contain"
@@ -147,7 +148,7 @@ export default function Slide6() {
                 
                 {/* Arrow from Prompt 2 to Prompt 3 (spans full width, vertical) */}
                 <div className="col-span-3 flex items-center justify-center w-full px-4">
-                  <img
+                  <OptimizedImage
                     src="/image/case_studies/03/cursor_prompts/horiz_arrow_long.svg"
                     alt=""
                     className="h-auto object-contain horiz_arrow_long"
@@ -156,12 +157,12 @@ export default function Slide6() {
 
                   {/* Prompt 3 */}
                   <div className="w-full self-start">
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_4.png"
                       alt="Prompt 3 - Hero Section"
                       className="w-full h-auto object-contain"
                     />
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_5.png"
                       alt="Design reference for hero section"
                       className="w-full h-auto object-contain"
@@ -169,7 +170,7 @@ export default function Slide6() {
                   </div>
                   {/* Arrow --> to be flipped on mobile */}
                   <div className="flex items-center justify-center">
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/arrow_short.svg"
                       alt=""
                       className="w-auto h-8 object-contain"
@@ -178,12 +179,12 @@ export default function Slide6() {
                   {/*  Prompt 4 */}
                   <div className="w-full self-start">
                     <p className="text-white">Prompt 4 &mdash; Data Cards</p>
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_6.png"
                       alt="Prompt 4 - Data cards"
                       className="w-full h-auto object-contain"
                     />
-                    <img
+                    <OptimizedImage
                       src="/image/case_studies/03/cursor_prompts/E_7.png"
                       alt="Design reference for data cards"
                       className="w-full h-auto object-contain"
@@ -198,52 +199,52 @@ export default function Slide6() {
             {/* Mobile: Stacked with rotated arrows */}
             <div className="flex flex-col md:hidden gap-6 items-center">
               {/* Prompt 1 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_1.png"
                 alt="Prompt 1 - Base Setup"
                 className="w-full h-auto object-contain"
               />
               
               {/* Arrow down to Prompt 2 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/arrow_short.svg"
                 alt=""
                 className="w-auto max-h-[14px] object-contain rotate-90 m-[10px]"
               />
               
               {/* Prompt 2 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_2.png"
                 alt="Prompt 2 - Navbar"
                 className="w-full h-auto object-contain"
               />
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_3.png"
                 alt="Design reference for navbar"
                 className="w-full h-auto object-contain"
               />
               
               {/* Arrow down to Prompt 3 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/arrow_short.svg"
                 alt=""
                 className="w-auto max-h-[14px] object-contain rotate-90 m-[10px]"
               />
               
               {/* Prompt 3 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_4.png"
                 alt="Prompt 3 - Hero Section"
                 className="w-full h-auto object-contain"
               />
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_5.png"
                 alt="Design reference for hero section"
                 className="w-full h-auto object-contain"
               />
               
               {/* Arrow down to Prompt 4 */}
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/arrow_short.svg"
                 alt=""
                 className="w-auto max-h-[14px] object-contain rotate-90 m-[10px]"
@@ -251,12 +252,12 @@ export default function Slide6() {
               
               {/* Prompt 4 */}
               <p className="text-white text-left mb-0 mt-5 w-full">Prompt 4 &mdash; Data Cards</p>
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_6.png"
                 alt="Prompt 4 - Data Cards"
                 className="w-full h-auto object-contain"
               />
-              <img
+              <OptimizedImage
                 src="/image/case_studies/03/cursor_prompts/E_7.png"
                 alt="Design reference for data cards"
                 className="w-full h-auto object-contain"
@@ -285,19 +286,11 @@ export default function Slide6() {
                 ></div>
                 <ol className="list-none space-y-2 relative">
                   <li className="flex items-start gap-2">
-                    <img 
-                      src="/image/case_studies/03/Checkmark.svg" 
-                      alt="" 
-                      className="w-5 h-5 mt-0.5 flex-shrink-0 relative z-10"
-                    />
+                    <span className="checkmark-icon mt-0.5 relative z-10"></span>
                     <span>1. Display Quality & Patient Safety dashboard</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <img 
-                      src="/image/case_studies/03/Checkmark.svg" 
-                      alt="" 
-                      className="w-5 h-5 mt-0.5 flex-shrink-0 relative z-10"
-                    />
+                    <span className="checkmark-icon mt-0.5 relative z-10"></span>
                     <span>2. Filtered for hospitals within Beth Israel Lahey Health
                       <ul className="list-disc pl-6 mt-2 space-y-1">
                         <li>Beth Israel Deaconess Medical Center (Boston)</li>
@@ -309,18 +302,14 @@ export default function Slide6() {
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <img 
-                      src="/image/case_studies/03/Checkmark.svg" 
-                      alt="" 
-                      className="w-5 h-5 mt-0.5 flex-shrink-0 relative z-10"
-                    />
+                    <span className="checkmark-icon mt-0.5 relative z-10"></span>
                     <span>3. Filtered data from 2017-2019</span>
                   </li>
                 </ol>
               </div>
               <p className="mt-10 text-1rem font-semibold"><a href="https://designchia.com/" target="_blank" rel="noopener noreferrer">See the demo</a></p>
             </div>
-            <img
+            <OptimizedImage
                 src="/image/case_studies/03/F_2.png"
                 alt="Design reference for data cards"
                 className="w-full h-auto object-contain"

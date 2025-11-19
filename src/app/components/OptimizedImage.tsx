@@ -19,6 +19,7 @@ type OptimizedImageProps = Omit<ComponentProps<typeof Image>, 'src' | 'alt'> & {
  * - Lazy loading by default
  * - Responsive images with srcset
  * - Supports both fixed dimensions and fill mode
+ * - Works without requiring wrapper divs when no dimensions are provided
  */
 export default function OptimizedImage({
   src,
@@ -57,33 +58,52 @@ export default function OptimizedImage({
     );
   }
 
-  // Default to fill mode for responsive images (most common case)
-  // Extract object-fit class if present in className
-  const objectFitClass = className.includes('object-contain') 
-    ? 'object-contain' 
-    : className.includes('object-cover')
-    ? 'object-cover'
-    : 'object-contain'; // default
-  
-  const otherClasses = className
-    .replace('object-contain', '')
-    .replace('object-cover', '')
-    .trim();
+  // If fill is explicitly requested, use fill mode
+  if (fill) {
+    const objectFitClass = className.includes('object-contain') 
+      ? 'object-contain' 
+      : className.includes('object-cover')
+      ? 'object-cover'
+      : 'object-contain';
+    
+    const otherClasses = className
+      .replace('object-contain', '')
+      .replace('object-cover', '')
+      .trim();
 
+    return (
+      <div className={`relative ${otherClasses}`} style={{ width: '100%', height: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          loading={loading}
+          quality={100}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={objectFitClass}
+          {...imageProps}
+        />
+      </div>
+    );
+  }
+
+  // Default: Use unoptimized mode with intrinsic sizing
+  // This allows the image to work like a regular img tag without requiring wrapper divs
+  // The image will maintain its natural aspect ratio and work with standard CSS
   return (
-    <div className={`relative ${otherClasses}`} style={{ width: '100%', height: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        loading={loading}
-        quality={100}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={objectFitClass}
-        {...imageProps}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      width={1920}
+      height={1080}
+      unoptimized
+      priority={priority}
+      loading={loading}
+      className={className}
+      style={{ width: '100%', height: 'auto', maxWidth: '100%' }}
+      {...imageProps}
+    />
   );
 }
 

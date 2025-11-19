@@ -43,15 +43,10 @@ export default function Slide4() {
       <section className="w-full flex flex-col justify-center items-center">
         <div className="container-padding w-full max-w-none">
           <div className="relative w-full" style={{ aspectRatio: '16 / 9', width: '100%', maxWidth: '100%' }}>
-            <img
-              src="/image/case_studies/01/0_Extra/Final_R1E.png"
-              alt="Case Study 01"
-              className="w-full h-full object-contain no-mobile"
-            />
             <OptimizedImage
               src="/image/case_studies/01/0_Extra/Final_R1E.png"
               alt="Case Study 01"
-              className="w-full h-full object-contain mobile-only"
+              className="w-full h-full object-contain"
             />
           </div>
           <span className="caption text-sm font-mono ">/ Past static storytelling methods started to feel limited.</span>
@@ -68,61 +63,48 @@ export default function Slide4() {
       <section className="w-full flex flex-col justify-center items-center">
         
         <div className="w-full">
-          <div className="image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
-            <div className="col-span-1 flex items-center justify-center mobile-only" style={{ aspectRatio: '1/2' }}>
+          <div className="image-grid image-grid-tall grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-stretch">
+            <div className="col-span-1 md:col-span-1 flex items-enter justify-center h-full relative min-h-[450px] grey-bg">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
                 alt="Case Study Small"
-                className="h-full w-full object-contain mobile-only"
+                className="h-full w-full object-contain"
+                fill={true}
               />
             </div>
-            <div className="col-span-2 flex items-center justify-center mobile-only" style={{ aspectRatio: '16/9' }}>
+            <div className="col-span-1 md:col-span-2 flex items-center justify-center h-full relative min-h-[450px] grey-bg">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
                 alt="Case Study Large"
-                className="h-full w-full object-contain "
-              />
-            </div>
-              
-            <div className="col-span-1 flex items-center justify-center no-mobile" >
-              <img
-                src="/image/case_studies/01/B_Character-Sketches/Provider_model_sheet.png"
-                alt="Case Study Small"
-                className="h-full w-full object-contain"
-              />
-            </div>
-            <div className="col-span-2 flex items-center justify-center no-mobile" >
-              <img
-                src="/image/case_studies/01/B_Character-Sketches/Patient_model_sheet.png"
-                alt="Case Study Large"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain md:object-cover"
+                fill={true}
               />
             </div>
           </div>
 
           <div className="image-grid image-grid-short grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <div className="relative w-full">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_1.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <div className="relative w-full">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_2.png"
                 alt="Grid 2"
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <div className="relative w-full">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_3.png"
                 alt="Grid 3"
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <div className="relative w-full">
               <OptimizedImage
                 src="/image/case_studies/01/B_Character-Sketches/storyboard_sketch_4.png"
                 alt="Grid 4"
@@ -130,16 +112,15 @@ export default function Slide4() {
               />
             </div>
           </div>
-          
           <p className="container-padding caption text-sm font-mono ">/ Patient & Provider model sheets and early storyboard sketches.</p>
         </div>
       </section>
 
       <section className="w-full flex flex-col container-padding container-padding-vertical-quad margin-top">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <h3 className="h3-all-caps text-primary-color">
+          <h3 className="h3-all-caps text-primary-color font-bold">
             <span className="font-thin opacity-90">/</span>
-            <span className="font-bold"> HOW ABOUT 3D?</span>
+             HOW ABOUT 3D?
           </h3>
           <div className="text-3rem text-primary-color">
             <p>What if we built models of hospitals and clinics to capture our backgrounds faster?</p>
@@ -149,23 +130,25 @@ export default function Slide4() {
 
       <section className="w-full flex flex-col justify-center items-center">
         
-        <div className="w-full image-grid image-grid-tall grid grid-cols-3 gap-4 mb-8 items-stretch">
-          <div className="col-span-2 flex flex-col">
-            <div className="flex-1 flex items-center justify-center " style={{ aspectRatio: '16/9' }}>
+        <div className="w-full image-grid image-grid-tall grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-stretch">
+          <div className="col-span-1 md:col-span-2 flex flex-col">
+            <div className="flex-1 flex items-center justify-center h-full relative min-h-[400px]">
               <OptimizedImage
                 src="/image/case_studies/01/C_How_About_3D/r4-B.png"
                 alt="Case Study Small"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
+                fill={true}
               />
             </div>
             <p className="container-padding caption text-sm font-mono ">/ Hospital bed, hallway scene</p>
           </div>
-          <div className="col-span-1 flex flex-col">
-            <div className="flex-1 flex items-center justify-center">
+          <div className="col-span-1 md:col-span-1 flex flex-col">
+            <div className="flex-1 flex items-center justify-center h-full relative min-h-[400px]">
               <OptimizedImage
                 src="/image/case_studies/01/C_How_About_3D/r1-A.png"
                 alt="Case Study Large"
                 className="h-full w-full object-cover"
+                fill={true}
               />
             </div>
             <p className="container-padding caption text-sm font-mono ">/ Emergency room bay</p>
@@ -183,29 +166,27 @@ export default function Slide4() {
       </section>
 
       <section className="w-full min-h-screen flex flex-col container-padding">
-        <h3 className="h3-all-caps text-primary-color">
+        <h3 className="h3-all-caps text-primary-color font-bold">
           <span className="font-thin opacity-90">/</span>
-          <span className="font-bold"> Midjourney testing</span>
+          Midjourney testing
         </h3>
 
         <div className="w-full image-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="col-span-1 w-full object-contain ">
-              <div className="relative">
-                <img
-                  src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
-                  alt="Case Study Small"
-                  className="w-full object-contain "
-                />
-                <div className="caption-overlay">
-                  <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
-                </div>
+              <OptimizedImage
+                src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_1.png"
+                alt="Case Study Small"
+                className="w-full object-contain "
+              />
+              <div className="caption-overlay">
+                <p className="text-xs italic">&ldquo;A minimalistic, surreal illustration of a hospital emergency room, clean thin linework, soft pastel color palette, flat texture, fine detail, elegant negative space, inspired by the visual style of <span className="font-bold">Harriet Lee-Merrion</span>.&rdquo;</p>
               </div>
             <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 01</span></p>
           </div>
 
           <div className="col-span-1 w-full object-contain">            
               <div className="relative">
-                <img
+                <OptimizedImage
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_2.png"
                   alt="Case Study Large"
                   className="w-full object-contain"
@@ -217,7 +198,7 @@ export default function Slide4() {
               <p className="container-padding caption text-sm font-mono font-bold ">/ Midjourney V7 <span className="font-thin">Style Test 02</span></p>
             
               <div className="relative">
-                <img
+                <OptimizedImage
                   src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_3.png"
                   alt="Case Study Large"
                   className="w-full object-contain"
@@ -240,7 +221,7 @@ export default function Slide4() {
           
           <div className="col-span-1 w-full object-contain">
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="/image/case_studies/01/D_Midjourney_Testing/Midjourney_Export_4.png"
                 alt="Case Study Large"
                 className="w-full object-contain"
@@ -261,7 +242,7 @@ export default function Slide4() {
                 <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Rhino 3D</span>
                 </div>
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r1-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -272,7 +253,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r1-B.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -282,7 +263,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r1-C.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -292,7 +273,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r1-D.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -309,7 +290,7 @@ export default function Slide4() {
                 <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Midjourney Retexture</span>
                 </div>
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r2-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -320,7 +301,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r2-B.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -330,7 +311,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r2-C.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -340,7 +321,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r2-D.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -358,7 +339,7 @@ export default function Slide4() {
                 <div className="flex justify-between items-center mobile-only">
                   <span className="caption text-sm font-mono font-bold text-white">Photoshop & Procreate</span>
                 </div>
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r3-A.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -369,7 +350,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r3-B.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -379,7 +360,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r3-C.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
@@ -389,7 +370,7 @@ export default function Slide4() {
                 </div>
             </div>
             <div className="mb-4 md:mb-0">
-                <img
+                <OptimizedImage
                 src="/image/case_studies/01/E_New-Workflow/r3-D.png"
                 alt="Grid 1"
                 className="h-full w-full object-cover"
